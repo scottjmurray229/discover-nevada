@@ -1,0 +1,696 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Travel Tips', url: '/practical/' },
+];
+
+const pageTitle = 'Nevada Travel Tips — When to Visit, Getting Around & Safety Guide';
+const pageDescription = 'Everything you need to plan a Nevada trip — when to visit by region, driving corridors, airport info, budget guide, desert heat safety, gambling tips, and essential travel advice.';
+
+interface TopicSection {
+  id: string;
+  icon: string;
+  title: string;
+  gradient: string;
+  items: { label: string; text: string }[];
+}
+
+const topics: TopicSection[] = [
+  {
+    id: 'when-to-visit',
+    icon: '&#9728;',
+    title: 'When to Visit Nevada',
+    gradient: 'linear-gradient(135deg, #E65100 0%, #FF9800 100%)',
+    items: [
+      { label: 'Las Vegas & Southern Nevada', text: 'October through April is the sweet spot — daytime highs of 60-80 degrees F, cool nights, and clear skies. Summer (June-September) regularly hits 110-115 degrees F. Desert hiking is dangerous in summer, but casinos and shows run year-round in air-conditioned comfort. Summer hotel rates on the Strip drop 30-50%, making it a budget play if you stay indoors. Monsoon season (July-September) brings dramatic afternoon thunderstorms.' },
+      { label: 'Lake Tahoe', text: 'Two distinct seasons: summer (June-September) for hiking, water sports, and warm weather, and winter (December-March) for world-class skiing at Mt. Rose and Heavenly. Fall colors in October are spectacular. Spring is muddy and many mountain trails are snow-covered until June. Lake Tahoe sits at 6,200 feet — expect temperatures 20-30 degrees cooler than Las Vegas year-round.' },
+      { label: 'Reno & Northern Nevada', text: 'Summer is peak season — daytime highs of 85-95 degrees F with low humidity. Fall is gorgeous with changing aspens in the Sierra foothills. Winter brings cold temperatures and snow, especially above 5,000 feet. The Reno-Tahoe area gets 300+ days of sunshine. Hot August Nights (classic car festival) and the Great Reno Balloon Race draw big summer crowds.' },
+      { label: 'Great Basin National Park', text: 'July through September is the hiking season — the only months Wheeler Peak\'s summit trail is reliably snow-free. Lehman Caves tours run year-round. The park is extremely remote (4+ hours from Las Vegas or Reno) and gets minimal crowds even in peak summer. Night skies here are among the darkest in the country — plan a visit around the new moon for stargazing.' },
+      { label: 'Valley of Fire & Red Rock Canyon', text: 'October through April for comfortable hiking temperatures. Valley of Fire and Red Rock Canyon are brutally hot in summer — ground temperatures on exposed rock can exceed 150 degrees F. Winter mornings are ideal with mild temperatures and golden light. Both parks are day-trip distance from Las Vegas and get crowded on weekends. Visit on weekdays or arrive before 8 AM.' },
+      { label: 'Nevada Observes Pacific/Mountain Time', text: 'Most of Nevada is in the Pacific Time Zone, including Las Vegas, Reno, and Carson City. The exception is West Wendover on the Utah border, which uses Mountain Time. Nevada does observe Daylight Saving Time, unlike neighboring Arizona. When driving to/from Utah, you may gain or lose an hour. Set your phone to automatic time zone.' },
+    ],
+  },
+  {
+    id: 'getting-around',
+    icon: '&#128663;',
+    title: 'Getting Around Nevada',
+    gradient: 'linear-gradient(135deg, #1565C0 0%, #42A5F5 100%)',
+    items: [
+      { label: 'Car Rental Is Essential', text: 'Outside the Las Vegas Strip, a car is mandatory. Nevada\'s destinations are spread across vast distances with minimal public transit. Rent at Harry Reid International Airport (LAS) in Las Vegas or Reno-Tahoe International (RNO). Major rental companies are on-site at both. Book early during peak season and holidays — rental rates spike during major conventions (CES in January, for example).' },
+      { label: 'I-15 Corridor (Las Vegas to Utah)', text: 'The main highway running through Las Vegas connecting Southern California to Utah. Valley of Fire is a short detour off I-15 (exit at NV-169). This highway also takes you to the Mesquite area and St. George, Utah. Traffic leaving Las Vegas toward LA on Sunday evenings is legendary — leave early or late to avoid multi-hour delays.' },
+      { label: 'US-93 (Las Vegas to Hoover Dam & Beyond)', text: 'The route from Las Vegas to Hoover Dam, Boulder City, and eventually northern Nevada. The Mike O\'Callaghan–Pat Tillman Memorial Bridge (bypass bridge) offers stunning views of the dam. US-93 north continues through the remote Nevada desert to Ely and Great Basin National Park — bring water and gas up.' },
+      { label: 'I-80 Corridor (Reno to Salt Lake City)', text: 'The east-west highway connecting Reno to the rest of northern Nevada and Utah. This is the route to Lovelock, Winnemucca, and eventually Great Basin. The Loneliest Road in America (US-50) branches south from I-80 — a legendary drive through empty desert with ghost towns and hot springs. Gas stations are 100+ miles apart on US-50.' },
+      { label: 'Distances Between Destinations', text: '<strong>Las Vegas to Red Rock Canyon:</strong> 20 miles (30 min). <strong>Las Vegas to Valley of Fire:</strong> 55 miles (1 hour). <strong>Las Vegas to Boulder City/Hoover Dam:</strong> 30 miles (35 min). <strong>Las Vegas to Reno:</strong> 440 miles (6.5 hours). <strong>Reno to Lake Tahoe:</strong> 35 miles (45 min). <strong>Reno to Virginia City:</strong> 25 miles (35 min). <strong>Las Vegas to Great Basin NP:</strong> 290 miles (4.5 hours). Nevada is big — plan driving days accordingly.' },
+      { label: 'Gas & Road Tips', text: 'Keep your tank above half — gas stations can be 100+ miles apart on US-50 (the Loneliest Road) and in rural Nevada. Premium fuel isn\'t necessary for rental cars. Cell service is unreliable or nonexistent across most of rural Nevada. Download offline maps before you leave. Wildlife on roads (wild horses, deer, range cattle) is a real hazard, especially at dawn and dusk. Free-range cattle have right-of-way on open range roads.' },
+    ],
+  },
+  {
+    id: 'budget',
+    icon: '&#128176;',
+    title: 'Budget Guide',
+    gradient: 'linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%)',
+    items: [
+      { label: 'Budget Traveler ($75-150/day)', text: 'Stay at off-Strip motels, downtown Fremont Street hotels, or campgrounds ($30-80/night). Eat at casino coffee shops, food courts, and local diners ($8-20/meal). Hike free or cheap trails at Red Rock ($15/vehicle), Valley of Fire ($10/vehicle). Take advantage of free casino attractions — the Bellagio fountains, Mirage volcano, and Fremont Street Experience cost nothing. Gas averages $4-5/gallon.' },
+      { label: 'Mid-Range Traveler ($150-350/day)', text: 'Stay at mid-Strip hotels or Reno casino-hotels ($80-200/night — prices swing wildly by day of week and conventions). Mix buffet dining with sit-down restaurants ($25-60/meal). Take guided tours to Valley of Fire, Hoover Dam, or helicopter over the Strip ($100-250 each). Buy show tickets via TodayTix or TIX4Tonight for 50% off same-day shows.' },
+      { label: 'Luxury Traveler ($500+/day)', text: 'Stay at Bellagio, Wynn, Venetian, or Encore ($250-800/night). Celebrity chef restaurants ($100-300/person). VIP club access ($500-2,000). Helicopter tours of the Grand Canyon ($300-500). Private pool cabanas ($500-2,000/day). High-roller suites and exclusive gaming salons for serious players. Midweek rates are significantly cheaper than weekends — a Monday at the Wynn can cost half of a Saturday.' },
+      { label: 'Free & Cheap Activities', text: 'Hiking at Red Rock Canyon ($15/vehicle) and Valley of Fire ($10/vehicle). Fremont Street Experience is free. Walking the Strip is free and endlessly entertaining. The Bellagio Conservatory and Gallery of Fine Art are free. Downtown Container Park is free. Henderson Bird Viewing Preserve is free. Great Basin National Park has no entrance fee. Many casino lobbies have free art installations and attractions.' },
+      { label: 'Tipping & Gambling Etiquette', text: 'Standard US tipping applies: Restaurants: 18-20%. Hotel housekeeping: $2-5/night. Bartenders: $1-2/drink ($1 minimum for "free" casino drinks). Valet parking: $3-5. <strong>Casino tipping:</strong> Tip dealers when you\'re winning — $5 chips periodically during play. Tip cocktail waitresses $1-2 for "free" drinks. Tip slot attendants for hand-pay jackpots. Tipping is expected and appreciated throughout Nevada.' },
+    ],
+  },
+  {
+    id: 'safety',
+    icon: '&#9888;',
+    title: 'Safety & Health',
+    gradient: 'linear-gradient(135deg, #C62828 0%, #EF5350 100%)',
+    items: [
+      { label: 'Heat Safety Is Priority One', text: 'Heat kills more visitors in Nevada than any other hazard. From June through September, Las Vegas temperatures regularly exceed 110 degrees F. Asphalt on the Strip can reach 170 degrees F — flip-flops won\'t cut it. Carry water everywhere, not just on hikes. Never leave children or pets in cars, even for minutes. If you feel dizzy, nauseous, or stop sweating, get to air conditioning immediately and call 911. Casinos are always air-conditioned — duck inside.' },
+      { label: 'Dehydration', text: 'Nevada\'s dry air dehydrates you faster than humid climates — you lose moisture through breathing and evaporation before you feel thirsty. The combination of desert air, alcohol, and casino air conditioning accelerates water loss. Drink water proactively, not just when thirsty. Signs of dehydration: headache, dark urine, dizziness, fatigue. Every hotel and gas station sells water — keep a case in your car and a bottle on your person at all times.' },
+      { label: 'Flash Floods', text: 'Nevada monsoon season (July-September) brings sudden, violent thunderstorms. Flash floods can fill dry washes and urban streets in minutes. Las Vegas streets flood regularly during monsoon storms — the city was built on a desert floodplain. Never drive through flooded roads. Avoid slot canyons and dry washes at Valley of Fire and Red Rock when storms are anywhere in the forecast.' },
+      { label: 'Wildlife', text: 'Rattlesnakes are common on trails at Red Rock Canyon, Valley of Fire, and Mt. Charleston — watch where you step, especially around rocks and at dusk. Scorpions are a concern in hotels and campgrounds in southern Nevada — shake out your shoes. Wild burros roam parts of the desert outside Henderson and Boulder City. Mountain lions exist in the Spring Mountains and Lake Tahoe area but attacks are extremely rare.' },
+      { label: 'Elevation Changes', text: 'Nevada\'s elevation ranges from 479 feet (Laughlin) to 13,063 feet (Wheeler Peak). You can drive from 2,000-foot Las Vegas to 8,000-foot Mt. Charleston in 45 minutes. Altitude sickness is possible above 8,000 feet, especially on Wheeler Peak. Symptoms: headache, nausea, shortness of breath. Acclimatize gradually. Lake Tahoe at 6,200 feet can affect some visitors — drink extra water and avoid strenuous activity on arrival day.' },
+      { label: 'Gambling Tips for Newcomers', text: 'Set a budget before you sit down and stick to it — never chase losses. Slot machines have the worst odds; table games (blackjack, craps) give better returns. Learn basic blackjack strategy before playing — it reduces the house edge significantly. Free "how to play" lessons are offered at many casinos (check schedules at the player\'s club desk). Sign up for player\'s club cards at every casino — you\'ll earn free meals, rooms, and show tickets even with modest play. Drink water between alcoholic drinks — free casino cocktails are designed to keep you playing.' },
+    ],
+  },
+  {
+    id: 'packing',
+    icon: '&#127890;',
+    title: 'Packing Essentials',
+    gradient: 'linear-gradient(135deg, #78350F 0%, #D97706 100%)',
+    items: [
+      { label: 'Layers for Elevation Changes', text: 'Nevada\'s elevation ranges from 479 feet to 13,063 feet. You can drive from 110-degree Las Vegas to 75-degree Mt. Charleston in 45 minutes. Pack layers: a lightweight fleece or jacket for Lake Tahoe, Mt. Charleston, and any evening above 5,000 feet. Even in summer, Lake Tahoe and Great Basin can drop into the 40s at night. A packable down jacket saves space and handles cold mountain mornings.' },
+      { label: 'Sun Protection', text: 'Wide-brim hat (not a baseball cap — you need ear and neck coverage), UV-rated sunglasses, SPF 50+ sunscreen (bring more than you think), and lightweight long-sleeve UPF shirts for hiking. Nevada averages 300+ days of sunshine, and the desert sun is relentless. Lip balm with SPF is easy to forget and hard to do without. Even walking the Strip in summer requires sun protection.' },
+      { label: 'Footwear', text: 'Sturdy hiking shoes with good traction for Red Rock Canyon, Valley of Fire, and mountain trails. Comfortable walking shoes for the Strip (you\'ll walk 5-10 miles a day without realizing it). Sandals for pools. Dress shoes if you plan to hit high-end clubs or restaurants. Do not hike in sandals or flip-flops — desert rock is sharp and hot.' },
+      { label: 'Water & Hydration Gear', text: 'Bring a reusable water bottle (at least 32 oz) and consider a hydration pack for longer hikes. Electrolyte tablets or powder packets. Keep a case of bottled water in your rental car at all times — you\'ll go through it faster than you expect. Water refill stations are available at national parks and most trailheads. Las Vegas tap water is safe but tastes heavily of chlorine; bottled water is preferred.' },
+      { label: 'Desert & Driving Essentials', text: 'Download offline maps (Google Maps or Gaia GPS) before leaving cell service areas — coverage is spotty throughout rural Nevada. Bring a car phone charger, a basic first aid kit, and a flashlight/headlamp for pre-dawn hike starts. A cooler with ice and cold drinks in your car trunk is a game-changer in summer. If driving remote highways (US-50, US-93), carry extra water and a spare tire.' },
+      { label: 'Seasonal Considerations', text: '<strong>Summer (June-Sept):</strong> Lightest possible clothing for daytime, light jacket for aggressively air-conditioned casinos, cooling towels for hiking, extra water, portable phone charger (heat drains batteries). <strong>Winter (Nov-March):</strong> Warm jacket for Lake Tahoe and northern Nevada, tire chains if driving to Tahoe in storms, layers for the Strip (evenings get cool). <strong>Monsoon (July-Sept):</strong> Quick-dry clothing, waterproof phone case, emergency poncho.' },
+    ],
+  },
+];
+---
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  pageType="destination"
+  schemaData={{ title: pageTitle, description: pageDescription }}
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Hero -->
+  <header class="prac-hero">
+    <video class="prac-hero-video" autoplay muted loop playsinline preload="metadata">
+      <source src="/videos/pillar/practical-hero.mp4" type="video/mp4" />
+    </video>
+    <div class="prac-hero-gradient"></div>
+    <div class="prac-hero-noise"></div>
+    <div class="prac-hero-content">
+      <h1 class="prac-hero-title">Nevada Travel Tips</h1>
+      <p class="prac-hero-subtitle">When to visit each region, driving corridors, LAS and RNO airport info, budget planning, desert heat safety, gambling tips for newcomers, and everything else you need to plan a smart Nevada trip.</p>
+      <div class="prac-hero-meta">
+        <div class="prac-hero-meta-item">
+          <span class="prac-hero-meta-label">Topics</span>
+          <span class="prac-hero-meta-value">5</span>
+        </div>
+        <div class="prac-hero-meta-item">
+          <span class="prac-hero-meta-label">Updated</span>
+          <span class="prac-hero-meta-value">Feb 2026</span>
+        </div>
+        <div class="prac-hero-meta-item">
+          <span class="prac-hero-meta-label">Destinations</span>
+          <span class="prac-hero-meta-value">10</span>
+        </div>
+      </div>
+    </div>
+    <div class="prac-scroll-hint">Scroll<br />&#8595;</div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container-content">
+    <Breadcrumb items={breadcrumbs} />
+  </div>
+
+  <!-- Personal intro -->
+  <section class="prac-personal reveal">
+    <div class="container-content">
+      <blockquote class="prac-personal-quote">
+        <p>My first Nevada trip, I showed up in July thinking I'd hike Red Rock Canyon after lunch. I made it about 20 minutes before the 112-degree heat turned me around, sunburned and lightheaded. Since then, I've learned the hard way that Nevada travel is all about timing and preparation — pre-dawn starts for desert hikes, enough water to fill a bathtub, layers for the 40-degree temperature swings between the Las Vegas Valley and Lake Tahoe, and a gambling budget you set before you sit down. This guide is the cheat sheet I wish someone had handed me that first trip.</p>
+        <cite>— Scott</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Quick Nav -->
+  <section class="prac-quicknav reveal">
+    <div class="container-content">
+      <div class="prac-quicknav-grid">
+        {topics.map((t) => (
+          <a href={`#${t.id}`} class="prac-quicknav-chip">
+            <span class="prac-quicknav-icon" set:html={t.icon} />
+            <span class="prac-quicknav-label">{t.title.split(' ').slice(0, 2).join(' ')}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Topic Sections -->
+  {topics.map((topic) => (
+    <section class="prac-topic reveal" id={topic.id}>
+      <div class="container-content">
+        <div class="prac-topic-header" style={`background: ${topic.gradient};`}>
+          <div class="prac-topic-header-inner">
+            <span class="prac-topic-icon" set:html={topic.icon} />
+            <h2 class="prac-topic-title">{topic.title}</h2>
+            <span class="prac-topic-count">{topic.items.length} tips</span>
+          </div>
+        </div>
+
+        <div class="prac-tip-grid">
+          {topic.items.map((item) => (
+            <div class="prac-tip-card">
+              <h3 class="prac-tip-label">{item.label}</h3>
+              <p class="prac-tip-text" set:html={item.text} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- Bottom CTA -->
+  <section class="prac-cta-section reveal">
+    <div class="container-content">
+      <div class="prac-cta-card">
+        <h2 class="prac-cta-heading">Plan Your Nevada Trip</h2>
+        <p class="prac-cta-text">Tell our AI planner your dates, budget, and interests — it builds a custom day-by-day itinerary with driving routes, hotels, and activities.</p>
+        <a href="/plan/" class="prac-cta-button">Start Planning &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQ items={[
+    { question: "When is the best time to visit Nevada?", answer: "It depends on where you're going. For Las Vegas and desert destinations (Red Rock, Valley of Fire): October through April when temperatures are pleasant (60-80 degrees F). For Lake Tahoe hiking: June through October. For Lake Tahoe skiing: December through March. For Reno: summer for festivals and outdoor activities. For Great Basin National Park: July through September for summit hikes. Winter in Las Vegas offers mild weather and cheaper hotel rates." },
+    { question: "Do I need a car to visit Nevada?", answer: "On the Las Vegas Strip, you can get by with rideshares and the monorail. But to visit Red Rock Canyon, Valley of Fire, Hoover Dam, Lake Tahoe, Great Basin, or Virginia City, a rental car is essential. Rent at Harry Reid International Airport (LAS) or Reno-Tahoe International (RNO). Key distances: Las Vegas to Red Rock Canyon is 30 minutes, Las Vegas to Valley of Fire is 1 hour, Las Vegas to Reno is 6.5 hours." },
+    { question: "How hot does Nevada get in summer?", answer: "Las Vegas regularly hits 110-115 degrees F (43-46 degrees C) from June through September. Ground-level surfaces like asphalt and exposed rock can reach 150-170 degrees F. Northern Nevada is significantly cooler — Reno averages 90-95 degrees F in summer, and Lake Tahoe stays in the 80s. Mt. Charleston (45 minutes from Las Vegas) is 20-30 degrees cooler than the valley — a common summer escape for locals." },
+    { question: "Is Nevada safe for tourists?", answer: "Nevada is very safe for tourists. The main risks are environmental: heat exposure, dehydration, and flash floods during monsoon season. The Las Vegas Strip is heavily patrolled and well-lit. Standard city precautions apply — watch your belongings in crowds and avoid poorly lit streets off the main corridors. Carry water everywhere, set a gambling budget, and don't hike in the desert heat without proper preparation." },
+    { question: "How much does a Nevada trip cost?", answer: "Budget: $75-150/day (off-Strip motels, casino food courts, free hikes). Mid-range: $150-350/day (mid-Strip hotels, restaurants, guided tours). Luxury: $500+/day (Wynn/Bellagio, celebrity chef dining, helicopter tours). Hotel prices swing wildly by day — midweek rates can be 50-70% less than weekends. Convention weeks (CES in January) spike prices statewide. Red Rock Canyon: $15/vehicle. Valley of Fire: $10/vehicle. Great Basin: free." },
+    { question: "What should I pack for Nevada?", answer: "Sun protection (hat, SPF 50+, UV sunglasses), layers for elevation changes (Las Vegas at 2,000 ft to Lake Tahoe at 6,200 ft), sturdy hiking shoes for desert trails, comfortable walking shoes for the Strip, at least 2 reusable water bottles, electrolyte tablets, and offline maps for rural driving. Keep a case of water in your rental car. In summer: cooling towels and a light jacket for overly air-conditioned casinos." },
+  ]} />
+
+  <!-- Email Capture -->
+  <div class="container-content reveal" style="padding-bottom: var(--space-6);">
+    <EmailCapture
+      leadMagnet="Get Our Free Nevada Travel Essentials Guide"
+      description="A printable PDF covering everything in this guide — plus packing checklists, driving route maps, and seasonal planning calendars."
+      bullets={[
+        'Region-by-region seasonal guide with temperature charts',
+        'Driving distance matrix between all 10 destinations',
+        'Packing checklist for desert, mountain, and casino trips',
+        'Heat safety protocol and gambling tips for newcomers',
+      ]}
+      guideTag="pillar-practical"
+    />
+  </div>
+
+  <!-- Cross-links -->
+  <section class="prac-crosslinks reveal">
+    <div class="container-content">
+      <h3 class="prac-crosslinks-heading">Explore More</h3>
+      <div class="prac-crosslinks-grid">
+        <a href="/hiking/" class="prac-crosslink-card">
+          <span class="prac-crosslink-icon">&#9968;</span>
+          <span class="prac-crosslink-label">Hiking Guide</span>
+          <span class="prac-crosslink-desc">20+ trails with difficulty ratings and safety tips</span>
+        </a>
+        <a href="/history/" class="prac-crosslink-card">
+          <span class="prac-crosslink-icon">&#127963;</span>
+          <span class="prac-crosslink-label">Nevada History</span>
+          <span class="prac-crosslink-desc">Mining booms, atomic testing, and the rise of Las Vegas</span>
+        </a>
+        <a href="/cuisine/" class="prac-crosslink-card">
+          <span class="prac-crosslink-icon">&#127860;</span>
+          <span class="prac-crosslink-label">Nevada Cuisine</span>
+          <span class="prac-crosslink-desc">Basque feasts, celebrity chef dining, and casino buffets</span>
+        </a>
+        <a href="/destinations/" class="prac-crosslink-card">
+          <span class="prac-crosslink-icon">&#127965;</span>
+          <span class="prac-crosslink-label">All Destinations</span>
+          <span class="prac-crosslink-desc">10 Nevada destinations with honest reviews and tips</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<!-- Scroll Reveal Observer -->
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
+  }
+</script>
+
+<style>
+  /* ================================================================
+     HERO — Practical travel gradient
+     ================================================================ */
+  .prac-hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 5rem var(--space-6) 60px;
+    overflow: hidden;
+  }
+
+  .prac-hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .prac-hero-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.55) 100%);
+  }
+
+  .prac-hero-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .prac-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 720px;
+  }
+
+  .prac-hero-title {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    line-height: 1.1;
+    margin: 0 0 var(--space-3);
+  }
+
+  .prac-hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin: 0 0 var(--space-5);
+    max-width: 580px;
+  }
+
+  .prac-hero-meta {
+    display: flex;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+  }
+
+  .prac-hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .prac-hero-meta-label {
+    font-size: 0.65rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .prac-hero-meta-value {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: #fff;
+  }
+
+  .prac-scroll-hint {
+    position: absolute;
+    bottom: 16px;
+    right: var(--space-6);
+    z-index: 3;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.35);
+    text-align: center;
+    animation: pracBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes pracBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ================================================================
+     PERSONAL INTRO
+     ================================================================ */
+  .prac-personal {
+    padding-block: var(--space-8);
+  }
+
+  .prac-personal-quote {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-8);
+    border-left: 4px solid var(--color-ocean-teal);
+    background: var(--color-sky);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .prac-personal-quote p {
+    font-size: var(--text-body);
+    color: var(--color-heading);
+    line-height: var(--leading-body);
+    font-style: italic;
+    margin-bottom: var(--space-3);
+  }
+
+  .prac-personal-quote cite {
+    font-size: var(--text-caption);
+    color: var(--color-ocean-teal);
+    font-weight: var(--weight-semibold);
+    font-style: normal;
+  }
+
+  /* ================================================================
+     QUICK NAV — Jump-to chips
+     ================================================================ */
+  .prac-quicknav {
+    padding: 0 0 var(--space-6);
+  }
+
+  .prac-quicknav-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .prac-quicknav-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: var(--weight-medium);
+    color: var(--color-slate);
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .prac-quicknav-chip:hover {
+    background: var(--color-sky);
+    color: var(--color-ocean-teal);
+    transform: translateY(-2px);
+  }
+
+  .prac-quicknav-icon {
+    font-size: 1rem;
+  }
+
+  .prac-quicknav-label {
+    white-space: nowrap;
+  }
+
+  /* ================================================================
+     TOPIC SECTION
+     ================================================================ */
+  .prac-topic {
+    padding: var(--space-4) 0 var(--space-6);
+    scroll-margin-top: 80px;
+  }
+
+  .prac-topic-header {
+    position: relative;
+    border-radius: 20px;
+    padding: var(--space-5) var(--space-6);
+    margin-bottom: var(--space-5);
+    overflow: hidden;
+  }
+
+  .prac-topic-header-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .prac-topic-icon {
+    font-size: 1.6rem;
+  }
+
+  .prac-topic-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    margin: 0;
+    line-height: 1.2;
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .prac-topic-count {
+    font-size: 0.7rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* ================================================================
+     TIP CARDS
+     ================================================================ */
+  .prac-tip-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 768px) {
+    .prac-tip-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .prac-tip-card {
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    padding: var(--space-5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .prac-tip-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .prac-tip-label {
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    margin: 0 0 var(--space-2);
+    line-height: 1.3;
+  }
+
+  .prac-tip-text {
+    font-size: 0.85rem;
+    color: var(--color-slate);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .prac-tip-text :global(a) {
+    color: var(--color-ocean-teal);
+    font-weight: var(--weight-semibold);
+    text-decoration: underline;
+    text-decoration-color: rgba(13, 115, 119, 0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s ease;
+  }
+
+  .prac-tip-text :global(a:hover) {
+    text-decoration-color: var(--color-ocean-teal);
+  }
+
+  .prac-tip-text :global(strong) {
+    color: var(--color-deep-night);
+  }
+
+  /* ================================================================
+     BOTTOM CTA
+     ================================================================ */
+  .prac-cta-section {
+    padding: var(--space-6) 0 var(--space-8);
+  }
+
+  .prac-cta-card {
+    background: linear-gradient(135deg, var(--color-deep-night) 0%, #2D3748 100%);
+    border-radius: 20px;
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+    color: #fff;
+  }
+
+  .prac-cta-heading {
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: var(--weight-bold);
+    margin: 0 0 var(--space-3);
+    color: #fff;
+  }
+
+  .prac-cta-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 520px;
+    margin: 0 auto var(--space-5);
+    line-height: 1.6;
+  }
+
+  .prac-cta-button {
+    display: inline-block;
+    background: var(--color-warm-coral);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: var(--weight-semibold);
+    padding: 12px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .prac-cta-button:hover {
+    background: #d4553b;
+    transform: translateY(-2px);
+  }
+
+  /* ================================================================
+     CROSS-LINKS
+     ================================================================ */
+  .prac-crosslinks {
+    padding: 0 0 var(--space-10);
+  }
+
+  .prac-crosslinks-heading {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    text-align: center;
+    margin: 0 0 var(--space-4);
+  }
+
+  .prac-crosslinks-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .prac-crosslinks-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .prac-crosslinks-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .prac-crosslink-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-4);
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .prac-crosslink-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .prac-crosslink-icon {
+    font-size: 1.8rem;
+  }
+
+  .prac-crosslink-label {
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+  }
+
+  .prac-crosslink-desc {
+    font-size: 0.78rem;
+    color: var(--color-slate);
+    line-height: 1.4;
+  }
+
+  /* ================================================================
+     RESPONSIVE
+     ================================================================ */
+  @media (max-width: 640px) {
+    .prac-hero {
+      min-height: 50vh;
+      padding: 0 var(--space-4) 40px;
+    }
+
+    .prac-hero-meta {
+      gap: var(--space-4);
+    }
+
+    .prac-scroll-hint {
+      display: none;
+    }
+
+    .prac-topic-header {
+      padding: var(--space-4) var(--space-4);
+    }
+  }
+</style>

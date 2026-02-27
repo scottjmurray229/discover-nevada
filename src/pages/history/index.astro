@@ -1,0 +1,810 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Nevada History Guide', url: '/history/' },
+];
+
+const pageTitle = 'Nevada History Guide — From Ancient Peoples to the Neon Frontier';
+const pageDescription = 'Explore Nevada\'s layered history — Native American heritage, the Comstock Lode silver rush, frontier boomtowns, atomic testing, and the rise of Las Vegas. 17+ historic sites with visitor info.';
+
+interface HistoricSite {
+  name: string;
+  destination: string;
+  slug: string;
+  description: string;
+  tag?: string;
+}
+
+interface EraSection {
+  id: string;
+  era: string;
+  tagline: string;
+  gradient: string;
+  sites: HistoricSite[];
+}
+
+const eras: EraSection[] = [
+  {
+    id: 'native-american',
+    era: 'Native American Heritage',
+    tagline: 'Thousands of years of civilization — from the Paiute and Shoshone to the Washoe people of the Sierra Nevada',
+    gradient: 'linear-gradient(135deg, #78350F 0%, #D4A574 100%)',
+    sites: [
+      {
+        name: 'Lost City Museum',
+        destination: 'Valley of Fire area',
+        slug: 'valley-of-fire',
+        description: 'Located in Overton near Valley of Fire, this museum preserves artifacts from the Ancestral Puebloan people (also called the Anasazi) who lived in the Moapa Valley from around 300 BC to 1150 AD. The museum houses pottery, tools, and reconstructed pueblo dwellings. Much of the original Pueblo Grande de Nevada archaeological site was submerged when Lake Mead was created.',
+        tag: 'Must-See',
+      },
+      {
+        name: 'Valley of Fire Petroglyphs',
+        destination: 'Valley of Fire',
+        slug: 'valley-of-fire',
+        description: 'Valley of Fire State Park contains some of the finest examples of ancient petroglyphs in the Southwest. At Atlatl Rock and Mouse\'s Tank, carvings by Ancestral Puebloan peoples dating back over 2,000 years depict hunting scenes, bighorn sheep, and ceremonial symbols. A metal staircase at Atlatl Rock lets you view the petroglyphs up close.',
+        tag: 'Heritage',
+      },
+      {
+        name: 'Stewart Indian School',
+        destination: 'Carson City',
+        slug: 'carson-city',
+        description: 'The Stewart Indian School operated from 1890 to 1980, educating Native American children from across Nevada and the Great Basin. The campus in Carson City is now a cultural center and museum with historical exhibits, art galleries, and events celebrating Nevada\'s tribal heritage — including Paiute, Shoshone, and Washoe cultures. A site of both pain and resilience.',
+        tag: 'Cultural',
+      },
+      {
+        name: 'Washoe Heritage at Lake Tahoe',
+        destination: 'Lake Tahoe',
+        slug: 'lake-tahoe',
+        description: 'The Washoe people have called Lake Tahoe "Da ow a ga" (edge of the lake) for thousands of years. Lake Tahoe was their sacred summer gathering place for fishing, hunting, and trade. The Washoe Tribe maintains cultural programs and interpretive sites around the lake. The tribe\'s connection to Tahoe predates recorded history by millennia.',
+        tag: 'Heritage',
+      },
+      {
+        name: 'Grimes Point Archaeological Site',
+        destination: 'Great Basin area',
+        slug: 'great-basin',
+        description: 'One of the largest and most accessible petroglyph sites in Nevada, located along US-50 near Fallon. Thousands of rock carvings created by ancient peoples over 8,000 years dot the basalt boulders along a self-guided trail. When these petroglyphs were carved, the area was the shore of ancient Lake Lahontan — now dry desert.',
+      },
+    ],
+  },
+  {
+    id: 'mining-comstock',
+    era: 'The Comstock Lode & Silver Rush',
+    tagline: 'The silver strike that built Nevada, funded the Civil War, and created America\'s richest boomtown',
+    gradient: 'linear-gradient(135deg, #BF360C 0%, #E8654A 100%)',
+    sites: [
+      {
+        name: 'Virginia City',
+        destination: 'Virginia City',
+        slug: 'virginia-city',
+        description: 'The queen of the Comstock Lode — once the richest city in America. The 1859 silver strike here produced over $400 million in silver and gold (billions in today\'s dollars) and funded the Union during the Civil War. Today, the entire town is a National Historic Landmark with original saloons, mine tours, the V&T Railroad, and a wooden boardwalk main street that feels frozen in the 1870s.',
+        tag: 'Iconic',
+      },
+      {
+        name: 'Comstock Mining District',
+        destination: 'Virginia City',
+        slug: 'virginia-city',
+        description: 'The mines beneath Virginia City were the deepest and most technically advanced of their era. The Chollar Mine tour takes you underground into the original shafts. The square-set timbering technique invented here revolutionized mining worldwide. At its peak, over 25,000 miners worked the Comstock — and the wealth they produced built San Francisco\'s mansions and Nevada\'s statehood.',
+        tag: 'Must-See',
+      },
+      {
+        name: 'Nevada State Museum (Carson City)',
+        destination: 'Carson City',
+        slug: 'carson-city',
+        description: 'Housed in the historic Carson City Mint building, this museum tells Nevada\'s story from prehistoric times through the mining era. The highlight is the original coin press that minted silver dollars from Comstock ore — and you can watch it operate. The mine replica in the basement recreates an underground Comstock mine shaft. Free on the first Saturday of each month.',
+        tag: 'Heritage',
+      },
+    ],
+  },
+  {
+    id: 'wild-west',
+    era: 'Old West & Frontier Towns',
+    tagline: 'Gunfighters, outlaws, and the frontier settlements that tamed the Great Basin',
+    gradient: 'linear-gradient(135deg, #1A2332 0%, #6A1B9A 50%, #D4A853 100%)',
+    sites: [
+      {
+        name: 'Historic Downtown Carson City',
+        destination: 'Carson City',
+        slug: 'carson-city',
+        description: 'Nevada\'s state capital since 1864, Carson City\'s historic district preserves the governor\'s mansion, the state capitol building, and Victorian-era homes from the silver boom. The Kit Carson Trail walking tour covers over 50 historic buildings. Carson City was a supply hub for the Comstock miners and remains one of Nevada\'s best-preserved frontier towns.',
+        tag: 'Heritage',
+      },
+      {
+        name: 'Hoover Dam',
+        destination: 'Boulder City',
+        slug: 'boulder-city',
+        description: 'Built during the Great Depression between 1931 and 1936, Hoover Dam tamed the Colorado River and transformed the American West. Over 21,000 workers built the 726-foot dam in brutal desert conditions — 96 officially died in the process. Guided tours of the power plant and dam interior run daily. The dam created Lake Mead and made Las Vegas possible.',
+        tag: 'Must-See',
+      },
+      {
+        name: 'Boulder City Historic District',
+        destination: 'Boulder City',
+        slug: 'boulder-city',
+        description: 'A planned federal city built to house Hoover Dam workers, Boulder City is the only city in Nevada where gambling is prohibited. The historic district preserves 1930s architecture, the Boulder Dam Hotel (now a museum), and the art deco style of a government-planned company town. It\'s a fascinating contrast to the neon excess of Las Vegas just 30 miles away.',
+      },
+      {
+        name: 'Genoa — Nevada\'s First Settlement',
+        destination: 'Carson City area',
+        slug: 'carson-city',
+        description: 'Founded in 1851, Genoa is the oldest permanent settlement in Nevada. The tiny town at the base of the Sierra Nevada preserves the original courthouse (now a museum), a Mormon trading post, and saloons that have served drinks since the Gold Rush era. The annual Candy Dance festival has been a tradition since 1919.',
+        tag: 'Iconic',
+      },
+    ],
+  },
+  {
+    id: 'atomic-and-vegas',
+    era: 'Atomic Age & The Rise of Las Vegas',
+    tagline: 'Nuclear testing, Area 51, gaming legalization, and the transformation of a desert railroad town into the entertainment capital of the world',
+    gradient: 'linear-gradient(135deg, #0D7377 0%, #14B8A6 100%)',
+    sites: [
+      {
+        name: 'National Atomic Testing Museum',
+        destination: 'Las Vegas',
+        slug: 'las-vegas',
+        description: 'A Smithsonian-affiliated museum documenting the Nevada Test Site, where over 1,000 nuclear weapons were detonated between 1951 and 1992 — just 65 miles from the Las Vegas Strip. The Ground Zero Theater simulates a nuclear blast. Exhibits cover the Cold War, radiation science, and the bizarre era when Vegas tourists watched mushroom clouds from casino rooftops.',
+        tag: 'Must-See',
+      },
+      {
+        name: 'The Mob Museum',
+        destination: 'Las Vegas',
+        slug: 'las-vegas',
+        description: 'The National Museum of Organized Crime and Law Enforcement, housed in the former federal courthouse where the Kefauver hearings on organized crime took place in 1950. Three floors trace the rise of the American mob, its deep ties to Las Vegas casino development, and the FBI\'s campaign to take it down. The basement speakeasy serves prohibition-era cocktails and distills its own gin.',
+        tag: 'Iconic',
+      },
+      {
+        name: 'Neon Museum',
+        destination: 'Las Vegas',
+        slug: 'las-vegas',
+        description: 'An outdoor museum preserving iconic vintage Las Vegas signs from the 1930s onward — the Stardust, the Moulin Rouge, the Golden Nugget, and dozens more. Night tours illuminate the signs against the desert sky and tell the stories of the casinos they advertised. This is the visual history of Las Vegas\'s transformation from dusty railroad stop to neon wonderland.',
+        tag: 'Must-See',
+      },
+      {
+        name: 'Area 51 & Extraterrestrial Highway',
+        destination: 'Great Basin area',
+        slug: 'great-basin',
+        description: 'Nevada State Route 375 — officially designated the "Extraterrestrial Highway" — runs past the restricted Area 51 military installation. The tiny town of Rachel is home to the Little A\'Le\'Inn, a UFO-themed bar and motel. You can\'t enter Area 51 (the military is serious about this), but the drive through the Nevada desert with its alien-themed attractions is a uniquely Nevada road trip.',
+      },
+      {
+        name: 'Fremont Street Experience',
+        destination: 'Las Vegas',
+        slug: 'las-vegas',
+        description: 'Fremont Street was the original Las Vegas Strip — home to the first casino (El Rancho Vegas) and the city\'s earliest neon signs. Today, the Fremont Street Experience covers five blocks with a 1,500-foot-long LED canopy and live entertainment. The vintage casinos here (Golden Nugget, Binion\'s, Four Queens) are where modern Las Vegas was born in the 1940s and \'50s.',
+        tag: 'Heritage',
+      },
+    ],
+  },
+];
+---
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  pageType="destination"
+  schemaData={{ title: pageTitle, description: pageDescription }}
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Hero -->
+  <header class="hist-hero">
+    <div class="hist-hero-gradient"></div>
+    <div class="hist-hero-noise"></div>
+    <div class="hist-hero-content">
+      <h1 class="hist-hero-title">Nevada History Guide</h1>
+      <p class="hist-hero-subtitle">Ancient petroglyphs, the Comstock Lode silver rush, frontier boomtowns, nuclear testing in the desert, and the rise of Las Vegas — trace the layers of history that shaped the Silver State from its earliest inhabitants to the 36th star on the flag.</p>
+      <div class="hist-hero-meta">
+        <div class="hist-hero-meta-item">
+          <span class="hist-hero-meta-label">Eras</span>
+          <span class="hist-hero-meta-value">4</span>
+        </div>
+        <div class="hist-hero-meta-item">
+          <span class="hist-hero-meta-label">Historic Sites</span>
+          <span class="hist-hero-meta-value">17</span>
+        </div>
+        <div class="hist-hero-meta-item">
+          <span class="hist-hero-meta-label">Statehood</span>
+          <span class="hist-hero-meta-value">1864</span>
+        </div>
+      </div>
+    </div>
+    <div class="hist-scroll-hint">Scroll<br />&#8595;</div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container-content">
+    <Breadcrumb items={breadcrumbs} />
+  </div>
+
+  <!-- Personal intro -->
+  <section class="hist-personal reveal">
+    <div class="container-content">
+      <blockquote class="hist-personal-quote">
+        <p>Most people come to Nevada for Las Vegas, and I get it — the Strip is something you have to see for yourself. But the history is what kept bringing me back. Walking the wooden boardwalks of Virginia City where Comstock miners struck silver, standing at the base of Hoover Dam where workers built the impossible during the Depression, touring the Atomic Testing Museum where Cold War secrets are finally told — Nevada packs more history per square mile than most people expect. Every ghost town and desert highway has a story, and every story makes the next visit richer.</p>
+        <cite>— Scott</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Quick Nav -->
+  <section class="hist-quicknav reveal">
+    <div class="container-content">
+      <div class="hist-quicknav-grid">
+        {eras.map((era) => (
+          <a href={`#${era.id}`} class="hist-quicknav-chip">
+            <span class="hist-quicknav-label">{era.era}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Era Sections -->
+  {eras.map((era) => (
+    <section class="hist-era reveal" id={era.id}>
+      <div class="container-content">
+        <div class="hist-era-header" style={`background: ${era.gradient};`}>
+          <div class="hist-era-header-inner">
+            <h2 class="hist-era-name">{era.era}</h2>
+            <p class="hist-era-tagline">{era.tagline}</p>
+            <span class="hist-era-count">{era.sites.length} sites</span>
+          </div>
+        </div>
+
+        <div class="hist-site-grid">
+          {era.sites.map((site) => (
+            <a href={`/destinations/${site.slug}/`} class="hist-site-card">
+              <div class="hist-site-body">
+                <div class="hist-site-top">
+                  <h3 class="hist-site-name">{site.name}</h3>
+                  {site.tag && (
+                    <span class={`hist-tag hist-tag--${site.tag.toLowerCase().replace(/[^a-z]/g, '')}`}>{site.tag}</span>
+                  )}
+                </div>
+                <p class="hist-site-destination">{site.destination}</p>
+                <p class="hist-site-desc">{site.description}</p>
+                <span class="hist-site-cta">Explore {site.destination} &rarr;</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- Bottom CTA -->
+  <section class="hist-cta-section reveal">
+    <div class="container-content">
+      <div class="hist-cta-card">
+        <h2 class="hist-cta-heading">Plan Your History Trip</h2>
+        <p class="hist-cta-text">Tell our AI planner which eras interest you and it will build a custom itinerary — with historic sites, driving routes, and the best times to visit.</p>
+        <a href="/plan/" class="hist-cta-button">Start Planning &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQ items={[
+    { question: "When did Nevada become a state?", answer: "Nevada became the 36th state on October 31, 1864 — just eight days before the presidential election. President Lincoln pushed for Nevada's admission to secure electoral votes and Congressional support for the Thirteenth Amendment abolishing slavery. The entire state constitution was telegraphed to Washington, D.C. — the longest telegram ever sent at that time. Nevada is called the 'Battle Born' state because it was born during the Civil War." },
+    { question: "What Native American tribes are from Nevada?", answer: "Nevada is home to over 20 federally recognized tribes and colonies. The major tribal groups include the Northern Paiute and Southern Paiute, Western Shoshone, and Washoe peoples. The Washoe have lived around Lake Tahoe for thousands of years. The Paiute and Shoshone inhabited the Great Basin's vast desert landscape. Each tribe maintains sovereignty, cultural programs, and many operate museums and cultural centers open to visitors." },
+    { question: "What was the Comstock Lode?", answer: "The Comstock Lode, discovered in 1859 near Virginia City, was the first major silver deposit found in the United States. It produced over $400 million in silver and gold (worth billions today) and transformed Virginia City into the richest city in America. The wealth funded the Union during the Civil War and built San Francisco. The mining innovations developed here — square-set timbering, the Sutro Tunnel — revolutionized mining worldwide." },
+    { question: "What is the oldest settlement in Nevada?", answer: "Genoa, founded in 1851 as Mormon Station, is the oldest permanent European settlement in Nevada. It began as a trading post for travelers heading to California during the Gold Rush. The original courthouse (now a museum) still stands. For indigenous habitation, archaeological sites around Lake Lahontan and the Valley of Fire show human presence dating back over 10,000 years." },
+    { question: "Why was nuclear testing done in Nevada?", answer: "The Nevada Test Site (now the Nevada National Security Site) was chosen in 1951 for its remote desert location 65 miles northwest of Las Vegas. Over 1,000 nuclear tests were conducted there between 1951 and 1992 — 100 atmospheric and 828 underground. Las Vegas tourists in the 1950s would watch mushroom clouds from casino rooftops. The National Atomic Testing Museum in Las Vegas documents this extraordinary era." },
+    { question: "When was gambling legalized in Nevada?", answer: "Nevada legalized casino gambling in 1931 — the same year construction began on Hoover Dam. The combination of legal gambling, easy divorce laws, and dam construction workers with paychecks transformed Las Vegas from a dusty railroad town into an entertainment hub. The first casinos were on Fremont Street downtown. The Strip developed in the 1940s when Bugsy Siegel opened the Flamingo in 1946, bringing mob money and Hollywood glamour to the desert." },
+  ]} />
+
+  <!-- Email Capture -->
+  <div class="container-content reveal" style="padding-bottom: var(--space-6);">
+    <EmailCapture
+      leadMagnet="Get Our Free Nevada History Guide"
+      description="A PDF guide to Nevada's most important historic sites — with driving routes, visitor info, and the stories behind each location."
+      bullets={[
+        'All 17 historic sites with directions and hours',
+        'Era-by-era timeline from ancient peoples to Las Vegas',
+        'Virginia City walking tour with mine visit guide',
+        'Atomic testing and Area 51 road trip itinerary',
+      ]}
+      guideTag="pillar-history"
+    />
+  </div>
+
+  <!-- Cross-links -->
+  <section class="hist-crosslinks reveal">
+    <div class="container-content">
+      <h3 class="hist-crosslinks-heading">Explore More</h3>
+      <div class="hist-crosslinks-grid">
+        <a href="/hiking/" class="hist-crosslink-card">
+          <span class="hist-crosslink-icon">&#9968;</span>
+          <span class="hist-crosslink-label">Hiking Guide</span>
+          <span class="hist-crosslink-desc">20+ trails from Red Rock Canyon to Wheeler Peak</span>
+        </a>
+        <a href="/cuisine/" class="hist-crosslink-card">
+          <span class="hist-crosslink-icon">&#127860;</span>
+          <span class="hist-crosslink-label">Nevada Cuisine</span>
+          <span class="hist-crosslink-desc">Basque feasts, celebrity chef dining, and casino buffets</span>
+        </a>
+        <a href="/destinations/" class="hist-crosslink-card">
+          <span class="hist-crosslink-icon">&#127965;</span>
+          <span class="hist-crosslink-label">All Destinations</span>
+          <span class="hist-crosslink-desc">10 Nevada destinations with honest reviews and tips</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<!-- Scroll Reveal Observer -->
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
+  }
+</script>
+
+<style>
+  /* ================================================================
+     HERO — History-inspired warm gradient
+     ================================================================ */
+  .hist-hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 5rem var(--space-6) 60px;
+    overflow: hidden;
+  }
+
+  .hist-hero-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(135deg, #1A2332 0%, #78350F 40%, #D4A574 100%);
+  }
+
+  .hist-hero-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .hist-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 720px;
+  }
+
+  .hist-hero-title {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    line-height: 1.1;
+    margin: 0 0 var(--space-3);
+  }
+
+  .hist-hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin: 0 0 var(--space-5);
+    max-width: 580px;
+  }
+
+  .hist-hero-meta {
+    display: flex;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+  }
+
+  .hist-hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .hist-hero-meta-label {
+    font-size: 0.65rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .hist-hero-meta-value {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: #fff;
+  }
+
+  .hist-scroll-hint {
+    position: absolute;
+    bottom: 16px;
+    right: var(--space-6);
+    z-index: 3;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.35);
+    text-align: center;
+    animation: histBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes histBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ================================================================
+     PERSONAL INTRO
+     ================================================================ */
+  .hist-personal {
+    padding-block: var(--space-8);
+  }
+
+  .hist-personal-quote {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-8);
+    border-left: 4px solid #D4A574;
+    background: var(--color-sky);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .hist-personal-quote p {
+    font-size: var(--text-body);
+    color: var(--color-heading);
+    line-height: var(--leading-body);
+    font-style: italic;
+    margin-bottom: var(--space-3);
+  }
+
+  .hist-personal-quote cite {
+    font-size: var(--text-caption);
+    color: #78350F;
+    font-weight: var(--weight-semibold);
+    font-style: normal;
+  }
+
+  /* ================================================================
+     QUICK NAV
+     ================================================================ */
+  .hist-quicknav {
+    padding: 0 0 var(--space-6);
+  }
+
+  .hist-quicknav-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .hist-quicknav-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: var(--weight-medium);
+    color: var(--color-slate);
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .hist-quicknav-chip:hover {
+    background: #FDF8F0;
+    color: #78350F;
+    transform: translateY(-2px);
+  }
+
+  .hist-quicknav-label {
+    white-space: nowrap;
+  }
+
+  /* ================================================================
+     ERA SECTION
+     ================================================================ */
+  .hist-era {
+    padding: var(--space-4) 0 var(--space-6);
+    scroll-margin-top: 80px;
+  }
+
+  .hist-era-header {
+    position: relative;
+    border-radius: 20px;
+    padding: var(--space-6) var(--space-6);
+    margin-bottom: var(--space-5);
+    overflow: hidden;
+  }
+
+  .hist-era-header-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hist-era-name {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    margin: 0 0 var(--space-1);
+    line-height: 1.1;
+  }
+
+  .hist-era-tagline {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 var(--space-3);
+    max-width: 540px;
+    line-height: 1.5;
+  }
+
+  .hist-era-count {
+    font-size: 0.7rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* ================================================================
+     SITE CARDS
+     ================================================================ */
+  .hist-site-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 768px) {
+    .hist-site-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .hist-site-card {
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hist-site-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .hist-site-body {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hist-site-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-2);
+    margin-bottom: 4px;
+  }
+
+  .hist-site-name {
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .hist-site-destination {
+    font-size: 0.72rem;
+    color: var(--color-ocean-teal);
+    font-weight: var(--weight-medium);
+    margin: 0 0 var(--space-2);
+  }
+
+  .hist-site-desc {
+    font-size: 0.82rem;
+    color: var(--color-slate);
+    line-height: 1.6;
+    margin: 0 0 var(--space-3);
+  }
+
+  .hist-site-cta {
+    font-size: 0.72rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-ocean-teal);
+    letter-spacing: 0.02em;
+    margin-top: auto;
+  }
+
+  /* Tags */
+  .hist-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 8px;
+    border-radius: 6px;
+    line-height: 1.4;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .hist-tag--mustsee {
+    background: rgba(13, 115, 119, 0.1);
+    color: var(--color-ocean-teal);
+  }
+
+  .hist-tag--heritage {
+    background: rgba(191, 54, 12, 0.1);
+    color: #BF360C;
+  }
+
+  .hist-tag--iconic {
+    background: rgba(212, 168, 83, 0.15);
+    color: #9A7B2E;
+  }
+
+  .hist-tag--cultural {
+    background: rgba(106, 27, 154, 0.1);
+    color: #6A1B9A;
+  }
+
+  /* ================================================================
+     BOTTOM CTA
+     ================================================================ */
+  .hist-cta-section {
+    padding: var(--space-6) 0 var(--space-8);
+  }
+
+  .hist-cta-card {
+    background: linear-gradient(135deg, var(--color-deep-night) 0%, #2D3748 100%);
+    border-radius: 20px;
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+    color: #fff;
+  }
+
+  .hist-cta-heading {
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: var(--weight-bold);
+    margin: 0 0 var(--space-3);
+    color: #fff;
+  }
+
+  .hist-cta-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 520px;
+    margin: 0 auto var(--space-5);
+    line-height: 1.6;
+  }
+
+  .hist-cta-button {
+    display: inline-block;
+    background: var(--color-warm-coral);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: var(--weight-semibold);
+    padding: 12px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .hist-cta-button:hover {
+    background: #d4553b;
+    transform: translateY(-2px);
+  }
+
+  /* ================================================================
+     CROSS-LINKS
+     ================================================================ */
+  .hist-crosslinks {
+    padding: 0 0 var(--space-10);
+  }
+
+  .hist-crosslinks-heading {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    text-align: center;
+    margin: 0 0 var(--space-4);
+  }
+
+  .hist-crosslinks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 640px) {
+    .hist-crosslinks-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .hist-crosslink-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-4);
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hist-crosslink-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .hist-crosslink-icon {
+    font-size: 1.8rem;
+  }
+
+  .hist-crosslink-label {
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+  }
+
+  .hist-crosslink-desc {
+    font-size: 0.78rem;
+    color: var(--color-slate);
+    line-height: 1.4;
+  }
+
+  /* ================================================================
+     RESPONSIVE
+     ================================================================ */
+  @media (max-width: 640px) {
+    .hist-hero {
+      min-height: 50vh;
+      padding: 0 var(--space-4) 40px;
+    }
+
+    .hist-hero-meta {
+      gap: var(--space-4);
+    }
+
+    .hist-scroll-hint {
+      display: none;
+    }
+
+    .hist-era-header {
+      padding: var(--space-4) var(--space-4);
+    }
+  }
+</style>

@@ -1,0 +1,69 @@
+{
+  "name": "Vegas, Red Rock & Valley of Fire",
+  "subtitle": "Neon lights meet ancient desert landscapes",
+  "dates": "Mar 15 – Mar 17, 2026",
+  "days": [
+    {
+      "day": 1,
+      "date": "2026-03-15",
+      "title": "Day 1 — Las Vegas",
+      "location": "Las Vegas",
+      "items": [
+        { "id": "d1a1", "time": "10:00 AM", "icon": "✈️", "type": "transport", "title": "Arrive Harry Reid International", "detail": "Terminal 1, baggage claim C", "status": "confirmed", "lat": 36.0840, "lng": -115.1537 },
+        { "id": "d1a2", "time": "12:00 PM", "icon": "🍽️", "type": "food", "title": "Lunch at Mon Ami Gabi", "detail": "French bistro with Strip-side patio at Paris Las Vegas", "status": "confirmed", "lat": 36.1126, "lng": -115.1712 },
+        { "id": "d1a3", "time": "2:00 PM", "icon": "🏛️", "type": "activity", "title": "Mob Museum", "detail": "Three-floor interactive museum of organized crime history", "status": "confirmed", "lat": 36.1727, "lng": -115.1413 },
+        { "id": "d1a4", "time": "4:00 PM", "icon": "💡", "type": "activity", "title": "Neon Museum", "detail": "Outdoor gallery of iconic vintage Las Vegas signs", "status": "confirmed", "lat": 36.1773, "lng": -115.1351 },
+        { "id": "d1a5", "time": "6:30 PM", "icon": "🍽️", "type": "food", "title": "Dinner at Hell's Kitchen", "detail": "Gordon Ramsay's flagship at Caesars Palace", "status": "confirmed", "lat": 36.1162, "lng": -115.1745 },
+        { "id": "d1a6", "time": "8:30 PM", "icon": "🎵", "type": "activity", "title": "Fremont Street Experience", "detail": "Viva Vision light show and live music downtown", "status": "confirmed", "lat": 36.1706, "lng": -115.1423 },
+        { "id": "d1a7", "time": "10:00 PM", "icon": "🏨", "type": "accommodation", "title": "Check into The Venetian", "detail": "Suite on the Strip with canal views", "status": "confirmed", "lat": 36.1212, "lng": -115.1696 }
+      ]
+    },
+    {
+      "day": 2,
+      "date": "2026-03-16",
+      "title": "Day 2 — Red Rock Canyon",
+      "location": "Red Rock Canyon",
+      "items": [
+        { "id": "d2a1", "time": "7:00 AM", "icon": "🚗", "type": "transport", "title": "Drive to Red Rock Canyon", "detail": "30 minutes west via W Charleston Blvd", "status": "confirmed", "lat": 36.1355, "lng": -115.4289 },
+        { "id": "d2a2", "time": "7:45 AM", "icon": "🥾", "type": "activity", "title": "Calico Tanks Trail hike", "detail": "2.5 mi round trip to natural water tank with Strip views", "status": "confirmed", "lat": 36.1481, "lng": -115.4378 },
+        { "id": "d2a3", "time": "10:00 AM", "icon": "🏜️", "type": "activity", "title": "13-Mile Scenic Drive", "detail": "One-way loop road through red sandstone formations", "status": "confirmed", "lat": 36.1400, "lng": -115.4500 },
+        { "id": "d2a4", "time": "12:30 PM", "icon": "🍽️", "type": "food", "title": "Lunch at Red Rock Casino Resort", "detail": "Multiple dining options at the resort near the canyon", "status": "confirmed", "lat": 36.1713, "lng": -115.4177 },
+        { "id": "d2a5", "time": "3:00 PM", "icon": "🎰", "type": "activity", "title": "Bellagio Conservatory & Botanical Gardens", "detail": "Free seasonal floral displays under glass", "status": "confirmed", "lat": 36.1129, "lng": -115.1765 },
+        { "id": "d2a6", "time": "5:00 PM", "icon": "🎡", "type": "activity", "title": "High Roller Observation Wheel", "detail": "550-ft wheel with panoramic views of the Strip at sunset", "status": "confirmed", "lat": 36.1175, "lng": -115.1683 },
+        { "id": "d2a7", "time": "7:30 PM", "icon": "🍽️", "type": "food", "title": "Dinner at Lotus of Siam", "detail": "Award-winning Thai cuisine in Midtown", "status": "confirmed", "lat": 36.1296, "lng": -115.1483 },
+        { "id": "d2a8", "time": "9:30 PM", "icon": "🏨", "type": "accommodation", "title": "The Venetian", "detail": "Second night on the Strip", "status": "confirmed", "lat": 36.1212, "lng": -115.1696 }
+      ]
+    },
+    {
+      "day": 3,
+      "date": "2026-03-17",
+      "title": "Day 3 — Valley of Fire",
+      "location": "Valley of Fire",
+      "items": [
+        { "id": "d3a1", "time": "7:00 AM", "icon": "🚗", "type": "transport", "title": "Drive to Valley of Fire State Park", "detail": "50 minutes northeast via I-15", "status": "confirmed", "lat": 36.4412, "lng": -114.5131 },
+        { "id": "d3a2", "time": "8:00 AM", "icon": "🥾", "type": "activity", "title": "Fire Wave Trail", "detail": "1.5 mi round trip to stunning striped sandstone wave", "status": "confirmed", "lat": 36.4403, "lng": -114.5042 },
+        { "id": "d3a3", "time": "10:00 AM", "icon": "🏜️", "type": "activity", "title": "White Domes Loop", "detail": "1.25 mi loop through slot canyon and red formations", "status": "confirmed", "lat": 36.4717, "lng": -114.5058 },
+        { "id": "d3a4", "time": "11:30 AM", "icon": "🪨", "type": "activity", "title": "Elephant Rock & Arch Rock", "detail": "Short walk to iconic natural stone formations", "status": "confirmed", "lat": 36.4225, "lng": -114.5272 },
+        { "id": "d3a5", "time": "1:00 PM", "icon": "🍽️", "type": "food", "title": "Lunch at Inside Scoop", "detail": "Casual dining in Overton, just outside the park", "status": "confirmed", "lat": 36.5394, "lng": -114.4433 },
+        { "id": "d3a6", "time": "3:00 PM", "icon": "🚗", "type": "transport", "title": "Drive back to Las Vegas", "detail": "50 minutes south via I-15", "status": "confirmed", "lat": 36.1699, "lng": -115.1398 },
+        { "id": "d3a7", "time": "5:00 PM", "icon": "⛲", "type": "activity", "title": "Bellagio Fountains at sunset", "detail": "Free water show every 15 minutes", "status": "confirmed", "lat": 36.1126, "lng": -115.1767 },
+        { "id": "d3a8", "time": "7:00 PM", "icon": "✈️", "type": "transport", "title": "Depart Harry Reid International", "detail": "Terminal 1, evening flight home", "status": "confirmed", "lat": 36.0840, "lng": -115.1537 }
+      ]
+    }
+  ],
+  "weather": [
+    { "day": "2026-03-15", "icon": "☀️", "high": 75, "low": 52, "rain": 0 },
+    { "day": "2026-03-16", "icon": "🌤️", "high": 73, "low": 50, "rain": 5 },
+    { "day": "2026-03-17", "icon": "☀️", "high": 77, "low": 54, "rain": 0 }
+  ],
+  "contacts": [
+    { "icon": "🏜️", "name": "Valley of Fire State Park", "role": "State Park", "phone": "+1-702-397-2088" },
+    { "icon": "🏞️", "name": "Red Rock Canyon NCA", "role": "BLM Visitor Center", "phone": "+1-702-515-5350" },
+    { "icon": "ℹ️", "name": "Las Vegas Visitor Center", "role": "Tourist Info", "phone": "+1-702-892-0711" }
+  ],
+  "group": [
+    { "id": "g1", "name": "Scott", "avatar": "🤠", "role": "host", "color": "#0D7377" }
+  ],
+  "notifications": [],
+  "changeLog": []
+}

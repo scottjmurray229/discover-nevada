@@ -1,0 +1,181 @@
+{
+  "destinations": {
+    "las-vegas": {
+      "title": "Las Vegas",
+      "tagline": "The Entertainment Capital of the World",
+      "region": "las-vegas-metro",
+      "bestMonths": ["Mar", "Apr", "May", "Oct", "Nov"],
+      "budgetPerDay": { "backpacker": 60, "midRange": 200, "luxury": 600 },
+      "gettingThere": "Fly into Harry Reid International Airport (LAS) — major hub with direct flights from most US and many international cities. Located just 5 miles south of the Strip.",
+      "highlights": ["Las Vegas Strip", "Fremont Street Experience", "Bellagio Fountains", "High Roller Observation Wheel", "Mob Museum", "Neon Museum", "World-class shows and entertainment", "Gordon Ramsay and celebrity chef restaurants"],
+      "essentials": {
+        "gettingAround": "Las Vegas Monorail runs along the east side of the Strip. RTC buses and the Deuce double-decker run the Strip and downtown. Rideshare widely available. Walking the Strip is common but distances are deceptive.",
+        "airport": "Harry Reid International Airport (LAS)",
+        "nearestTowns": ["Henderson (16 miles southeast)", "Boulder City (26 miles southeast)", "Summerlin (12 miles west)"],
+        "language": "English"
+      }
+    },
+    "reno": {
+      "title": "Reno",
+      "tagline": "The Biggest Little City in the World",
+      "region": "northern",
+      "bestMonths": ["Jun", "Jul", "Aug", "Sep", "Oct"],
+      "budgetPerDay": { "backpacker": 50, "midRange": 140, "luxury": 350 },
+      "gettingThere": "Fly into Reno-Tahoe International Airport (RNO) — direct flights from major West Coast and Southwest cities. Drive from Sacramento (2.5 hours via I-80) or Las Vegas (7 hours via US-95).",
+      "highlights": ["Riverwalk District", "National Automobile Museum", "Nevada Museum of Art", "Reno Arch", "Truckee River Whitewater Park", "Midtown district dining and bars", "Hot August Nights festival", "Great Reno Balloon Race"],
+      "essentials": {
+        "gettingAround": "RTC RIDE buses cover the metro area. Walkable downtown. Rental car recommended for trips to Tahoe, Virginia City, and surrounding areas.",
+        "airport": "Reno-Tahoe International (RNO)",
+        "nearestTowns": ["Sparks (adjacent)", "Virginia City (23 miles southeast)", "Carson City (30 miles south)"],
+        "language": "English"
+      }
+    },
+    "lake-tahoe": {
+      "title": "Lake Tahoe",
+      "tagline": "America's Most Beautiful Alpine Lake — Crystal Blue at 6,225 Feet",
+      "region": "western",
+      "bestMonths": ["Jun", "Jul", "Aug", "Sep", "Dec", "Jan", "Feb", "Mar"],
+      "budgetPerDay": { "backpacker": 60, "midRange": 180, "luxury": 500 },
+      "gettingThere": "Drive from Reno (45 minutes via I-580 and NV-431 Mt. Rose Highway). Fly into Reno-Tahoe International Airport (RNO). Summer traffic on weekends can add significant time.",
+      "highlights": ["Sand Harbor Beach", "Incline Village", "Emerald Bay State Park", "Heavenly Ski Resort", "Lake Tahoe cruises", "Cave Rock", "Flume Trail mountain biking", "Stateline casinos"],
+      "essentials": {
+        "gettingAround": "Personal vehicle or rental car essential. TART (Tahoe Area Regional Transit) runs limited routes on the north shore. Winter requires chains or snow tires.",
+        "airport": "Reno-Tahoe International (RNO) — 45 minutes",
+        "nearestTowns": ["Incline Village (north shore)", "Stateline (south shore)", "South Lake Tahoe, CA (south shore)"],
+        "language": "English"
+      }
+    },
+    "valley-of-fire": {
+      "title": "Valley of Fire",
+      "tagline": "Nevada's Oldest and Largest State Park — 40,000 Acres of Red Sandstone",
+      "region": "southern",
+      "bestMonths": ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr"],
+      "budgetPerDay": { "backpacker": 30, "midRange": 70, "luxury": 150 },
+      "gettingThere": "Drive from Las Vegas (50 minutes northeast via I-15 and Valley of Fire Highway). No public transportation to the park.",
+      "highlights": ["Fire Wave Trail", "White Domes Loop", "Elephant Rock", "Atlatl Rock petroglyphs", "Mouse's Tank Trail", "Rainbow Vista", "Seven Sisters formation", "Beehives sandstone formations"],
+      "essentials": {
+        "gettingAround": "Personal vehicle required. One main road (Mouse's Tank Road / Valley of Fire Highway) runs through the park with short spur roads to trailheads. $10/vehicle entrance fee.",
+        "airport": "Harry Reid International (LAS) — 1 hour",
+        "nearestTowns": ["Overton (15 miles northeast)", "Las Vegas (55 miles southwest)", "Moapa (20 miles north)"],
+        "language": "English"
+      }
+    },
+    "red-rock-canyon": {
+      "title": "Red Rock Canyon",
+      "tagline": "A Stunning Red Rock Escape Just Minutes from the Strip",
+      "region": "las-vegas-metro",
+      "bestMonths": ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr"],
+      "budgetPerDay": { "backpacker": 25, "midRange": 60, "luxury": 130 },
+      "gettingThere": "Drive from the Las Vegas Strip (30 minutes west via W Charleston Blvd / NV-159). No public transit to the park.",
+      "highlights": ["13-mile Scenic Drive loop", "Calico Tanks Trail", "Keystone Thrust hike", "Ice Box Canyon", "Red Rock Canyon Overlook", "Sandstone Quarry", "World-class rock climbing", "Wild burro sightings"],
+      "essentials": {
+        "gettingAround": "Personal vehicle required. One-way 13-mile Scenic Drive loop with pullouts and trailheads. Timed entry reservation required ($2 + $15/vehicle). Arrives early on weekends.",
+        "airport": "Harry Reid International (LAS) — 30 minutes",
+        "nearestTowns": ["Summerlin (10 miles east)", "Las Vegas (17 miles east)", "Blue Diamond (5 miles south)"],
+        "language": "English"
+      }
+    },
+    "great-basin": {
+      "title": "Great Basin",
+      "tagline": "Ancient Bristlecone Pines and Underground Wonders — Nevada's Only National Park",
+      "region": "northern",
+      "bestMonths": ["Jun", "Jul", "Aug", "Sep", "Oct"],
+      "budgetPerDay": { "backpacker": 30, "midRange": 70, "luxury": 140 },
+      "gettingThere": "Drive from Las Vegas (4.5 hours north via US-93 and US-50) or Ely (1 hour west via US-50 and NV-488). Remote location — fill up on gas in Ely or Baker.",
+      "highlights": ["Lehman Caves guided tours", "Wheeler Peak summit (13,063 ft)", "Bristlecone Pine Grove", "Stella Lake", "Alpine Lakes Loop", "Lexington Arch", "Dark sky stargazing programs", "Osceola Ditch historic site"],
+      "essentials": {
+        "gettingAround": "Personal vehicle required. Wheeler Peak Scenic Drive (12 miles, paved) is the main road — open late May through October depending on snow. Lehman Caves tours must be reserved in advance.",
+        "airport": "Ely Airport (ELY) — limited service. Harry Reid International (LAS) — 4.5 hours",
+        "nearestTowns": ["Baker (5 miles east)", "Ely (60 miles east)", "Delta, UT (100 miles east)"],
+        "language": "English"
+      }
+    },
+    "virginia-city": {
+      "title": "Virginia City",
+      "tagline": "Queen of the Comstock — Nevada's Legendary Silver Mining Boomtown",
+      "region": "western",
+      "bestMonths": ["May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+      "budgetPerDay": { "backpacker": 40, "midRange": 90, "luxury": 200 },
+      "gettingThere": "Drive from Reno (35 minutes southeast via NV-341) or Carson City (25 minutes northeast via US-50 and NV-341). Winding mountain road — scenic but curvy.",
+      "highlights": ["C Street boardwalk and saloons", "Virginia & Truckee Railroad ride", "Chollar Mine underground tour", "Bucket of Blood Saloon", "Piper's Opera House", "The Way It Was Museum", "St. Mary's in the Mountains church", "International Camel & Ostrich Races (September)"],
+      "essentials": {
+        "gettingAround": "Walk the main C Street boardwalk on foot. Personal vehicle needed to arrive. Limited parking on busy weekends — arrive early.",
+        "airport": "Reno-Tahoe International (RNO) — 40 minutes",
+        "nearestTowns": ["Gold Hill (1 mile south)", "Silver City (4 miles south)", "Reno (23 miles northwest)"],
+        "language": "English"
+      }
+    },
+    "henderson": {
+      "title": "Henderson",
+      "tagline": "Nevada's Second-Largest City — Green Spaces and Desert Trails",
+      "region": "las-vegas-metro",
+      "bestMonths": ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr"],
+      "budgetPerDay": { "backpacker": 45, "midRange": 120, "luxury": 300 },
+      "gettingThere": "Adjacent to Las Vegas — 16 miles southeast of the Strip via I-215 or I-515. 20 minutes from Harry Reid International Airport.",
+      "highlights": ["Clark County Museum", "Lake Las Vegas", "Sloan Canyon petroglyphs", "Henderson Bird Viewing Preserve", "Ethel M Chocolate Factory and Cactus Garden", "Lion Habitat Ranch", "District at Green Valley Ranch", "Water Street district"],
+      "essentials": {
+        "gettingAround": "Personal vehicle or rideshare. RTC buses connect Henderson to Las Vegas. Walkable areas include Water Street and Lake Las Vegas Village.",
+        "airport": "Harry Reid International (LAS) — 20 minutes",
+        "nearestTowns": ["Las Vegas (16 miles northwest)", "Boulder City (15 miles southeast)", "Searchlight (55 miles south)"],
+        "language": "English"
+      }
+    },
+    "boulder-city": {
+      "title": "Boulder City",
+      "tagline": "Historic Dam Town — Gateway to Hoover Dam and Lake Mead",
+      "region": "southern",
+      "bestMonths": ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr"],
+      "budgetPerDay": { "backpacker": 40, "midRange": 90, "luxury": 200 },
+      "gettingThere": "Drive from Las Vegas (30 minutes southeast via US-93/US-95). The only city in Nevada where gambling is prohibited.",
+      "highlights": ["Hoover Dam tours", "Lake Mead National Recreation Area", "Historic Railroad Trail", "Boulder City/Hoover Dam Museum", "Bootleg Canyon mountain biking", "Flightlinez Bootleg Canyon zipline", "Historic downtown antique shops", "Hemingway Park"],
+      "essentials": {
+        "gettingAround": "Compact downtown is walkable. Personal vehicle needed for Hoover Dam and Lake Mead. Parking at Hoover Dam is $10.",
+        "airport": "Harry Reid International (LAS) — 35 minutes",
+        "nearestTowns": ["Henderson (15 miles northwest)", "Las Vegas (26 miles northwest)", "Searchlight (38 miles south)"],
+        "language": "English"
+      }
+    },
+    "carson-city": {
+      "title": "Carson City",
+      "tagline": "Nevada's State Capital — History, Hot Springs, and Mountain Views",
+      "region": "western",
+      "bestMonths": ["May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+      "budgetPerDay": { "backpacker": 45, "midRange": 100, "luxury": 250 },
+      "gettingThere": "Drive from Reno (30 minutes south via US-395) or Lake Tahoe (30 minutes east via US-50). Small city at the base of the Sierra Nevada.",
+      "highlights": ["Nevada State Capitol Building", "Nevada State Museum", "Nevada State Railroad Museum", "Kit Carson Trail walking tour", "Carson Hot Springs", "Kings Canyon waterfall hike", "Stewart Indian School", "Historic Governor's Mansion"],
+      "essentials": {
+        "gettingAround": "Compact downtown walkable via Kit Carson Trail. JAC bus system covers the city. Rental car needed for surrounding areas and day trips.",
+        "airport": "Reno-Tahoe International (RNO) — 35 minutes",
+        "nearestTowns": ["Gardnerville (14 miles south)", "Virginia City (15 miles northeast)", "Reno (30 miles north)"],
+        "language": "English"
+      }
+    }
+  },
+  "connections": {
+    "las-vegas-henderson": { "mode": "drive", "duration": "20-30 min", "operator": "I-215 or I-515", "cost": "$5-10 rideshare" },
+    "las-vegas-boulder-city": { "mode": "drive", "duration": "30 min", "operator": "US-93 South", "cost": "$10-15 gas" },
+    "las-vegas-red-rock-canyon": { "mode": "drive", "duration": "30 min", "operator": "W Charleston Blvd / NV-159", "cost": "$5-10 gas" },
+    "las-vegas-valley-of-fire": { "mode": "drive", "duration": "50 min", "operator": "I-15 North to Valley of Fire Hwy", "cost": "$10-15 gas" },
+    "las-vegas-reno": { "mode": "drive", "duration": "7 hours", "operator": "US-95 North", "cost": "$65-85 gas" },
+    "las-vegas-great-basin": { "mode": "drive", "duration": "4.5 hours", "operator": "US-93 North to US-50 West", "cost": "$50-65 gas" },
+    "reno-lake-tahoe": { "mode": "drive", "duration": "45 min", "operator": "NV-431 Mt. Rose Highway", "cost": "$10-15 gas" },
+    "reno-virginia-city": { "mode": "drive", "duration": "35 min", "operator": "NV-341 South", "cost": "$8-12 gas" },
+    "reno-carson-city": { "mode": "drive", "duration": "30 min", "operator": "US-395 South", "cost": "$8-12 gas" },
+    "carson-city-virginia-city": { "mode": "drive", "duration": "25 min", "operator": "US-50 to NV-341", "cost": "$5-10 gas" },
+    "carson-city-lake-tahoe": { "mode": "drive", "duration": "30 min", "operator": "US-50 West", "cost": "$8-12 gas" },
+    "boulder-city-henderson": { "mode": "drive", "duration": "15 min", "operator": "US-93/US-95 North", "cost": "$5-8 gas" },
+    "henderson-valley-of-fire": { "mode": "drive", "duration": "1 hour", "operator": "I-15 North to Valley of Fire Hwy", "cost": "$12-18 gas" },
+    "lake-tahoe-virginia-city": { "mode": "drive", "duration": "50 min", "operator": "NV-431 to NV-341", "cost": "$10-15 gas" },
+    "great-basin-reno": { "mode": "drive", "duration": "5 hours", "operator": "US-50 West (The Loneliest Road)", "cost": "$55-70 gas" }
+  },
+  "travelTips": {
+    "currency": "US Dollar (USD). Credit cards accepted everywhere in Las Vegas and Reno. Cash useful for tipping, small-town businesses, and slot machines.",
+    "visaFree": "US visa policies apply. ESTA for Visa Waiver Program countries. Valid passport required for international visitors.",
+    "bestOverallMonths": "March to May and September to November for Las Vegas and southern Nevada (pleasant desert temps). June to September for Lake Tahoe and northern Nevada (warm summers). December to March for ski season at Tahoe resorts.",
+    "heatWarning": "Summer temperatures in Las Vegas regularly exceed 110 F (43 C) June through September. Carry extra water on all desert hikes. Heat-related illness is a serious risk in Valley of Fire and Red Rock Canyon.",
+    "hydration": "Carry at least 1 liter of water per hour of hiking in desert conditions. More in summer. Start desert hikes early morning. The dry desert air dehydrates faster than you expect.",
+    "altitude": "Lake Tahoe sits at 6,225 ft elevation. Great Basin's Wheeler Peak reaches 13,063 ft. Acclimatize before strenuous hikes at altitude. Drink extra water and watch for symptoms of altitude sickness.",
+    "parkPasses": "America the Beautiful Pass ($80/year) covers Great Basin National Park and Lake Mead NRA entrance fees. Nevada state parks charge $10/vehicle. Red Rock Canyon requires timed entry reservations.",
+    "gambling": "Nevada is famous for casino gaming. Set a budget before you play. Minimum gambling age is 21. Free drinks are often served to active players on the casino floor. Tipping dealers and servers is customary."
+  }
+}

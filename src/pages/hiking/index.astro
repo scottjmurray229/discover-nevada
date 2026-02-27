@@ -1,0 +1,1025 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Nevada Hiking Guide', url: '/hiking/' },
+];
+
+const pageTitle = 'Nevada Hiking Guide — 20+ Trails from Red Rock Canyon to Wheeler Peak';
+const pageDescription = 'The complete Nevada hiking guide — Red Rock Canyon, Valley of Fire, Lake Tahoe, Mt. Charleston, Wheeler Peak, and desert safety tips. 20+ trails organized by difficulty and region.';
+
+interface Trail {
+  name: string;
+  destination: string;
+  slug: string;
+  difficulty: string;
+  distance: string;
+  elevation: string;
+  description: string;
+  tag?: string;
+}
+
+interface RegionSection {
+  id: string;
+  region: string;
+  tagline: string;
+  gradient: string;
+  trails: Trail[];
+}
+
+const regions: RegionSection[] = [
+  {
+    id: 'red-rock-canyon',
+    region: 'Red Rock Canyon',
+    tagline: 'Stunning sandstone formations just 20 minutes from the Las Vegas Strip — desert hiking at its most accessible',
+    gradient: 'linear-gradient(135deg, #BF360C 0%, #E8654A 100%)',
+    trails: [
+      {
+        name: 'Calico Tanks Trail',
+        destination: 'Red Rock Canyon',
+        slug: 'red-rock-canyon',
+        difficulty: 'Moderate',
+        distance: '2.5 miles round-trip',
+        elevation: '400 ft gain',
+        description: 'The most popular trail in Red Rock Canyon — a scramble through a narrow red and white sandstone canyon to a hidden water tank with views of the Las Vegas Strip in the distance. The contrast of rugged desert rock framing the distant city skyline is surreal. Some rock scrambling required. Go early on weekends — parking fills by 9 AM.',
+        tag: 'Iconic',
+      },
+      {
+        name: 'Keystone Thrust Trail',
+        destination: 'Red Rock Canyon',
+        slug: 'red-rock-canyon',
+        difficulty: 'Moderate',
+        distance: '2.2 miles round-trip',
+        elevation: '500 ft gain',
+        description: 'A geological showcase where ancient gray limestone was thrust over younger red sandstone by tectonic forces. The trail climbs through a canyon to the visible contact point — one of the most dramatic geological formations in southern Nevada. The interpretive signs explain the 65-million-year story written in the rock layers.',
+        tag: 'Must-Do',
+      },
+      {
+        name: 'Ice Box Canyon Trail',
+        destination: 'Red Rock Canyon',
+        slug: 'red-rock-canyon',
+        difficulty: 'Moderate',
+        distance: '2.6 miles round-trip',
+        elevation: '250 ft gain',
+        description: 'A shaded canyon hike that lives up to its name — significantly cooler than the surrounding desert. The trail follows a rocky wash into a narrow canyon with seasonal waterfalls after winter rains. One of the few Red Rock trails with shade, making it a good summer option with an early start. Some boulder hopping required.',
+      },
+      {
+        name: 'Turtlehead Peak Trail',
+        destination: 'Red Rock Canyon',
+        slug: 'red-rock-canyon',
+        difficulty: 'Strenuous',
+        distance: '5 miles round-trip',
+        elevation: '1,950 ft gain',
+        description: 'The toughest trail in Red Rock Canyon — a steep, exposed scramble to the summit of Turtlehead Peak with 360-degree views of the entire conservation area, the Spring Mountains, and the Las Vegas Valley. The final push is a hands-on-rock scramble. Bring extra water and start before dawn in summer.',
+        tag: 'Expert',
+      },
+    ],
+  },
+  {
+    id: 'valley-of-fire',
+    region: 'Valley of Fire',
+    tagline: 'Ancient red sandstone formations, petroglyphs, and otherworldly desert landscapes an hour from Vegas',
+    gradient: 'linear-gradient(135deg, #0D7377 0%, #4DB6AC 100%)',
+    trails: [
+      {
+        name: 'Fire Wave Trail',
+        destination: 'Valley of Fire',
+        slug: 'valley-of-fire',
+        difficulty: 'Easy–Moderate',
+        distance: '1.5 miles round-trip',
+        elevation: '100 ft gain',
+        description: 'A short trail to one of Nevada\'s most photogenic natural features — swirling bands of red, pink, and white sandstone that look like frozen waves of fire. The formation is similar to Arizona\'s famous Wave, but you don\'t need a permit. The trail is sandy and exposed with zero shade. Bring water and avoid midday sun in summer.',
+        tag: 'Iconic',
+      },
+      {
+        name: 'White Domes Loop',
+        destination: 'Valley of Fire',
+        slug: 'valley-of-fire',
+        difficulty: 'Easy',
+        distance: '1.1 miles loop',
+        elevation: '100 ft gain',
+        description: 'A short loop through a slot canyon, past movie set ruins, and around towering white and red sandstone formations. This trail packs maximum visual impact into minimum distance. The narrow slot canyon section feels like walking through a cathedral carved from stone. Great for families and photographers.',
+        tag: 'Must-Do',
+      },
+      {
+        name: 'Mouse\'s Tank Trail',
+        destination: 'Valley of Fire',
+        slug: 'valley-of-fire',
+        difficulty: 'Easy',
+        distance: '0.75 miles round-trip',
+        elevation: '50 ft gain',
+        description: 'A short walk through a sandy wash to a natural rock basin (the "tank") surrounded by Ancestral Puebloan petroglyphs dating back over 2,000 years. Named after a Southern Paiute outlaw who hid here in the 1890s. The petroglyphs along both canyon walls are some of the most accessible ancient rock art in Nevada.',
+      },
+      {
+        name: 'Prospect Trail',
+        destination: 'Valley of Fire',
+        slug: 'valley-of-fire',
+        difficulty: 'Moderate–Strenuous',
+        distance: '5.5 miles one-way',
+        elevation: '600 ft gain',
+        description: 'The longest trail in Valley of Fire traverses the park\'s backcountry through a landscape of petrified sand dunes, rainbow-colored rock, and sweeping desert views. This is the trail for solitude — most visitors stick to the short scenic walks. Carry plenty of water and plan a car shuttle or out-and-back. No shade for the entire route.',
+      },
+    ],
+  },
+  {
+    id: 'lake-tahoe',
+    region: 'Lake Tahoe',
+    tagline: 'Alpine forests, granite peaks, and crystal-clear lake views at 6,200 feet — a world away from the desert',
+    gradient: 'linear-gradient(135deg, #E65100 0%, #FF9800 100%)',
+    trails: [
+      {
+        name: 'Tahoe Rim Trail (Spooner to Marlette Lake)',
+        destination: 'Lake Tahoe',
+        slug: 'lake-tahoe',
+        difficulty: 'Moderate',
+        distance: '10 miles round-trip',
+        elevation: '1,200 ft gain',
+        description: 'One of the most scenic sections of the 165-mile Tahoe Rim Trail, climbing from Spooner Summit through pine forest to Marlette Lake — a pristine alpine lake with stunning views of Lake Tahoe below. The Flume Trail (a continuation) is one of the most famous mountain bike trails in the world, but hikers love the Marlette Lake section.',
+        tag: 'Iconic',
+      },
+      {
+        name: 'Monkey Rock Trail',
+        destination: 'Lake Tahoe',
+        slug: 'lake-tahoe',
+        difficulty: 'Easy–Moderate',
+        distance: '4 miles round-trip',
+        elevation: '500 ft gain',
+        description: 'A lesser-known gem on the Nevada side of Tahoe — a forested trail to a massive granite boulder that resembles a monkey. The real reward is the panoramic views of Lake Tahoe from the rock outcropping. Quieter than the California-side trails and equally stunning. Great for families with older kids.',
+        tag: 'Must-Do',
+      },
+      {
+        name: 'Cave Rock Trail',
+        destination: 'Lake Tahoe',
+        slug: 'lake-tahoe',
+        difficulty: 'Easy',
+        distance: '0.5 miles round-trip',
+        elevation: '150 ft gain',
+        description: 'A short, steep scramble up a volcanic rock formation on the Nevada shore of Lake Tahoe. The summit offers one of the best panoramic lake views on the east shore. Cave Rock is sacred to the Washoe people — please stay on designated trails and respect the cultural significance. The parking area also has a small beach.',
+      },
+      {
+        name: 'Mount Rose Trail',
+        destination: 'Lake Tahoe area',
+        slug: 'lake-tahoe',
+        difficulty: 'Strenuous',
+        distance: '10 miles round-trip',
+        elevation: '2,400 ft gain',
+        description: 'The highest peak in the Lake Tahoe Basin at 10,776 feet. The trail climbs through meadows bursting with wildflowers in July, past a waterfall, and through a volcanic landscape to a summit with views stretching from Lake Tahoe to Reno. Start early — afternoon thunderstorms are common above treeline. Snow blocks the upper trail until mid-June most years.',
+        tag: 'Bucket List',
+      },
+    ],
+  },
+  {
+    id: 'mt-charleston',
+    region: 'Mt. Charleston & Spring Mountains',
+    tagline: 'Alpine escape just 45 minutes from the Las Vegas Strip — pine forests, bristlecone pines, and cool mountain air',
+    gradient: 'linear-gradient(135deg, #1A2332 0%, #6A1B9A 50%, #D4A853 100%)',
+    trails: [
+      {
+        name: 'Mary Jane Falls Trail',
+        destination: 'Las Vegas area',
+        slug: 'las-vegas',
+        difficulty: 'Moderate',
+        distance: '3 miles round-trip',
+        elevation: '1,000 ft gain',
+        description: 'The most popular trail in the Spring Mountains — a steady climb through ponderosa pine and white fir forest to a seasonal waterfall in a limestone grotto. The waterfall flows strongest in spring from snowmelt. At 7,800 feet, temperatures are 20-30 degrees cooler than the Las Vegas Valley. A welcome escape from summer heat.',
+        tag: 'Must-Do',
+      },
+      {
+        name: 'South Loop Trail to Charleston Peak',
+        destination: 'Las Vegas area',
+        slug: 'las-vegas',
+        difficulty: 'Expert',
+        distance: '17 miles round-trip',
+        elevation: '4,300 ft gain',
+        description: 'The longest and most demanding trail near Las Vegas — climbing to the 11,916-foot summit of Charleston Peak through ancient bristlecone pine forests. Views from the top extend across the entire Las Vegas Valley and into California. This is a full-day expedition requiring early starts, plenty of water, and solid fitness. Snow lingers on the upper trail into June.',
+        tag: 'Bucket List',
+      },
+      {
+        name: 'Cathedral Rock Trail',
+        destination: 'Las Vegas area',
+        slug: 'las-vegas',
+        difficulty: 'Moderate–Strenuous',
+        distance: '2.8 miles round-trip',
+        elevation: '900 ft gain',
+        description: 'A forested trail to a limestone cliff face with views across Kyle Canyon. The trail winds through mixed conifer forest with wildflowers in spring. Less crowded than Mary Jane Falls and equally rewarding. The final section is steep and rocky. At the top, you\'re standing at 8,500 feet — a completely different world from the Strip below.',
+      },
+      {
+        name: 'Bristlecone Trail',
+        destination: 'Las Vegas area',
+        slug: 'las-vegas',
+        difficulty: 'Moderate',
+        distance: '6 miles round-trip',
+        elevation: '700 ft gain',
+        description: 'A high-altitude loop through a grove of ancient bristlecone pines — some over 3,000 years old. The trail starts at the Lee Canyon ski area at 8,600 feet and traverses a subalpine landscape. These are among the oldest living organisms on earth, and the gnarled, weathered trunks are hauntingly beautiful.',
+      },
+    ],
+  },
+  {
+    id: 'great-basin',
+    region: 'Great Basin & Wheeler Peak',
+    tagline: 'Nevada\'s highest mountain, ancient bristlecone groves, and one of the darkest night skies in America',
+    gradient: 'linear-gradient(135deg, #065F46 0%, #059669 100%)',
+    trails: [
+      {
+        name: 'Wheeler Peak Summit Trail',
+        destination: 'Great Basin',
+        slug: 'great-basin',
+        difficulty: 'Strenuous',
+        distance: '8.6 miles round-trip',
+        elevation: '2,900 ft gain',
+        description: 'The trail to the summit of Wheeler Peak, Nevada\'s second-highest point at 13,063 feet. The route climbs above treeline through alpine tundra with wildflowers in July. The final stretch is rocky and exposed. Views from the summit extend across the Great Basin — an ocean of desert ranges stretching to the horizon. Start before dawn to beat afternoon storms.',
+        tag: 'Iconic',
+      },
+      {
+        name: 'Bristlecone & Glacier Trail',
+        destination: 'Great Basin',
+        slug: 'great-basin',
+        difficulty: 'Moderate',
+        distance: '4.6 miles round-trip',
+        elevation: '600 ft gain',
+        description: 'Walk among the oldest living things on earth — bristlecone pines over 4,000 years old. The trail continues to the only permanent glacier in Nevada, the remnant of an ice age in the shadow of Wheeler Peak. At 10,000 feet, the air is thin and cool even in summer. The ancient, twisted trunks of the bristlecone pines are unforgettable.',
+        tag: 'Must-Do',
+      },
+      {
+        name: 'Alpine Lakes Loop Trail',
+        destination: 'Great Basin',
+        slug: 'great-basin',
+        difficulty: 'Easy–Moderate',
+        distance: '2.7 miles loop',
+        elevation: '400 ft gain',
+        description: 'A loop trail past Stella and Teresa Lakes — two alpine lakes set in cirques carved by ancient glaciers beneath Wheeler Peak. Wildflower meadows in summer, golden aspens in fall. The lakes reflect the surrounding cliffs and are among the most photographed spots in the park. A good introductory trail for the Great Basin high country.',
+      },
+      {
+        name: 'Lehman Creek Trail',
+        destination: 'Great Basin',
+        slug: 'great-basin',
+        difficulty: 'Moderate',
+        distance: '6.8 miles one-way',
+        elevation: '2,050 ft gain',
+        description: 'A point-to-point trail descending from Wheeler Peak Campground to the Upper Lehman Creek area through diverse vegetation zones — from subalpine meadows to pinyon-juniper desert. The trail follows the creek through aspen groves and offers solitude that\'s rare in national parks. A car shuttle makes this a great one-way downhill hike.',
+      },
+    ],
+  },
+];
+
+const safetyTips = [
+  { label: 'Heat Is the Real Danger', text: 'Nevada\'s desert heat kills more hikers than any other hazard. From May through September, Las Vegas and southern Nevada regularly exceed 110 degrees F. Do not hike Red Rock Canyon, Valley of Fire, or any exposed desert trail after 9 AM in summer. Start before sunrise. Carry a minimum of 1 liter of water per hour of hiking. If you feel dizzy, nauseous, or stop sweating — stop immediately, find shade, and call 911.' },
+  { label: 'Water Requirements', text: 'Carry more water than you think you need. The rule of thumb is 1 liter per hour for moderate hiking, more for strenuous trails. Electrolyte tablets or packets help replace what you lose through sweat. Dehydration sets in fast in dry desert air — you can lose a liter of sweat per hour without realizing it. There is no reliable water on most Nevada trails outside of Great Basin National Park.' },
+  { label: 'Sun Protection', text: 'Nevada sun at elevation is intense. Wear a wide-brim hat, UV-rated sunglasses, and apply SPF 50+ sunscreen before you start — and reapply every 90 minutes. Lightweight long sleeves with UPF protection beat bare skin. Sunburn at 10,000 feet on Wheeler Peak happens faster than you expect. Even Lake Tahoe at 6,200 feet burns quickly.' },
+  { label: 'Flash Flood Awareness', text: 'Desert washes and narrow canyons are flash flood zones during monsoon season (July–September). A storm 20 miles away can send a wall of water through a dry canyon with zero warning. Never enter slot canyons or narrow washes when rain is forecast anywhere in the region. Valley of Fire and Red Rock Canyon washes are particularly prone to flooding. Check weather before every hike.' },
+  { label: 'Wildlife', text: 'Rattlesnakes are common on Nevada trails — watch where you step and place your hands, especially around rocks and ledges. Scorpions are more of a campsite concern than a trail hazard. Mountain lions exist in the Spring Mountains, Lake Tahoe, and Great Basin areas but attacks are extremely rare. Wild burros roam parts of southern Nevada — keep your distance. Make noise on the trail and give wildlife space.' },
+  { label: 'Best Seasons by Region', text: '<strong>Las Vegas/Red Rock/Valley of Fire:</strong> October through April — avoid summer entirely for desert trails. <strong>Lake Tahoe:</strong> June through October for hiking; trails above 8,000 feet are snow-covered until late June. <strong>Mt. Charleston:</strong> Year-round, but higher trails have snow November through May. <strong>Great Basin/Wheeler Peak:</strong> July through September for summit attempts — the short alpine season means narrow hiking windows.' },
+];
+---
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  pageType="destination"
+  schemaData={{ title: pageTitle, description: pageDescription }}
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Hero -->
+  <header class="hike-hero">
+    <div class="hike-hero-gradient"></div>
+    <div class="hike-hero-noise"></div>
+    <div class="hike-hero-content">
+      <h1 class="hike-hero-title">Nevada Hiking Guide</h1>
+      <p class="hike-hero-subtitle">Red Rock Canyon sandstone scrambles, Valley of Fire's ancient landscapes, Lake Tahoe alpine trails, Mt. Charleston pine forests, and Wheeler Peak's 13,000-foot summit — 20+ trails organized by region and difficulty with desert safety tips for every season.</p>
+      <div class="hike-hero-meta">
+        <div class="hike-hero-meta-item">
+          <span class="hike-hero-meta-label">Trails</span>
+          <span class="hike-hero-meta-value">20</span>
+        </div>
+        <div class="hike-hero-meta-item">
+          <span class="hike-hero-meta-label">Regions</span>
+          <span class="hike-hero-meta-value">5</span>
+        </div>
+        <div class="hike-hero-meta-item">
+          <span class="hike-hero-meta-label">Highest Point</span>
+          <span class="hike-hero-meta-value">13,063 ft</span>
+        </div>
+      </div>
+    </div>
+    <div class="hike-scroll-hint">Scroll<br />&#8595;</div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container-content">
+    <Breadcrumb items={breadcrumbs} />
+  </div>
+
+  <!-- Personal intro -->
+  <section class="hike-personal reveal">
+    <div class="container-content">
+      <blockquote class="hike-personal-quote">
+        <p>I came to Nevada thinking it was all flat desert and casino floors. What I found was a state with more hiking variety than I could cover in a dozen trips. Scrambling through Red Rock Canyon's sandstone corridors 20 minutes from the Strip, walking past 4,000-year-old bristlecone pines at Great Basin, watching the sunrise paint Valley of Fire's formations in impossible colors, standing on Wheeler Peak's 13,063-foot summit with nothing but empty ranges stretching to the horizon — Nevada has more wild terrain than most people will ever know about. The desert looks empty until you start walking through it.</p>
+        <cite>— Scott</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Quick Nav -->
+  <section class="hike-quicknav reveal">
+    <div class="container-content">
+      <div class="hike-quicknav-grid">
+        {regions.map((r) => (
+          <a href={`#${r.id}`} class="hike-quicknav-chip">
+            <span class="hike-quicknav-label">{r.region}</span>
+          </a>
+        ))}
+        <a href="#safety" class="hike-quicknav-chip hike-quicknav-chip--safety">
+          <span class="hike-quicknav-label">Safety Tips</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Region Sections -->
+  {regions.map((region) => (
+    <section class="hike-region reveal" id={region.id}>
+      <div class="container-content">
+        <div class="hike-region-header" style={`background: ${region.gradient};`}>
+          <div class="hike-region-header-inner">
+            <h2 class="hike-region-name">{region.region}</h2>
+            <p class="hike-region-tagline">{region.tagline}</p>
+            <span class="hike-region-count">{region.trails.length} trails</span>
+          </div>
+        </div>
+
+        <div class="hike-trail-grid">
+          {region.trails.map((trail) => (
+            <a href={`/destinations/${trail.slug}/`} class="hike-trail-card">
+              <div class="hike-trail-body">
+                <div class="hike-trail-top">
+                  <h3 class="hike-trail-name">{trail.name}</h3>
+                  {trail.tag && (
+                    <span class={`hike-tag hike-tag--${trail.tag.toLowerCase().replace(/[^a-z]/g, '')}`}>{trail.tag}</span>
+                  )}
+                </div>
+                <p class="hike-trail-destination">{trail.destination}</p>
+                <div class="hike-trail-stats">
+                  <span class="hike-trail-stat"><strong>Difficulty:</strong> {trail.difficulty}</span>
+                  <span class="hike-trail-stat"><strong>Distance:</strong> {trail.distance}</span>
+                  <span class="hike-trail-stat"><strong>Elevation:</strong> {trail.elevation}</span>
+                </div>
+                <p class="hike-trail-desc">{trail.description}</p>
+                <span class="hike-trail-cta">Explore {trail.destination} &rarr;</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- Safety Tips Section -->
+  <section class="hike-safety reveal" id="safety">
+    <div class="container-content">
+      <div class="hike-safety-header">
+        <h2 class="hike-safety-title">Desert Hiking Safety</h2>
+        <p class="hike-safety-subtitle">Nevada's desert is beautiful but unforgiving. These tips can save your life.</p>
+      </div>
+      <div class="hike-safety-grid">
+        {safetyTips.map((tip) => (
+          <div class="hike-safety-card">
+            <h3 class="hike-safety-label">{tip.label}</h3>
+            <p class="hike-safety-text" set:html={tip.text} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="hike-cta-section reveal">
+    <div class="container-content">
+      <div class="hike-cta-card">
+        <h2 class="hike-cta-heading">Plan Your Hiking Trip</h2>
+        <p class="hike-cta-text">Tell our AI planner your fitness level and preferred trails — it will build a custom Nevada hiking itinerary with trailhead directions, gear lists, and seasonal recommendations.</p>
+        <a href="/plan/" class="hike-cta-button">Start Planning &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQ items={[
+    { question: "What is the best hike in Nevada?", answer: "Red Rock Canyon's Calico Tanks trail is the most iconic near Las Vegas — sandstone canyons with Strip views in the distance. Valley of Fire's Fire Wave trail offers stunning geology in under an hour. Lake Tahoe's Rim Trail sections provide alpine scenery. Wheeler Peak in Great Basin National Park is the ultimate summit challenge at 13,063 feet. The 'best' depends on your fitness level, the season, and what kind of scenery you want." },
+    { question: "When is the best time to hike in Nevada?", answer: "It depends on elevation. Las Vegas desert trails (Red Rock, Valley of Fire): October through April — avoid summer heat entirely. Lake Tahoe: June through October once snow melts. Mt. Charleston: year-round, with spring and fall ideal for higher elevations. Great Basin/Wheeler Peak: July through September for summit attempts. Summer monsoon season (July-September) brings afternoon thunderstorms — plan to finish hikes by early afternoon." },
+    { question: "How hot does it get on Nevada trails?", answer: "Las Vegas and southern Nevada desert trails can exceed 115 degrees F in summer. Valley of Fire is even hotter — 120+ degrees F is possible. Ground temperature on exposed rock can be 20-30 degrees hotter than air temperature. Mt. Charleston stays cooler at 75-85 degrees F in summer. Lake Tahoe averages 80-85 degrees F. Heat-related rescues at Red Rock Canyon happen weekly in summer — take it seriously." },
+    { question: "Do I need a permit for Nevada hiking?", answer: "Most Nevada trails are free or require only a small parking/entrance fee. Red Rock Canyon has a $15/vehicle scenic loop fee. Valley of Fire charges $10/vehicle. Great Basin National Park is free (one of the few free national parks). Lake Tahoe trails generally require a $5 Sno-Park pass in winter. No backcountry permits are needed for day hikes in Nevada state parks or BLM land." },
+    { question: "What should I bring on a Nevada hike?", answer: "Minimum: 1-2 liters of water per hour, electrolyte tablets, sunscreen (SPF 50+), wide-brim hat, sturdy hiking shoes (not sandals), snacks with salt, and a fully charged phone. For longer hikes: trekking poles, first aid kit, headlamp (if starting before dawn), and a printed map — cell service is unreliable on most trails outside the Las Vegas metro. In summer: a cooling towel and extra water beyond what you think you need." },
+    { question: "Are there easy hikes in Nevada for families?", answer: "Yes. Mouse's Tank in Valley of Fire is a short walk past ancient petroglyphs. White Domes Loop in Valley of Fire packs stunning scenery into just over a mile. Cave Rock at Lake Tahoe is a quick scramble with lake views. Mary Jane Falls near Mt. Charleston is a moderate forest hike to a waterfall. Alpine Lakes Loop at Great Basin is a gentle walk past two alpine lakes. All are family-friendly with proper sun protection and water." },
+  ]} />
+
+  <!-- Email Capture -->
+  <div class="container-content reveal" style="padding-bottom: var(--space-6);">
+    <EmailCapture
+      leadMagnet="Get Our Free Nevada Hiking Guide"
+      description="A printable PDF with all 20 trails, difficulty ratings, seasonal recommendations, and a desert safety checklist."
+      bullets={[
+        'All 20 trails with trailhead GPS coordinates',
+        'Difficulty and elevation profiles for every trail',
+        'Season-by-season hiking calendar for each region',
+        'Desert safety checklist and emergency contacts',
+      ]}
+      guideTag="pillar-hiking"
+    />
+  </div>
+
+  <!-- Cross-links -->
+  <section class="hike-crosslinks reveal">
+    <div class="container-content">
+      <h3 class="hike-crosslinks-heading">Explore More</h3>
+      <div class="hike-crosslinks-grid">
+        <a href="/history/" class="hike-crosslink-card">
+          <span class="hike-crosslink-icon">&#127963;</span>
+          <span class="hike-crosslink-label">Nevada History</span>
+          <span class="hike-crosslink-desc">Mining booms, atomic testing, and the rise of Las Vegas</span>
+        </a>
+        <a href="/cuisine/" class="hike-crosslink-card">
+          <span class="hike-crosslink-icon">&#127860;</span>
+          <span class="hike-crosslink-label">Nevada Cuisine</span>
+          <span class="hike-crosslink-desc">Refuel with Basque feasts, prime rib, and craft brews</span>
+        </a>
+        <a href="/practical/" class="hike-crosslink-card">
+          <span class="hike-crosslink-icon">&#9993;</span>
+          <span class="hike-crosslink-label">Travel Tips</span>
+          <span class="hike-crosslink-desc">When to visit, getting around, packing, and safety essentials</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<!-- Scroll Reveal Observer -->
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
+  }
+</script>
+
+<style>
+  /* ================================================================
+     HERO — Hiking gradient (earth tones)
+     ================================================================ */
+  .hike-hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 5rem var(--space-6) 60px;
+    overflow: hidden;
+  }
+
+  .hike-hero-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(135deg, #1A2332 0%, #065F46 40%, #059669 100%);
+  }
+
+  .hike-hero-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .hike-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 720px;
+  }
+
+  .hike-hero-title {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    line-height: 1.1;
+    margin: 0 0 var(--space-3);
+  }
+
+  .hike-hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin: 0 0 var(--space-5);
+    max-width: 580px;
+  }
+
+  .hike-hero-meta {
+    display: flex;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+  }
+
+  .hike-hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .hike-hero-meta-label {
+    font-size: 0.65rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .hike-hero-meta-value {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: #fff;
+  }
+
+  .hike-scroll-hint {
+    position: absolute;
+    bottom: 16px;
+    right: var(--space-6);
+    z-index: 3;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.35);
+    text-align: center;
+    animation: hikeBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes hikeBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ================================================================
+     PERSONAL INTRO
+     ================================================================ */
+  .hike-personal {
+    padding-block: var(--space-8);
+  }
+
+  .hike-personal-quote {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-8);
+    border-left: 4px solid #059669;
+    background: var(--color-sky);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .hike-personal-quote p {
+    font-size: var(--text-body);
+    color: var(--color-heading);
+    line-height: var(--leading-body);
+    font-style: italic;
+    margin-bottom: var(--space-3);
+  }
+
+  .hike-personal-quote cite {
+    font-size: var(--text-caption);
+    color: #065F46;
+    font-weight: var(--weight-semibold);
+    font-style: normal;
+  }
+
+  /* ================================================================
+     QUICK NAV
+     ================================================================ */
+  .hike-quicknav {
+    padding: 0 0 var(--space-6);
+  }
+
+  .hike-quicknav-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .hike-quicknav-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: var(--weight-medium);
+    color: var(--color-slate);
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .hike-quicknav-chip:hover {
+    background: var(--color-sky);
+    color: #065F46;
+    transform: translateY(-2px);
+  }
+
+  .hike-quicknav-chip--safety {
+    border-color: rgba(198, 40, 40, 0.2);
+    color: #C62828;
+  }
+
+  .hike-quicknav-chip--safety:hover {
+    background: rgba(198, 40, 40, 0.05);
+    color: #C62828;
+  }
+
+  .hike-quicknav-label {
+    white-space: nowrap;
+  }
+
+  /* ================================================================
+     REGION SECTION
+     ================================================================ */
+  .hike-region {
+    padding: var(--space-4) 0 var(--space-6);
+    scroll-margin-top: 80px;
+  }
+
+  .hike-region-header {
+    position: relative;
+    border-radius: 20px;
+    padding: var(--space-6) var(--space-6);
+    margin-bottom: var(--space-5);
+    overflow: hidden;
+  }
+
+  .hike-region-header-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hike-region-name {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    margin: 0 0 var(--space-1);
+    line-height: 1.1;
+  }
+
+  .hike-region-tagline {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 var(--space-3);
+    max-width: 540px;
+    line-height: 1.5;
+  }
+
+  .hike-region-count {
+    font-size: 0.7rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* ================================================================
+     TRAIL CARDS
+     ================================================================ */
+  .hike-trail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 768px) {
+    .hike-trail-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .hike-trail-card {
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hike-trail-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .hike-trail-body {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hike-trail-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-2);
+    margin-bottom: 4px;
+  }
+
+  .hike-trail-name {
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .hike-trail-destination {
+    font-size: 0.72rem;
+    color: var(--color-ocean-teal);
+    font-weight: var(--weight-medium);
+    margin: 0 0 var(--space-2);
+  }
+
+  .hike-trail-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+  }
+
+  .hike-trail-stat {
+    font-size: 0.72rem;
+    color: var(--color-slate);
+    background: var(--color-sky);
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+
+  .hike-trail-stat strong {
+    color: var(--color-deep-night);
+  }
+
+  .hike-trail-desc {
+    font-size: 0.82rem;
+    color: var(--color-slate);
+    line-height: 1.6;
+    margin: 0 0 var(--space-3);
+  }
+
+  .hike-trail-cta {
+    font-size: 0.72rem;
+    font-weight: var(--weight-semibold);
+    color: var(--color-ocean-teal);
+    letter-spacing: 0.02em;
+    margin-top: auto;
+  }
+
+  /* Tags */
+  .hike-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 8px;
+    border-radius: 6px;
+    line-height: 1.4;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .hike-tag--iconic {
+    background: rgba(212, 168, 83, 0.15);
+    color: #9A7B2E;
+  }
+
+  .hike-tag--mustdo {
+    background: rgba(13, 115, 119, 0.1);
+    color: var(--color-ocean-teal);
+  }
+
+  .hike-tag--bucketlist {
+    background: rgba(106, 27, 154, 0.1);
+    color: #6A1B9A;
+  }
+
+  .hike-tag--expert {
+    background: rgba(198, 40, 40, 0.1);
+    color: #C62828;
+  }
+
+  /* ================================================================
+     SAFETY SECTION
+     ================================================================ */
+  .hike-safety {
+    padding: var(--space-6) 0;
+    scroll-margin-top: 80px;
+  }
+
+  .hike-safety-header {
+    text-align: center;
+    margin-bottom: var(--space-6);
+  }
+
+  .hike-safety-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: var(--weight-bold);
+    color: #C62828;
+    margin: 0 0 var(--space-2);
+  }
+
+  .hike-safety-subtitle {
+    font-size: 1rem;
+    color: var(--color-slate);
+    margin: 0;
+  }
+
+  .hike-safety-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 768px) {
+    .hike-safety-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .hike-safety-card {
+    background: var(--color-white);
+    border: 1px solid rgba(198, 40, 40, 0.15);
+    border-radius: 14px;
+    padding: var(--space-5);
+  }
+
+  .hike-safety-label {
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: #C62828;
+    margin: 0 0 var(--space-2);
+    line-height: 1.3;
+  }
+
+  .hike-safety-text {
+    font-size: 0.85rem;
+    color: var(--color-slate);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .hike-safety-text :global(strong) {
+    color: var(--color-deep-night);
+  }
+
+  /* ================================================================
+     BOTTOM CTA
+     ================================================================ */
+  .hike-cta-section {
+    padding: var(--space-6) 0 var(--space-8);
+  }
+
+  .hike-cta-card {
+    background: linear-gradient(135deg, var(--color-deep-night) 0%, #2D3748 100%);
+    border-radius: 20px;
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+    color: #fff;
+  }
+
+  .hike-cta-heading {
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: var(--weight-bold);
+    margin: 0 0 var(--space-3);
+    color: #fff;
+  }
+
+  .hike-cta-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 520px;
+    margin: 0 auto var(--space-5);
+    line-height: 1.6;
+  }
+
+  .hike-cta-button {
+    display: inline-block;
+    background: var(--color-warm-coral);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: var(--weight-semibold);
+    padding: 12px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .hike-cta-button:hover {
+    background: #d4553b;
+    transform: translateY(-2px);
+  }
+
+  /* ================================================================
+     CROSS-LINKS
+     ================================================================ */
+  .hike-crosslinks {
+    padding: 0 0 var(--space-10);
+  }
+
+  .hike-crosslinks-heading {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    text-align: center;
+    margin: 0 0 var(--space-4);
+  }
+
+  .hike-crosslinks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 640px) {
+    .hike-crosslinks-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .hike-crosslink-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-4);
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hike-crosslink-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .hike-crosslink-icon {
+    font-size: 1.8rem;
+  }
+
+  .hike-crosslink-label {
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+  }
+
+  .hike-crosslink-desc {
+    font-size: 0.78rem;
+    color: var(--color-slate);
+    line-height: 1.4;
+  }
+
+  /* ================================================================
+     RESPONSIVE
+     ================================================================ */
+  @media (max-width: 640px) {
+    .hike-hero {
+      min-height: 50vh;
+      padding: 0 var(--space-4) 40px;
+    }
+
+    .hike-hero-meta {
+      gap: var(--space-4);
+    }
+
+    .hike-scroll-hint {
+      display: none;
+    }
+
+    .hike-region-header {
+      padding: var(--space-4) var(--space-4);
+    }
+  }
+</style>
