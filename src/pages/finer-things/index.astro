@@ -1,0 +1,988 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'The Finer Things', url: '/finer-things/' },
+];
+
+const pageTitle = 'The Finer Things — Luxury Nevada: High-Roller Suites, Michelin Dining & Desert Escapes';
+const pageDescription = 'Las Vegas high-roller suites, Michelin-starred Strip restaurants, VIP nightlife, Grand Canyon helicopter tours, desert spa retreats, Lake Tahoe luxury lodges, and Nevada at its most elevated.';
+
+interface TopicSection {
+  id: string;
+  icon: string;
+  title: string;
+  gradient: string;
+  items: { label: string; text: string; link?: string }[];
+}
+
+const topics: TopicSection[] = [
+  {
+    id: 'fine-dining',
+    icon: '\u{1F37D}\u{FE0F}',
+    title: 'Michelin-Starred & Fine Dining',
+    gradient: 'linear-gradient(135deg, #1A2332 0%, #78350F 100%)',
+    items: [
+      { label: 'Joel Robuchon, MGM Grand', text: 'The pinnacle of Las Vegas dining. Three Michelin stars (pre-closure), and even after reopening under the Robuchon legacy team, this remains one of the most exceptional dining rooms in the country. The 16-course degustation menu ($450+) is a once-in-a-lifetime meal. The bread cart alone has more variety than most bakeries. Jacket required for men. Reserve 3\u20134 weeks ahead.', link: '/destinations/las-vegas/' },
+      { label: 'Twist by Pierre Gagnaire, Waldorf Astoria', text: 'French fine dining on the 23rd floor of the Waldorf Astoria with floor-to-ceiling Strip views. Gagnaire\'s cuisine is playful and inventive \u2014 foie gras with mango and balsamic, turbot with black truffle. Tasting menu $250\u2013350. The dining room at sunset, with the Strip lighting up below, is one of the most cinematic dinner settings in the world.', link: '/destinations/las-vegas/' },
+      { label: 'Wing Lei, Wynn Las Vegas', text: 'The only Chinese restaurant in North America to hold a Michelin star. Cantonese fine dining in a room designed by Roger Thomas \u2014 all gold leaf, crystal, and butterfly motifs. Peking duck (carved tableside, $98), wok-fried lobster, dim sum that rivals Hong Kong. Lunch is the insider move \u2014 same kitchen, same quality, 40% less than dinner.', link: '/destinations/las-vegas/' },
+      { label: 'Bazaar Meat by Jose Andres, SLS', text: 'Jose Andres\' temple to fire and protein. The menu spans whole-animal cooking, Japanese wagyu, Spanish jamon iberico carved to order, and a raw bar that could anchor its own restaurant. Mains $45\u2013200. The bone marrow cotton candy is the most Vegas dish ever created \u2014 and it actually works. The cocktail program is equally ambitious.', link: '/destinations/las-vegas/' },
+      { label: 'Wally\'s, Resorts World', text: 'A wine-focused restaurant-bar-retail hybrid that has become the hottest reservation in Vegas. Over 2,500 wines, a Mediterranean menu, and a vibe that manages to feel both exclusive and welcoming. The wine flight experience ($50\u2013150) is an education. Main plates $35\u201375. Walk-ins are tough after 7pm \u2014 reserve or go early.', link: '/destinations/las-vegas/' },
+    ],
+  },
+  {
+    id: 'luxury-suites',
+    icon: '\u{1F3E8}',
+    title: 'High-Roller Suites & Luxury Hotels',
+    gradient: 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%)',
+    items: [
+      { label: 'Encore Tower Suites, Wynn', text: 'The gold standard for Las Vegas luxury. Tower Suites guests get a private entrance, dedicated concierge, pool reserved exclusively for suite guests, and rooms starting at 700 square feet with floor-to-ceiling Strip views. From $500/night. The afternoon tea service in the Tower Suite lounge is an unexpected gem. This is where serious high-rollers stay when they want refined over flashy.', link: '/destinations/las-vegas/' },
+      { label: 'Bellagio Penthouse Suite', text: 'A 4,075-square-foot penthouse with a grand piano, formal dining room for 10, and panoramic views of the fountains from a private terrace. From $2,500/night (comped for high-rollers). Even if the penthouse is out of budget, the Bellagio\'s regular rooms are among the best on the Strip \u2014 consistently excellent.', link: '/destinations/las-vegas/' },
+      { label: 'The Venetian Palazzo Prestige', text: 'Every room at The Venetian is a suite \u2014 that\'s the baseline. The Palazzo Prestige level adds a private lounge, premium minibar, and the best Strip-view rooms in the building. From $350/night. At 650+ square feet minimum, these are the largest standard rooms in Vegas. The Canyon Ranch spa is connected.', link: '/destinations/las-vegas/' },
+      { label: 'Edgewood Tahoe Resort', text: 'Lake Tahoe\'s premier luxury lodge, right on the shore. Lodge rooms with lake views, a Jeff Cobb-designed golf course, and a spa with a heated outdoor pool overlooking the lake. From $400/night in summer. The restaurant serves farm-to-table cuisine with Tahoe as the backdrop. This is the anti-Vegas Nevada luxury experience.', link: '/destinations/lake-tahoe/' },
+      { label: 'The Ritz-Carlton, Lake Tahoe', text: 'Mid-mountain at Northstar ski resort with ski-in/ski-out access. Residences with full kitchens, a world-class spa, and the Manzanita restaurant. From $350/night in ski season. Summer rates drop significantly. The hot tub deck with mountain views after a day on the slopes is pure luxury.', link: '/destinations/lake-tahoe/' },
+    ],
+  },
+  {
+    id: 'nightlife-vip',
+    icon: '\u{1F378}',
+    title: 'VIP Nightlife & Entertainment',
+    gradient: 'linear-gradient(135deg, #E8654A 0%, #FB923C 100%)',
+    items: [
+      { label: 'Omnia, Caesars Palace', text: 'The most technologically advanced nightclub in the world. A kinetic chandelier weighing 22,000 pounds moves above the dance floor. VIP tables start at $2,000\u20135,000 (minimum spend) for a group, but include bottle service and dedicated staff. The terrace overlooking the Strip is where the real conversations happen. Dress code enforced strictly.', link: '/destinations/las-vegas/' },
+      { label: 'XS Nightclub, Wynn', text: 'The highest-grossing nightclub in America, year after year. An indoor-outdoor layout with a pool, cabanas, and a production quality that rivals concert venues. Table minimums $1,500\u201310,000+ depending on the DJ. General admission $30\u201375. The Sunday night "Nightswim" pool party (May\u2013September) is the most unique nightclub experience in Vegas.', link: '/destinations/las-vegas/' },
+      { label: 'Cirque du Soleil Shows', text: 'Vegas has seven resident Cirque productions. <strong>"O"</strong> at Bellagio (water-based, $130\u2013300) is the crown jewel and consistently ranked the best show in Vegas. <strong>"KA"</strong> at MGM Grand for martial arts spectacle. <strong>"Mystere"</strong> at TI for classic Cirque. Book the premium center-orchestra seats \u2014 the difference in viewing angle is worth the upgrade.', link: '/destinations/las-vegas/' },
+      { label: 'High Roller Happy Hour', text: 'The world\'s tallest observation wheel (550 feet) offers a Happy Half Hour experience \u2014 an open bar in your private pod for $55\u201365. A 30-minute revolution with Strip views in every direction while drinking craft cocktails. The sunset ride is the one to book. Private pods for up to 40 guests available for special occasions.', link: '/destinations/las-vegas/' },
+      { label: 'Speakeasy & Cocktail Bars', text: 'Vegas\'s best bars aren\'t in the clubs. <strong>The Laundry Room</strong> (seats 27, text-only reservations) serves bespoke cocktails in an intimate setting. <strong>Parasol Down</strong> at Wynn overlooks the Lake of Dreams. <strong>Herbs & Rye</strong> on West Sahara is the locals\' choice for classic cocktails. <strong>Ghost Donkey</strong> at The Cosmopolitan for mezcal. Cocktails $18\u201328.', link: '/destinations/las-vegas/' },
+    ],
+  },
+  {
+    id: 'helicopter-tours',
+    icon: '\u{1F681}',
+    title: 'Helicopter Tours & Aerial Experiences',
+    gradient: 'linear-gradient(135deg, #1565C0 0%, #42A5F5 100%)',
+    items: [
+      { label: 'Grand Canyon Helicopter Tour', text: 'The most popular luxury experience in Nevada. Fly from the Las Vegas Strip over Hoover Dam, Lake Mead, and into the Grand Canyon for a champagne landing on the canyon floor. 3.5\u20134 hour experience from $300\u2013500 per person. Maverick and Sundance are the premium operators. The sunset flight adds $50\u2013100 and is absolutely worth it \u2014 the canyon turns gold and crimson.', link: '/destinations/las-vegas/' },
+      { label: 'Strip Helicopter Night Flight', text: 'A 12\u201315 minute helicopter ride over the Las Vegas Strip at night. The neon below is genuinely spectacular from 1,000 feet. $100\u2013180 per person. Maverick\'s "Vegas Nights" tour is the standard. Short but impactful \u2014 this is the shot you\'ll show everyone back home. Book the front seat for an extra $50.', link: '/destinations/las-vegas/' },
+      { label: 'Valley of Fire by Helicopter', text: 'Private helicopter transfers from Las Vegas to Valley of Fire State Park, landing on a private mesa for a champagne toast surrounded by 150-million-year-old red sandstone formations. $500\u2013800 per person for a half-day experience. This transforms a 1-hour drive into a 15-minute flight and adds a perspective you can\'t get from the ground.', link: '/destinations/valley-of-fire/' },
+      { label: 'Lake Tahoe Scenic Flight', text: 'Helicopter tours over Lake Tahoe\'s impossibly blue water, Emerald Bay, and the Sierra Nevada peaks. 30\u201360 minute flights from $200\u2013450 per person. In winter, the snow-covered mountains and the dark blue lake create one of the most dramatic aerial landscapes in the American West.', link: '/destinations/lake-tahoe/' },
+    ],
+  },
+  {
+    id: 'golf',
+    icon: '\u{26F3}',
+    title: 'Championship Golf',
+    gradient: 'linear-gradient(135deg, #065F46 0%, #059669 100%)',
+    items: [
+      { label: 'Shadow Creek, Las Vegas', text: 'Tom Fazio\'s masterpiece, carved from flat desert into a lush parkland course with waterfalls, creeks, and mature trees. Consistently ranked among the top courses in America. Green fees $500+ (MGM hotel guests only). Includes limo transfer, caddie, and locker room. The most exclusive golf experience in Nevada and one of the most exclusive in the country.', link: '/destinations/las-vegas/' },
+      { label: 'Wynn Golf Club', text: 'The only golf course on the Las Vegas Strip. Redesigned by Tom Fazio Jr. in 2019, it\'s a desert-meets-parkland layout steps from the Wynn hotel. Green fees $300\u2013500. Forecaddie included. The 18th hole plays alongside the hotel tower. Play in the morning before the desert heat builds \u2014 the course is in pristine condition at dawn.', link: '/destinations/las-vegas/' },
+      { label: 'Edgewood Tahoe Golf Course', text: 'George Fazio and Tom Fazio\'s lakeside masterpiece. Holes along Lake Tahoe\'s shore with mountain views in every direction. Host of the American Century Championship celebrity tournament. Green fees $200\u2013350. The par-3 17th and par-4 18th along the lake are two of the most scenic finishing holes in American golf.', link: '/destinations/lake-tahoe/' },
+      { label: 'Cascata, Boulder City', text: 'Rees Jones designed this canyon course 30 minutes from the Strip, with a 418-foot waterfall cascading past the clubhouse. Green fees $250\u2013400, including caddie and luxury facilities. The drive through the canyon to the course is the appetizer. Cascata is Italian for "waterfall" and the name delivers.', link: '/destinations/boulder-city/' },
+      { label: 'Wolf Creek, Mesquite', text: 'One of the most visually dramatic golf courses in the world. Carved through canyons of red rock, with tee shots over 100-foot drops and greens perched on cliff edges. Green fees $100\u2013250 depending on season. It\'s 80 miles from Vegas but every golfer who visits Nevada should play this course at least once. The photos don\'t do it justice.', link: '/destinations/las-vegas/' },
+    ],
+  },
+  {
+    id: 'spa-desert',
+    icon: '\u{1F9D6}',
+    title: 'Desert Spa Retreats',
+    gradient: 'linear-gradient(135deg, #0D7377 0%, #14B8A6 100%)',
+    items: [
+      { label: 'Canyon Ranch, The Venetian', text: 'A 134,000-square-foot wellness complex on the Strip \u2014 the largest spa in Las Vegas. Aquathermal suites, a salt grotto, 100+ treatment options, fitness classes, and nutritional counseling. Day pass with treatment from $200. The Aquavana experience (thermal suite circuit) is $65 and worth every penny as a standalone visit. Weekday mornings are quietest.', link: '/destinations/las-vegas/' },
+      { label: 'The Spa at Wynn', text: 'Consistently rated the best hotel spa in Las Vegas. 45 treatment rooms, a garden setting, and signature experiences including the Good Luck Ritual ($350, 110 minutes). Hot and cold plunge pools, eucalyptus steam room, and a relaxation lounge with views of the resort\'s private lake. Treatments $175\u2013500. Book the couples\' suite for a special occasion.', link: '/destinations/las-vegas/' },
+      { label: 'Spa Mandalay, Mandalay Bay', text: 'A full-service spa with a private rooftop sundeck, hot and cold plunge pools, and a redwood sauna. The location at the south end of the Strip means it\'s quieter than competitors. Treatments $150\u2013350. The post-treatment relaxation room with views of the Mandalay Bay beach is a peaceful escape from the Strip chaos below.', link: '/destinations/las-vegas/' },
+      { label: 'Stillwater Spa, Edgewood Tahoe', text: 'Lake Tahoe\'s premiere spa experience. Treatments incorporating Sierra botanicals \u2014 pine needle body scrubs, mountain sage wraps, and alpine mineral soaks. The heated outdoor pool overlooking Lake Tahoe is the centerpiece. Treatments $150\u2013350. In winter, the hot-to-cold contrast of the outdoor pool with snow on the ground is transcendent.', link: '/destinations/lake-tahoe/' },
+      { label: 'JW Marriott Spa, Summerlin', text: 'A 40,000-square-foot spa resort on the edge of Red Rock Canyon. Desert-inspired treatments \u2014 red clay body wraps, desert sage aromatherapy, and hot stone massages using locally sourced volcanic rock. Day pass with treatment from $175. The desert setting, away from the Strip, makes this feel like a genuine retreat rather than a hotel amenity.' },
+    ],
+  },
+];
+---
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  pageType="destination"
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Hero -->
+  <header class="ft-hero">
+    <div class="ft-hero-gradient"></div>
+    <div class="ft-hero-noise"></div>
+    <div class="ft-hero-content">
+      <h1 class="ft-hero-title">The Finer Things</h1>
+      <p class="ft-hero-subtitle">High-roller suites with Strip views, Michelin-starred tasting menus, VIP nightclub tables, helicopter rides over the Grand Canyon, championship golf on desert masterpieces, Lake Tahoe luxury lodges, and desert spa retreats that make you forget the neon exists.</p>
+      <div class="ft-hero-meta">
+        <div class="ft-hero-meta-item">
+          <span class="ft-hero-meta-label">Topics</span>
+          <span class="ft-hero-meta-value">7</span>
+        </div>
+        <div class="ft-hero-meta-item">
+          <span class="ft-hero-meta-label">Destinations</span>
+          <span class="ft-hero-meta-value">10</span>
+        </div>
+        <div class="ft-hero-meta-item">
+          <span class="ft-hero-meta-label">Luxury Picks</span>
+          <span class="ft-hero-meta-value">35+</span>
+        </div>
+      </div>
+    </div>
+    <div class="ft-scroll-hint">Scroll<br />&#8595;</div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container-content">
+    <Breadcrumb items={breadcrumbs} />
+  </div>
+
+  <!-- Personal intro -->
+  <section class="ft-personal ft-reveal">
+    <div class="container-content">
+      <blockquote class="ft-personal-quote">
+        <p>Nevada is a place where luxury has no ceiling. I've sat at a $500 tasting menu where every course was better than the last, watched the sun set over the Grand Canyon from a helicopter, and played golf on a course carved from the desert that belongs on a magazine cover. But the best moment? Standing on the Wynn balcony at 2am, watching the Strip pulse below, knowing that every one of those lights represents someone else's best night. Nevada does excess better than anywhere on earth -- and when it's done right, it's not excess at all. It's precision.</p>
+        <cite>&mdash; Scott</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Quick Facts Strip -->
+  <section class="ft-quickfacts ft-reveal">
+    <div class="container-content">
+      <div class="ft-quickfacts-bar">
+        <div class="ft-quickfact">
+          <span class="ft-quickfact-label">Fine Dining</span>
+          <span class="ft-quickfact-value">$100&ndash;450</span>
+        </div>
+        <div class="ft-quickfact-divider"></div>
+        <div class="ft-quickfact">
+          <span class="ft-quickfact-label">Luxury Suite</span>
+          <span class="ft-quickfact-value">$350&ndash;2,500/nt</span>
+        </div>
+        <div class="ft-quickfact-divider"></div>
+        <div class="ft-quickfact">
+          <span class="ft-quickfact-label">VIP Table</span>
+          <span class="ft-quickfact-value">$1,500&ndash;10K</span>
+        </div>
+        <div class="ft-quickfact-divider"></div>
+        <div class="ft-quickfact">
+          <span class="ft-quickfact-label">Helicopter Tour</span>
+          <span class="ft-quickfact-value">$100&ndash;500</span>
+        </div>
+        <div class="ft-quickfact-divider"></div>
+        <div class="ft-quickfact">
+          <span class="ft-quickfact-label">Golf (Premium)</span>
+          <span class="ft-quickfact-value">$200&ndash;500</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Nav -->
+  <section class="ft-quicknav ft-reveal">
+    <div class="container-content">
+      <div class="ft-quicknav-grid">
+        {topics.map((t) => (
+          <a href={`#${t.id}`} class="ft-quicknav-chip">
+            <span class="ft-quicknav-icon">{t.icon}</span>
+            <span class="ft-quicknav-label">{t.title.split(' ').slice(0, 2).join(' ')}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Topic Sections -->
+  {topics.map((topic) => (
+    <section class="ft-topic ft-reveal" id={topic.id}>
+      <div class="container-content">
+        <div class="ft-topic-header" style={`background: ${topic.gradient};`}>
+          <div class="ft-topic-header-inner">
+            <span class="ft-topic-icon">{topic.icon}</span>
+            <h2 class="ft-topic-title">{topic.title}</h2>
+            <span class="ft-topic-count">{topic.items.length} picks</span>
+          </div>
+        </div>
+
+        <div class="ft-tip-grid">
+          {topic.items.map((item) => (
+            <div class="ft-tip-card">
+              <h3 class="ft-tip-label">{item.label}</h3>
+              <p class="ft-tip-text" set:html={item.text} />
+              {item.link && (
+                <a href={item.link} class="ft-tip-link">Explore {item.label.split(',')[0]} &rarr;</a>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- Scott's Pro Tips -->
+  <section class="ft-protips ft-reveal">
+    <div class="container-content">
+      <div class="ft-protips-card">
+        <h2 class="ft-protips-heading">Scott's Pro Tips</h2>
+        <div class="scott-tips">
+          <ul>
+            <li><strong>Midweek Pricing:</strong> Sunday through Thursday, luxury suites on the Strip drop 30&ndash;60% from weekend rates. A $600 Friday-night suite at Wynn might be $250 on a Tuesday. Fine dining reservations are easier to get too. If your schedule allows, midweek is the insider move for Vegas luxury.</li>
+            <li><strong>Resort Fees:</strong> Every Strip hotel charges a resort fee ($35&ndash;55/night) on top of the room rate. It's non-negotiable and often not included in the advertised price. Factor it into your real per-night cost. Some booking sites show the total; most don't.</li>
+            <li><strong>Players Club Strategy:</strong> Sign up for the casino's loyalty program even if you don't gamble. Put $100 through a slot machine and you're "rated." This unlocks comp offers, room upgrades, and dining credits that can save hundreds on future visits. Caesars Rewards, MGM Rewards, and Wynn Red Card are the three that matter.</li>
+            <li><strong>Restaurant Reservations:</strong> Top restaurants book 30 days ahead. Set a calendar reminder. For sold-out spots, check OpenTable and Resy the day of &mdash; cancellations appear 24&ndash;48 hours before. Bar and counter seating is often walk-in only and serves the full menu.</li>
+            <li><strong>Helicopter Timing:</strong> Sunset flights to the Grand Canyon sell out weeks ahead. Book as early as possible. Morning flights have the clearest visibility. Avoid midday in summer &mdash; turbulence from desert thermals can be rough. Maverick operates from a private terminal and the experience is noticeably more polished than competitors.</li>
+            <li><strong>Lake Tahoe Seasons:</strong> Summer (June&ndash;September) for golf, hiking, and lake activities. Winter (December&ndash;March) for skiing and spa retreats. October is the hidden gem &mdash; fall colors, no crowds, and shoulder-season pricing at luxury lodges.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="ft-faq ft-reveal">
+    <div class="container-content">
+      <h2 class="ft-faq-heading">Frequently Asked Questions</h2>
+      <div class="ft-faq-list">
+        <details class="ft-faq-item">
+          <summary class="ft-faq-question">What's the best luxury hotel on the Las Vegas Strip?</summary>
+          <p class="ft-faq-answer">Wynn/Encore Tower Suites is the consistent answer. The rooms, service, dining, pool, and spa are all best-in-class. Bellagio is the classic choice with its iconic fountains. The Venetian Palazzo offers the largest rooms. For something newer, Resorts World's Crockfords (Hilton's ultra-luxury brand) is excellent. It depends on your priorities, but Wynn rarely disappoints.</p>
+        </details>
+        <details class="ft-faq-item">
+          <summary class="ft-faq-question">Is it worth doing a VIP nightclub experience?</summary>
+          <p class="ft-faq-answer">If you're celebrating something and want to do Vegas properly, yes. The table service at XS, Omnia, or Hakkasan transforms the experience from standing in a crowd to having a dedicated space with bottle service. Split the minimum among 6&ndash;8 people and it's $250&ndash;500 per person for a memorable night. For a casual visit, general admission and a good spot near the DJ booth works fine.</p>
+        </details>
+        <details class="ft-faq-item">
+          <summary class="ft-faq-question">When is the best time to visit Las Vegas?</summary>
+          <p class="ft-faq-answer">March through May and September through November offer the best weather (70s&ndash;80s) and reasonable pricing. Summer (June&ndash;August) brings 110-degree heat and the cheapest room rates. December through February is cooler and busier around holidays and conventions. Avoid major convention weeks (CES in January, most notably) unless you book months ahead.</p>
+        </details>
+        <details class="ft-faq-item">
+          <summary class="ft-faq-question">Should I rent a car in Las Vegas?</summary>
+          <p class="ft-faq-answer">For Strip-only trips, no. Rideshare and taxis cover the Strip and Downtown. For day trips to Red Rock Canyon, Valley of Fire, or Hoover Dam, a rental car is essential. For Lake Tahoe, you'll need a car (and chains in winter). Hertz and Enterprise have desks at most major resorts. The airport rental center is a short tram ride from baggage claim.</p>
+        </details>
+        <details class="ft-faq-item">
+          <summary class="ft-faq-question">Can I combine Las Vegas and Lake Tahoe in one trip?</summary>
+          <p class="ft-faq-answer">Absolutely. It's a 7&ndash;8 hour drive or a 1-hour flight (Reno, then 45-minute drive to Tahoe). A 3-night Vegas + 3-night Tahoe trip gives you the best of both worlds &mdash; neon and nature. In winter, combine Strip dining and shows with Tahoe skiing. In summer, pair pool parties with lake adventures. The contrast is what makes it work.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="ft-cta-section ft-reveal">
+    <div class="container-content">
+      <div class="ft-cta-card">
+        <h2 class="ft-cta-heading">Plan Your Luxury Nevada Trip</h2>
+        <p class="ft-cta-text">Tell our AI planner your dates and interests &mdash; it'll build a custom itinerary with the best restaurants, hotels, shows, and experiences across Nevada.</p>
+        <a href="/plan/" class="ft-cta-button">Start Planning &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email Capture -->
+  <div class="container-content ft-reveal" style="padding-bottom: var(--space-6);">
+    <EmailCapture
+      leadMagnet="Get Our Free Nevada Luxury Travel Guide"
+      description="High-roller suites, Michelin dining, VIP nightlife, helicopter tours, and golf — packed into one PDF."
+      bullets={[
+        'Best luxury suites on the Strip with midweek pricing strategy',
+        'Top Michelin-starred and fine dining restaurants ranked',
+        'Helicopter tour comparison with booking tips',
+        'Championship golf courses and desert spa retreats',
+      ]}
+      guideTag="pillar-finer-things"
+    />
+  </div>
+
+  <!-- Cross-links -->
+  <section class="ft-crosslinks ft-reveal">
+    <div class="container-content">
+      <h3 class="ft-crosslinks-heading">Explore More</h3>
+      <div class="ft-crosslinks-grid">
+        <a href="/cuisine/" class="ft-crosslink-card">
+          <span class="ft-crosslink-icon">&#127860;</span>
+          <span class="ft-crosslink-label">Food & Cuisine</span>
+          <span class="ft-crosslink-desc">Celebrity chef restaurants, buffets, and hidden gems</span>
+        </a>
+        <a href="/hiking/" class="ft-crosslink-card">
+          <span class="ft-crosslink-icon">&#9968;</span>
+          <span class="ft-crosslink-label">Hiking Guide</span>
+          <span class="ft-crosslink-desc">Red Rock, Valley of Fire, and 20+ desert trails</span>
+        </a>
+        <a href="/history/" class="ft-crosslink-card">
+          <span class="ft-crosslink-icon">&#127963;</span>
+          <span class="ft-crosslink-label">History & Heritage</span>
+          <span class="ft-crosslink-desc">Rat Pack era, Hoover Dam, mining towns, and neon history</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+</BaseLayout>
+
+<!-- Scroll Reveal Observer (uses ft-reveal/ft-visible to avoid Tailwind .visible conflict) -->
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const ftRevealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('ft-visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.ft-reveal').forEach((el) => ftRevealObserver.observe(el));
+  } else {
+    document.querySelectorAll('.ft-reveal').forEach((el) => el.classList.add('ft-visible'));
+  }
+</script>
+
+<style>
+  /* ================================================================
+     HERO
+     ================================================================ */
+  .ft-hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 5rem var(--space-6) 60px;
+    overflow: hidden;
+  }
+
+  .ft-hero-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(135deg, #1A2332 0%, #4C1D95 40%, #FB923C 100%);
+  }
+
+  .ft-hero-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .ft-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 720px;
+  }
+
+  .ft-hero-title {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    line-height: 1.1;
+    margin: 0 0 var(--space-3);
+  }
+
+  .ft-hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin: 0 0 var(--space-5);
+    max-width: 580px;
+  }
+
+  .ft-hero-meta {
+    display: flex;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+  }
+
+  .ft-hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .ft-hero-meta-label {
+    font-size: 0.65rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .ft-hero-meta-value {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: #fff;
+  }
+
+  .ft-scroll-hint {
+    position: absolute;
+    bottom: 16px;
+    right: var(--space-6);
+    z-index: 3;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.35);
+    text-align: center;
+    animation: ftBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes ftBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ================================================================
+     PERSONAL INTRO
+     ================================================================ */
+  .ft-personal {
+    padding-block: var(--space-8);
+  }
+
+  .ft-personal-quote {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-8);
+    border-left: 4px solid #D4A574;
+    background: var(--color-sky);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .ft-personal-quote p {
+    font-size: var(--text-body);
+    color: var(--color-heading);
+    line-height: var(--leading-body);
+    font-style: italic;
+    margin-bottom: var(--space-3);
+  }
+
+  .ft-personal-quote cite {
+    font-size: var(--text-caption);
+    color: #78350F;
+    font-weight: var(--weight-semibold);
+    font-style: normal;
+  }
+
+  /* ================================================================
+     QUICK FACTS STRIP
+     ================================================================ */
+  .ft-quickfacts {
+    padding: 0 0 var(--space-4);
+  }
+
+  .ft-quickfacts-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-5);
+    background: var(--color-sky);
+    border-radius: 16px;
+    padding: var(--space-4) var(--space-6);
+    flex-wrap: wrap;
+  }
+
+  .ft-quickfact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    text-align: center;
+  }
+
+  .ft-quickfact-label {
+    font-size: 0.65rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-slate);
+  }
+
+  .ft-quickfact-value {
+    font-size: 1.05rem;
+    font-weight: var(--weight-extrabold);
+    color: var(--color-deep-night);
+  }
+
+  .ft-quickfact-divider {
+    width: 1px;
+    height: 28px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  /* ================================================================
+     QUICK NAV
+     ================================================================ */
+  .ft-quicknav {
+    padding: 0 0 var(--space-6);
+  }
+
+  .ft-quicknav-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .ft-quicknav-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: var(--weight-medium);
+    color: #4A5568;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .ft-quicknav-chip:hover {
+    background: #FDF8F0;
+    color: #78350F;
+    transform: translateY(-2px);
+  }
+
+  .ft-quicknav-icon {
+    font-size: 1rem;
+  }
+
+  .ft-quicknav-label {
+    white-space: nowrap;
+  }
+
+  /* ================================================================
+     TOPIC SECTION
+     ================================================================ */
+  .ft-topic {
+    padding: var(--space-4) 0 var(--space-6);
+    scroll-margin-top: 80px;
+  }
+
+  .ft-topic-header {
+    position: relative;
+    border-radius: 20px;
+    padding: var(--space-5) var(--space-6);
+    margin-bottom: var(--space-5);
+    overflow: hidden;
+  }
+
+  .ft-topic-header-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .ft-topic-icon {
+    font-size: 1.6rem;
+  }
+
+  .ft-topic-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    margin: 0;
+    line-height: 1.2;
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .ft-topic-count {
+    font-size: 0.7rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* ================================================================
+     TIP CARDS
+     ================================================================ */
+  .ft-tip-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 768px) {
+    .ft-tip-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .ft-tip-card {
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    padding: var(--space-5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ft-tip-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .ft-tip-label {
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    margin: 0 0 var(--space-2);
+    line-height: 1.3;
+  }
+
+  .ft-tip-text {
+    font-size: 0.85rem;
+    color: var(--color-slate);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .ft-tip-text :global(a) {
+    color: #78350F;
+    font-weight: var(--weight-semibold);
+    text-decoration: underline;
+    text-decoration-color: rgba(120, 53, 15, 0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s ease;
+  }
+
+  .ft-tip-text :global(a:hover) {
+    text-decoration-color: #78350F;
+  }
+
+  .ft-tip-link {
+    display: inline-block;
+    margin-top: var(--space-3);
+    font-size: 0.8rem;
+    font-weight: var(--weight-semibold);
+    color: #78350F;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .ft-tip-link:hover {
+    color: #D4A574;
+  }
+
+  /* ================================================================
+     SCOTT'S PRO TIPS
+     ================================================================ */
+  .ft-protips {
+    padding: var(--space-4) 0 var(--space-6);
+  }
+
+  .ft-protips-card {
+    background: linear-gradient(135deg, #1A2332 0%, #2D3748 100%);
+    border-radius: 20px;
+    padding: var(--space-6) var(--space-6);
+  }
+
+  .ft-protips-heading {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: var(--weight-bold);
+    color: #D4A574;
+    margin: 0 0 var(--space-4);
+  }
+
+  .ft-protips-card .scott-tips {
+    background: transparent;
+    border-left: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ft-protips-card .scott-tips ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .ft-protips-card .scott-tips li {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.65;
+    padding-left: var(--space-4);
+    position: relative;
+  }
+
+  .ft-protips-card .scott-tips li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #D4A574;
+  }
+
+  .ft-protips-card .scott-tips :global(strong) {
+    color: #D4A574;
+    font-weight: var(--weight-semibold);
+  }
+
+  .ft-protips-card .scott-tips :global(a) {
+    color: #FB923C;
+    font-weight: var(--weight-semibold);
+    text-decoration: underline;
+    text-decoration-color: rgba(251, 146, 60, 0.4);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s ease;
+  }
+
+  .ft-protips-card .scott-tips :global(a:hover) {
+    text-decoration-color: #FB923C;
+  }
+
+  /* ================================================================
+     FAQ SECTION
+     ================================================================ */
+  .ft-faq {
+    padding: var(--space-4) 0 var(--space-6);
+  }
+
+  .ft-faq-heading {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    text-align: center;
+    margin: 0 0 var(--space-5);
+  }
+
+  .ft-faq-list {
+    max-width: 720px;
+    margin: 0 auto;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .ft-faq-item {
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .ft-faq-question {
+    padding: var(--space-4) var(--space-5);
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .ft-faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .ft-faq-question::after {
+    content: '+';
+    float: right;
+    font-size: 1.2rem;
+    color: var(--color-slate);
+    transition: transform 0.2s ease;
+  }
+
+  .ft-faq-item[open] .ft-faq-question::after {
+    content: '\2212';
+  }
+
+  .ft-faq-answer {
+    padding: 0 var(--space-5) var(--space-4);
+    font-size: 0.85rem;
+    color: var(--color-slate);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ================================================================
+     BOTTOM CTA
+     ================================================================ */
+  .ft-cta-section {
+    padding: var(--space-6) 0 var(--space-8);
+  }
+
+  .ft-cta-card {
+    background: linear-gradient(135deg, #4C1D95 0%, #FB923C 100%);
+    border-radius: 20px;
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+    color: #fff;
+  }
+
+  .ft-cta-heading {
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: var(--weight-bold);
+    margin: 0 0 var(--space-3);
+    color: #fff;
+  }
+
+  .ft-cta-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 520px;
+    margin: 0 auto var(--space-5);
+    line-height: 1.6;
+  }
+
+  .ft-cta-button {
+    display: inline-block;
+    background: var(--color-deep-night);
+    color: #D4A574;
+    font-size: 0.9rem;
+    font-weight: var(--weight-semibold);
+    padding: 12px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .ft-cta-button:hover {
+    background: #0D1117;
+    transform: translateY(-2px);
+  }
+
+  /* ================================================================
+     CROSS-LINKS
+     ================================================================ */
+  .ft-crosslinks {
+    padding: 0 0 var(--space-10);
+  }
+
+  .ft-crosslinks-heading {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    text-align: center;
+    margin: 0 0 var(--space-4);
+  }
+
+  .ft-crosslinks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 640px) {
+    .ft-crosslinks-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .ft-crosslink-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-4);
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ft-crosslink-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .ft-crosslink-icon {
+    font-size: 1.8rem;
+  }
+
+  .ft-crosslink-label {
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: #1A2332;
+  }
+
+  .ft-crosslink-desc {
+    font-size: 0.78rem;
+    color: #4A5568;
+    line-height: 1.4;
+  }
+
+  /* ================================================================
+     SCROLL REVEAL
+     ================================================================ */
+  .ft-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .ft-reveal.ft-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes ftRevealFallback {
+    to { opacity: 1; transform: none; }
+  }
+
+  .ft-reveal {
+    animation: ftRevealFallback 0s 3s forwards;
+  }
+
+  /* ================================================================
+     RESPONSIVE
+     ================================================================ */
+  @media (max-width: 640px) {
+    .ft-hero {
+      min-height: 50vh;
+      padding: 0 var(--space-4) 40px;
+    }
+
+    .ft-hero-meta {
+      gap: var(--space-4);
+    }
+
+    .ft-scroll-hint {
+      display: none;
+    }
+
+    .ft-topic-header {
+      padding: var(--space-4) var(--space-4);
+    }
+
+    .ft-quickfacts-bar {
+      gap: var(--space-3);
+      padding: var(--space-3) var(--space-4);
+    }
+
+    .ft-quickfact-divider {
+      display: none;
+    }
+
+    .ft-quickfact {
+      min-width: 80px;
+    }
+
+    .ft-personal-quote {
+      padding: var(--space-4) var(--space-5);
+    }
+
+    .ft-protips-card {
+      padding: var(--space-5) var(--space-4);
+    }
+  }
+</style>
