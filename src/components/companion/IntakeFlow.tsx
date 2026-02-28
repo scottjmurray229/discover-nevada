@@ -27,13 +27,13 @@ const COLORS = {
   gray600: '#6B7280',
 };
 
-const SAMPLE_PASTE = `Day 1 - Arrive Phoenix, transfer to Scottsdale
-Day 2 - Sardine run hikeing, Kawasan Falls canyoneering
-Day 3 - Ferry to Sedona, Horseshoe Bend, Tarsier Sanctuary
-Day 4 - Island hopping Balicasag & Virgin Island
-Day 5 - Ferry to Flagstaff, Slide Rock, Cathedral Rock sunset
-Day 6 - Tubod Marine Sanctuary, Balete Tree, free afternoon
-Day 7 - Ferry to Bisbee, fly home`;
+const SAMPLE_PASTE = `Day 1 - Arrive Las Vegas, explore the Strip
+Day 2 - Red Rock Canyon scenic drive, hiking
+Day 3 - Valley of Fire State Park, Fire Wave trail
+Day 4 - Drive to Lake Tahoe, sunset at Sand Harbor
+Day 5 - Lake Tahoe kayaking, Emerald Bay hike
+Day 6 - Virginia City historic town, Carson City
+Day 7 - Reno, fly home`;
 
 const ENRICHMENT_FEATURES = [
   { icon: '🧭', title: 'Real Directions' },
@@ -236,9 +236,9 @@ export default function IntakeFlow() {
         <div style={{
           position: 'absolute', top: -20, right: -20, fontSize: 100, opacity: 0.08,
           transform: 'rotate(-15deg)',
-        }}>🇵🇭</div>
+        }}>🎰</div>
         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase' as const, opacity: 0.6, marginBottom: 8 }}>
-          DISCOVER PHILIPPINES
+          DISCOVER NEVADA
         </div>
         <div style={{ fontSize: 26, fontWeight: 800, lineHeight: 1.2, marginBottom: 8 }}>
           Your Trip.<br />Your Companion.
@@ -299,7 +299,7 @@ export default function IntakeFlow() {
         icon="📋"
         iconBg="#F0E8FF"
         title="Start from Template"
-        desc="Popular routes you can customize — Northern, Northern Nevada, Tucson & more"
+        desc="Popular routes you can customize — Las Vegas, Northern Nevada, Southern Nevada & more"
         style={{ marginBottom: 20 }}
       />
 
@@ -325,10 +325,10 @@ export default function IntakeFlow() {
         border: `1px solid ${COLORS.sandDark}`,
       }}>
         <div style={{ fontSize: 13, color: COLORS.deepNight, lineHeight: 1.6, fontStyle: 'italic' }}>
-          "We had zero signal on the drive to Flagstaff and the app had everything — directions, restaurant picks, even the right phrases. Felt like traveling with a local friend."
+          "We had zero signal on the drive to Great Basin and the app had everything — directions, restaurant picks, even timing tips. Felt like traveling with a local friend."
         </div>
         <div style={{ fontSize: 12, fontWeight: 700, color: COLORS.oceanTeal, marginTop: 8 }}>
-          — Sarah & Mike, 7-day Northern trip
+          — Sarah & Mike, 7-day Nevada road trip
         </div>
       </div>
     </>
@@ -422,7 +422,7 @@ export default function IntakeFlow() {
         <textarea
           value={pasteText}
           onChange={(e) => setPasteText(e.target.value)}
-          placeholder={"Paste your itinerary here, or describe your trip...\n\nExamples:\n• Copy/paste from an email\n• \"5 days in Phoenix and Sedona, want to hike and see Horseshoe Bend\"\n• Day-by-day breakdown from a travel blog"}
+          placeholder={"Paste your itinerary here, or describe your trip...\n\nExamples:\n• Copy/paste from an email\n• \"5 days in Las Vegas and Lake Tahoe, want to hike and see Valley of Fire\"\n• Day-by-day breakdown from a travel blog"}
           style={{
             width: '100%', minHeight: 200, padding: 16, borderRadius: 16,
             border: `1.5px solid ${pasteText ? COLORS.oceanTeal : '#E8E8EC'}`,
@@ -466,9 +466,9 @@ export default function IntakeFlow() {
     const filtered = filter === 'all'
       ? templates
       : templates.filter((t) => {
-          if (filter === 'northern') return t.route.match(/Phoenix|Sedona|Flagstaff|Bisbee/i);
-          if (filter === 'northern') return t.route.match(/Northern Nevada|Page|Monument Valley|Petrified Forest/i);
-          if (filter === 'southern') return t.route.match(/Tucson|Tombstone/i);
+          if (filter === 'las-vegas') return t.route.match(/Las Vegas|Red Rock|Henderson/i);
+          if (filter === 'northern') return t.route.match(/Reno|Lake Tahoe|Virginia City|Great Basin/i);
+          if (filter === 'southern') return t.route.match(/Valley of Fire|Boulder City|Laughlin/i);
           return true;
         });
 
@@ -480,7 +480,7 @@ export default function IntakeFlow() {
         </div>
 
         <div style={{ display: 'flex', gap: 8, marginBottom: 16, overflowX: 'auto' as const }}>
-          {['all', 'northern', 'northern', 'southern'].map((f) => (
+          {['all', 'las-vegas', 'northern', 'southern'].map((f) => (
             <Pill key={f} active={filter === f} onClick={() => setFilter(f)}>
               {f.charAt(0).toUpperCase() + f.slice(1)}
             </Pill>
@@ -840,13 +840,13 @@ export default function IntakeFlow() {
         <>
           <div style={{ fontSize: 14, fontWeight: 800, color: COLORS.deepNight, marginBottom: 10 }}>Everything included:</div>
           {[
-            { icon: '🧭', title: 'Real Directions', desc: "Not Google Maps pins — actual 'take the Ceres bus, tell the conductor Panagsama' directions" },
+            { icon: '🧭', title: 'Real Directions', desc: "Not Google Maps pins — actual 'take the Deuce bus, get off at the Strip' directions" },
             { icon: '🌅', title: 'Sunrise/Sunset', desc: 'Golden hour times with best viewpoints matched to your daily locations' },
-            { icon: '💬', title: 'Desert Safety', desc: 'Phoenixano & English phrases tuned to your destinations with pronunciation' },
+            { icon: '💬', title: 'Desert Safety', desc: 'Heat safety tips, hydration reminders, and desert survival essentials for your route' },
             { icon: '📞', title: 'Key Contacts', desc: 'Emergency numbers, hospitals, trusted local drivers & guides for your specific route' },
             { icon: '🎒', title: 'Smart Packing', desc: 'Checklist auto-generated from your activities — canyoneering adds water shoes' },
             { icon: '💰', title: 'Budget Tracker', desc: 'Log expenses, see typical costs, convert currency — all offline' },
-            { icon: '💵', title: 'Tipping Guide', desc: 'What to tip in every Nevada situation, from trike drivers to dive masters' },
+            { icon: '💵', title: 'Tipping Guide', desc: 'What to tip in every Nevada situation, from casino dealers to hotel valets' },
             { icon: '🌅', title: 'Sunrise/Sunset', desc: 'Golden hour times with best viewpoints matched to your daily locations' },
             { icon: '📶', title: 'Works Offline', desc: 'Everything cached to your phone. No signal on the drive? No problem' },
           ].map((f, i) => (

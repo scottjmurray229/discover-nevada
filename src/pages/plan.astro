@@ -56,7 +56,7 @@ const MAPS_KEY = 'AIzaSyDH8mQKwqzyfCrgGZVDdP1-E-346QUiods';
     </div>
     <div class="map-layout">
 
-      <!-- PHILIPPINES MAP -->
+      <!-- NEVADA MAP -->
       <div class="map-container" id="mapContainer">
         <div class="map-tooltip" id="mapTooltip">
           <div class="map-tooltip-name" id="tooltipName"></div>
@@ -453,7 +453,7 @@ const MAPS_KEY = 'AIzaSyDH8mQKwqzyfCrgGZVDdP1-E-346QUiods';
       const query = destName + ' ' + description.split(/[.,—]/)[0].trim().slice(0, 40);
       return `https://www.getyourguide.com/s/?q=${enc(query)}&partner_id=IVN6IQ3&cmp=discovernevada`;
     }
-    if (type === 'transport' || type === 'ferry') {
+    if (type === 'transport') {
       const slug12go = TWELVE_GO_SLUGS[destination] || destination.replace(/-/g, '-');
       return `https://12go.asia/en/travel/${slug12go}?z=15062413&sub_id=discovernv-plan`;
     }
@@ -479,7 +479,7 @@ const MAPS_KEY = 'AIzaSyDH8mQKwqzyfCrgGZVDdP1-E-346QUiods';
   let chatHistory: Array<{ role: 'user' | 'assistant'; text: string }> = [];
   let isChatting = false;
 
-  const CATEGORY_ICONS: Record<string, string> = { transport:'🚐', accommodation:'🏨', activity:'🏄', food:'🍴', ferry:'⛴️' };
+  const CATEGORY_ICONS: Record<string, string> = { transport:'🚐', accommodation:'🏨', activity:'🏄', food:'🍴' };
 
   function buildDayCardsHTML(it: any, source?: string): string {
     let html = `
@@ -502,17 +502,13 @@ const MAPS_KEY = 'AIzaSyDH8mQKwqzyfCrgGZVDdP1-E-346QUiods';
         <div class="day-num">Day ${day.dayNumber}</div>
         <div class="day-title">${escapeHtml(day.title)}</div>
         <div class="day-items">`;
-      let dayPhp = 0;
       let dayUsd = 0;
       for (const item of day.items) {
         const icon = CATEGORY_ICONS[item.category] || '';
         let priceHtml = '';
-        if (item.pricePhp) {
-          dayPhp += item.pricePhp;
-          if (item.priceUsd) dayUsd += item.priceUsd;
-          priceHtml = ` <span class="day-price">\u20B1${item.pricePhp.toLocaleString()}`;
-          if (item.priceUsd) priceHtml += ` <span class="day-price-usd">(~$${item.priceUsd} USD)</span>`;
-          priceHtml += `</span>`;
+        if (item.priceUsd) {
+          dayUsd += item.priceUsd;
+          priceHtml = ` <span class="day-price">$${item.priceUsd}</span>`;
         }
         let affiliateHtml = '';
         if (item.affiliateSlotId) {
@@ -523,8 +519,8 @@ const MAPS_KEY = 'AIzaSyDH8mQKwqzyfCrgGZVDdP1-E-346QUiods';
           } else if (item.affiliateType === 'tour') {
             const viatorUrl = buildViatorUrl(day.destination, item.description);
             affiliateHtml = ` <a class="day-affiliate" href="${url}" target="_blank" rel="noopener noreferrer">GetYourGuide &rarr;</a> <a class="day-affiliate day-affiliate-alt" href="${viatorUrl}" target="_blank" rel="noopener noreferrer">Viator &rarr;</a>`;
-          } else if (item.affiliateType === 'transport' || item.affiliateType === 'ferry') {
-            affiliateHtml = ` <a class="day-affiliate" href="${url}" target="_blank" rel="noopener noreferrer">${item.category === 'ferry' ? 'Book Ferry' : 'Book Transport'} &rarr;</a>`;
+          } else if (item.affiliateType === 'transport') {
+            affiliateHtml = ` <a class="day-affiliate" href="${url}" target="_blank" rel="noopener noreferrer">Book Transport &rarr;</a>`;
           } else {
             affiliateHtml = ` <a class="day-affiliate" href="${url}" target="_blank" rel="noopener noreferrer">Book This &rarr;</a>`;
           }
@@ -535,8 +531,8 @@ const MAPS_KEY = 'AIzaSyDH8mQKwqzyfCrgGZVDdP1-E-346QUiods';
           <div class="day-desc">${escapeHtml(item.description)}${priceHtml}${affiliateHtml}</div>
         </div>`;
       }
-      if (dayPhp > 0) {
-        html += `<div class="day-subtotal">Day total: \u20B1${dayPhp.toLocaleString()} <span class="day-subtotal-usd">(~$${dayUsd} USD)</span></div>`;
+      if (dayUsd > 0) {
+        html += `<div class="day-subtotal">Day total: $${dayUsd}</div>`;
       }
       html += `</div></div>`;
     }
@@ -724,9 +720,9 @@ const MAPS_KEY = 'AIzaSyDH8mQKwqzyfCrgGZVDdP1-E-346QUiods';
         });
 
         marker.addListener('click', () => {
-          const icon = { transport:'🚐', accommodation:'🏨', activity:'🏄', food:'🍴', ferry:'⛴️' }[item.category] || '';
+          const icon = { transport:'🚐', accommodation:'🏨', activity:'🏄', food:'🍴' }[item.category] || '';
           let priceStr = '';
-          if (item.pricePhp) priceStr = ` · ₱${item.pricePhp.toLocaleString()}`;
+          if (item.priceUsd) priceStr = ` · $${item.priceUsd}`;
           itinInfoWindow!.setContent(`
             <div style="font-family:Outfit,sans-serif;max-width:220px;">
               <div style="font-size:11px;font-weight:700;color:#0D7377;">Day ${day.dayNumber} · ${escapeHtml(item.time)}</div>
@@ -960,7 +956,7 @@ const MAPS_KEY = 'AIzaSyDH8mQKwqzyfCrgGZVDdP1-E-346QUiods';
         text += `--- Day ${day.dayNumber}: ${day.title} ---\n`;
         for (const item of day.items) {
           text += `  ${item.time} \u2014 ${item.description}`;
-          if (item.pricePhp) text += ` (\u20B1${item.pricePhp.toLocaleString()})`;
+          if (item.priceUsd) text += ` ($${item.priceUsd})`;
           text += '\n';
         }
         text += '\n';

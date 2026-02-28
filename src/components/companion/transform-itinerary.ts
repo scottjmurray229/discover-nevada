@@ -4,9 +4,8 @@ import type { TripData, TripDay, Activity, WeatherDay, Contact, GroupMember, Not
 interface ApiDayItem {
   time: string;
   description: string;
-  pricePhp?: number;
   priceUsd?: number;
-  category: 'transport' | 'accommodation' | 'activity' | 'food' | 'ferry';
+  category: 'transport' | 'accommodation' | 'activity' | 'food';
   affiliateType?: 'hotel' | 'tour' | 'transport' | null;
   affiliateSlotId?: string;
   locationName?: string;
@@ -24,20 +23,18 @@ interface ApiDay {
 export interface ApiItinerary {
   title: string;
   subtitle: string;
-  totalBudget: { php: number; usd: number };
+  totalBudget: { usd: number };
   days: ApiDay[];
 }
 
 // Category → Activity type mapping
 function mapCategory(category: ApiDayItem['category']): Activity['type'] {
-  if (category === 'ferry') return 'transport';
   return category;
 }
 
 // Category → emoji icon
 const CATEGORY_ICON_MAP: Record<string, string> = {
   transport: '🚐',
-  ferry: '⛴️',
   accommodation: '🏨',
   activity: '🎯',
   food: '🍽️',
@@ -47,7 +44,6 @@ function getIcon(category: string, description: string): string {
   const lower = description.toLowerCase();
   // Try to match more specific icons from the description
   if (lower.includes('flight') || lower.includes('fly') || lower.includes('airport')) return '✈️';
-  if (lower.includes('ferry') || category === 'ferry') return '⛴️';
   if (lower.includes('snorkel')) return '🤿';
   if (lower.includes('surf')) return '🏄';
   if (lower.includes('dive') || lower.includes('diving')) return '🤿';
@@ -74,7 +70,7 @@ function getIcon(category: string, description: string): string {
 }
 
 // Split description into title (short) + detail (full)
-function splitDescription(description: string, pricePhp?: number, priceUsd?: number): { title: string; detail: string } {
+function splitDescription(description: string, priceUsd?: number): { title: string; detail: string } {
   // Try splitting on first sentence
   const sentenceEnd = description.match(/^(.+?[.!])(\s|$)/);
   let title: string;
@@ -96,9 +92,9 @@ function splitDescription(description: string, pricePhp?: number, priceUsd?: num
     }
   }
 
-  // Append prices to detail if available
-  if (pricePhp && priceUsd) {
-    detail += ` (₱${pricePhp.toLocaleString()} / $${priceUsd})`;
+  // Append price to detail if available
+  if (priceUsd) {
+    detail += ` ($${priceUsd})`;
   }
 
   return { title, detail };
@@ -160,7 +156,7 @@ export function transformItinerary(apiItinerary: ApiItinerary): TripData {
     title: apiDay.title,
     location: capitalizeDestination(apiDay.destination),
     items: apiDay.items.map((item, idx): Activity => {
-      const { title, detail } = splitDescription(item.description, item.pricePhp, item.priceUsd);
+      const { title, detail } = splitDescription(item.description, item.priceUsd);
       return {
         id: `d${apiDay.dayNumber}-${idx + 1}`,
         time: item.time,
