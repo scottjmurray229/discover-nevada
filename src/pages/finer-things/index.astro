@@ -85,6 +85,25 @@ const topics: TopicSection[] = [
     ],
   },
   {
+    id: 'gear',
+    icon: '\uD83C\uDFA6',
+    title: 'Premium Gear Worth Packing',
+    gradient: 'linear-gradient(135deg, #1A2332 0%, #4C1D95 50%, #FB923C 100%)',
+    items: [
+      { label: 'DJI Mini 4 Pro Drone', text: 'Valley of Fire\'s red sandstone formations and the Nevada desert at dawn from 400ft — genuinely otherworldly. <a href="https://www.amazon.com/dp/B0CFF1SJ3P?tag=discovernv-20" rel="nofollow sponsored">The DJI Mini 4 Pro</a> is under the FAA 249g registration threshold and shoots 4K/60fps. Elephant Rock and the Fire Wave from above are shots the hiking trail can\'t give you.' },
+      { label: 'Peak Design Travel Tripod', text: 'Valley of Fire, Red Rock Canyon, and Great Basin National Park all reward serious landscape photography. <a href="https://www.amazon.com/dp/B085BQS6K4?tag=discovernv-20" rel="nofollow sponsored">The Peak Design Travel Tripod</a> packs to carry-on size and sets up in seconds — critical for the Milky Way over Wheeler Peak at midnight.' },
+      { label: 'Sony WH-1000XM5 Headphones', text: 'The Wynn, Aria, and Bellagio have spectacular pool areas — these block out surrounding casino noise beautifully. <a href="https://www.amazon.com/dp/B09XS7JWHH?tag=discovernv-20" rel="nofollow sponsored">The Sony WH-1000XM5</a> is the benchmark for noise cancellation in environments designed to stimulate. Essential for the flight and the hotel.' },
+      { label: 'Kindle Paperwhite', text: 'Long drives on US-50 — America\'s Loneliest Highway — beg for good reading material. <a href="https://www.amazon.com/dp/B0CFPJYX7P?tag=discovernv-20" rel="nofollow sponsored">The Kindle Paperwhite</a> holds a library, reads in direct desert sunlight, and won\'t drain your phone battery across 400 miles of empty Nevada highway.' },
+      { label: 'Helinox Chair Zero', text: 'Stargazing at Great Basin NP — the Silver State\'s darkest skies — from a 1.1lb chair at midnight. <a href="https://www.amazon.com/dp/B01M07GTOE?tag=discovernv-20" rel="nofollow sponsored">The Helinox Chair Zero</a> is the go-to for anyone who takes their dark-sky sessions seriously. Wheeler Peak at 13,000 feet is worth the drive from Vegas.' },
+      { label: 'Nikon PROSTAFF Binoculars', text: 'Desert bighorn sheep in Red Rock Canyon, golden eagles over Valley of Fire, and the condors that drift across the Nevada-Arizona border. <a href="https://www.amazon.com/dp/B0B3JSRZFJ?tag=discovernv-20" rel="nofollow sponsored">The Nikon PROSTAFF</a> is the best binocular value for desert wildlife watching at this price point.' },
+      { label: 'Apple AirTag 4-Pack', text: 'Checked bags into LAS, rental car keys at the airport, camera bag in the Uber to the Strip. <a href="https://www.amazon.com/dp/B0D54JZTHY?tag=discovernv-20" rel="nofollow sponsored">A 4-pack of AirTags</a> covers every piece of gear on a Vegas-to-desert trip.' },
+      { label: 'Anker 735 GaN Charger', text: '<a href="https://www.amazon.com/dp/B09C5RG6KV?tag=discovernv-20" rel="nofollow sponsored">A 65W GaN charger</a> that handles phone, camera, and laptop from one outlet. Las Vegas hotel rooms have fewer outlets than you\'d expect for the price — this solves the conflict over the nightstand plug.' },
+      { label: 'Manta Sleep Mask', text: 'Las Vegas hotel rooms face other hotel signs and pool lights — blackout is critical for functioning the next day. <a href="https://www.amazon.com/dp/B07PRG2CQY?tag=discovernv-20" rel="nofollow sponsored">The Manta Sleep Mask\'s</a> molded eye cups block 100% of light without pressing on your eyelids. Non-negotiable for a serious Vegas trip.' },
+      { label: 'Sockwell Compression Socks', text: 'Strip walking can hit 10+ miles in a day. After three days of Vegas pavements in the summer heat, compression makes the flight home manageable. <a href="https://www.amazon.com/dp/B089DRF9WM?tag=discovernv-20" rel="nofollow sponsored">Sockwell compression socks</a> are the most useful thing in your bag that nobody talks about.' },
+      { label: 'Flypal Inflatable Foot Rest', text: '<a href="https://www.amazon.com/dp/B074T9CP81?tag=discovernv-20" rel="nofollow sponsored">An inflatable foot rest</a> that turns the red-eye back east into something approaching comfort. Five days of Vegas floors, desert hiking, and golf leaves your legs grateful for elevation. A real difference on a 4–5 hour flight.' },
+    ],
+  },
+  {
     id: 'spa-desert',
     icon: '\u{1F9D6}',
     title: 'Desert Spa Retreats',
@@ -265,6 +284,11 @@ const topics: TopicSection[] = [
       </div>
     </div>
   </section>
+
+  <!-- Affiliate Disclosure -->
+  <div class="container-content ft-reveal" style="padding-bottom: 0;">
+    <p class="ft-affiliate-disclosure">Some links on this page are affiliate links — I earn a small commission if you purchase through them, at no extra cost to you. I only recommend gear I personally use or have thoroughly researched. <a href="/legal/affiliate-disclosure/">Full disclosure</a>.</p>
+  </div>
 
   <!-- Bottom CTA -->
   <section class="ft-cta-section ft-reveal">
@@ -806,6 +830,25 @@ const topics: TopicSection[] = [
     color: var(--color-slate);
     line-height: 1.65;
     margin: 0;
+  }
+
+  /* ================================================================
+     AFFILIATE DISCLOSURE
+     ================================================================ */
+  .ft-affiliate-disclosure {
+    font-size: 0.75rem;
+    color: #4A5568;
+    line-height: 1.5;
+    text-align: center;
+    padding: var(--space-4) var(--space-6);
+    background: var(--color-sky);
+    border-radius: 10px;
+    margin-bottom: var(--space-4);
+  }
+
+  .ft-affiliate-disclosure a {
+    color: var(--color-ocean-teal);
+    text-decoration: underline;
   }
 
   /* ================================================================
