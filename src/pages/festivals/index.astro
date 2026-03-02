@@ -1,0 +1,338 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Nevada Festival Calendar', url: '/festivals/' },
+];
+
+const pageTitle = 'Nevada Festival Calendar 2026 — Events Worth Planning Your Trip Around';
+const pageDescription = "Burning Man in the Black Rock Desert, the World Series of Poker, Electric Daisy Carnival, and the National Finals Rodeo — Nevada's events are as outsized as the state's reputation. Here's what to know.";
+
+const festivals = [
+  {
+    name: 'Burning Man',
+    location: 'Black Rock Desert (120 miles north of Reno)',
+    dates: 'Late August – early September (8 days)',
+    description: 'The most discussed temporary city on earth — 80,000 people build Black Rock City in a remote Nevada desert for a week of radical self-expression, art installations, community, and participation. Burning Man is not a music festival, not a rave, not a concert — it\'s an experiment in temporary community built around ten core principles including radical self-reliance, gifting, and civic responsibility. The Man burns on Saturday. The Temple burns on Sunday. The art is extraordinary. Tickets sell via lottery ($575 main sale); plan 12 months ahead. Camping required. No spectators — only participants.',
+    tag: 'Iconic',
+    gradient: 'linear-gradient(135deg, #BF360C 0%, #FF8F00 100%)',
+  },
+  {
+    name: 'Electric Daisy Carnival (EDC) Las Vegas',
+    location: 'Las Vegas Motor Speedway',
+    dates: 'May (3 days)',
+    description: 'The largest electronic music festival in North America — 500,000 attendees across three nights at the Las Vegas Motor Speedway. Carnival rides, elaborate stages the size of buildings, over 200 artists across nine stages, and a production scale that has to be seen to be believed. EDC is genuinely overwhelming in the best way. The Las Vegas Motor Speedway is far from the Strip — Insomniac runs shuttles from designated hotel pickup spots. Tickets $399–600 for 3-day passes. Base camping available on-site.',
+    tag: 'Largest EDM Fest',
+    gradient: 'linear-gradient(135deg, #4A148C 0%, #E91E63 100%)',
+  },
+  {
+    name: 'World Series of Poker',
+    location: 'Paris Las Vegas / Bally\'s',
+    dates: 'Late May – mid July (7+ weeks)',
+    description: 'The most prestigious poker tournament in the world runs for over seven weeks at Paris Las Vegas. Over 100 individual events, culminating in the Main Event — the $10,000 buy-in No-Limit Hold\'em championship that draws 8,000+ players and awards a first prize of $10+ million. You don\'t have to play to attend — railbirding the Main Event final table is electric, and satellite buy-ins start at just a few hundred dollars. The WSOP transforms the poker rooms into genuine arenas during the Main Event.',
+    tag: 'World Championship',
+    gradient: 'linear-gradient(135deg, #1A237E 0%, #283593 100%)',
+  },
+  {
+    name: 'National Finals Rodeo',
+    location: 'Las Vegas (Thomas & Mack Center, UNLV)',
+    dates: 'First two weeks of December (10 performances)',
+    description: 'The Super Bowl of professional rodeo — the NFR brings the top 15 contestants in each of seven rodeo events (bull riding, bareback, steer wrestling, team roping, saddle bronc, tie-down roping, barrel racing) to Las Vegas for 10 consecutive nights of performance. The Thomas & Mack fills with 17,000 country fans every night. The entire Strip goes country for two weeks: cowboy hats at the Bellagio, Western wear boutiques pop up everywhere, and the Gold Coast hosts the Cowboy Christmas Gift Show across 400,000 square feet daily.',
+    tag: 'NFR',
+    gradient: 'linear-gradient(135deg, #827717 0%, #F9A825 100%)',
+  },
+  {
+    name: 'Great Reno Balloon Race',
+    location: 'Reno (Rancho San Rafael Regional Park)',
+    dates: 'Early September (3 days)',
+    description: 'The largest free hot air balloon event in the world — free. Dawn Patrol on Saturday morning sends a handful of balloons aloft before sunrise with glowing envelopes lighting up the pre-dawn sky. The mass ascension at 7:30am lifts 100+ balloons simultaneously. No tickets required; just show up before dawn. Reno in September is excellent — desert warmth, clear skies, and the balloon race is a genuine spectacle even if you\'ve seen balloon festivals before.',
+    tag: 'Free',
+    gradient: 'linear-gradient(135deg, #E65100 0%, #FF9800 100%)',
+  },
+  {
+    name: 'Nevada Day Parade',
+    location: 'Carson City',
+    dates: 'Last Friday of October',
+    description: 'Nevada became a state on October 31, 1864 — and Carson City celebrates with one of the oldest and largest parades in the West. The Nevada Day Parade through downtown Carson City draws 30,000+ spectators for floats, marching bands, historic vehicles, and a celebration of the Silver State\'s heritage. Free to attend. Carson City is 30 miles south of Reno — easily combined with the state capital and Nevada State Museum. The Halloween timing adds appropriate flair.',
+    tag: 'State Holiday',
+    gradient: 'linear-gradient(135deg, #1B5E20 0%, #558B2F 100%)',
+  },
+  {
+    name: 'Las Vegas Film Festival',
+    location: 'Las Vegas (various venues)',
+    dates: 'March',
+    description: 'Las Vegas has an underappreciated arts scene centered on the Arts District on South Main Street. The Las Vegas Film Festival screens independent and international films at various venues in the city, with stronger programming than you\'d expect from a city better known for spectacle. Individual screenings around $12; festival passes available. Combine with the First Friday art walk in the Arts District for a different side of Las Vegas.',
+    tag: 'Film',
+    gradient: 'linear-gradient(135deg, #263238 0%, #455A64 100%)',
+  },
+  {
+    name: 'Reno Aces Air Racing (National Championship Air Races)',
+    location: 'Reno / Stead Airport',
+    dates: 'September (4 days)',
+    description: 'The National Championship Air Races — "the world\'s fastest motorsport" — ran in Reno for 57 years before going on hiatus and then restructuring. Vintage aircraft race at 400–500 mph around pylons just feet off the desert floor in front of 60,000 spectators. The roar of WWII-era Mustangs and Bearcats at race speed is unlike anything else. Check current scheduling — the event has reorganized in recent years but remains on the Reno events calendar.',
+    tag: 'Aviation',
+    gradient: 'linear-gradient(135deg, #0D47A1 0%, #1976D2 100%)',
+  },
+];
+---
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  pageType="destination"
+  breadcrumbs={breadcrumbs}
+>
+
+<style>
+  .fest-hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 var(--space-6) 60px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1A0A2E 0%, #3D0C57 50%, #BF360C 100%);
+  }
+  .fest-hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
+  .fest-hero-gradient { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,10,46,0.95) 0%, rgba(26,10,46,0.3) 60%, transparent 100%); }
+  .fest-hero-content { position: relative; z-index: 2; max-width: 760px; }
+  .fest-hero-eyebrow { font-size: 0.72rem; font-weight: var(--weight-bold); text-transform: uppercase; letter-spacing: 0.12em; color: #FF9800; margin-bottom: var(--space-3); }
+  .fest-hero-title { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: var(--weight-bold); color: #fff; line-height: 1.15; margin: 0 0 var(--space-4); }
+  .fest-hero-subtitle { font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255,255,255,0.82); line-height: 1.6; margin: 0 0 var(--space-6); max-width: 600px; }
+  .fest-hero-meta { display: flex; gap: var(--space-6); flex-wrap: wrap; }
+  .fest-hero-meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .fest-hero-meta-label { font-size: 0.68rem; font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); }
+  .fest-hero-meta-value { font-size: 1.4rem; font-weight: var(--weight-bold); color: #fff; }
+
+  .fest-personal { padding-block: var(--space-8); }
+  .fest-personal-quote { max-width: 720px; margin: 0 auto; padding: var(--space-6) var(--space-8); border-left: 4px solid #FF9800; background: var(--color-sky, #fff8e1); border-radius: 0 12px 12px 0; }
+  .fest-personal-quote p { font-size: var(--text-body, 1.05rem); color: var(--color-heading, #1a2332); line-height: 1.7; font-style: italic; margin-bottom: var(--space-3); }
+  .fest-personal-quote cite { font-size: 0.85rem; color: #E65100; font-weight: var(--weight-semibold); font-style: normal; }
+
+  .fest-section { padding: var(--space-6) 0 var(--space-10); }
+  .fest-section-heading { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: var(--weight-bold); color: var(--color-deep-night, #1a2332); margin: 0 0 var(--space-2); text-align: center; }
+  .fest-section-sub { font-size: 1rem; color: var(--color-slate, #5a6a7a); text-align: center; margin: 0 0 var(--space-8); }
+
+  .fest-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--space-6); }
+  .fest-card { border-radius: 20px; overflow: hidden; background: var(--color-white, #fff); box-shadow: 0 4px 20px rgba(0,0,0,0.07); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; }
+  .fest-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+  .fest-card-header { padding: var(--space-5) var(--space-5) var(--space-4); min-height: 130px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .fest-card-tag { display: inline-block; font-size: 0.65rem; font-weight: var(--weight-bold); text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.18); backdrop-filter: blur(4px); padding: 3px 10px; border-radius: 20px; margin-bottom: var(--space-2); width: fit-content; }
+  .fest-card-name { font-size: 1.15rem; font-weight: var(--weight-bold); color: #fff; line-height: 1.3; margin: 0 0 4px; }
+  .fest-card-location { font-size: 0.78rem; color: rgba(255,255,255,0.75); font-weight: var(--weight-medium); }
+  .fest-card-body { padding: var(--space-4) var(--space-5) var(--space-5); flex: 1; display: flex; flex-direction: column; gap: var(--space-3); }
+  .fest-card-dates { display: flex; align-items: center; gap: var(--space-2); font-size: 0.8rem; font-weight: var(--weight-semibold); color: #E65100; }
+  .fest-card-dates::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #E65100; flex-shrink: 0; }
+  .fest-card-desc { font-size: 0.88rem; color: var(--color-body, #3d4d5e); line-height: 1.65; flex: 1; }
+
+  .fest-tips { padding: var(--space-8) 0; background: linear-gradient(135deg, #1A0A2E 0%, #BF360C 100%); }
+  .fest-tips-inner { max-width: 820px; margin: 0 auto; padding: 0 var(--space-6); }
+  .fest-tips-heading { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: var(--weight-bold); color: #fff; margin: 0 0 var(--space-6); text-align: center; }
+  .fest-tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-4); }
+  .fest-tip-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: var(--space-4) var(--space-5); }
+  .fest-tip-icon { font-size: 1.5rem; margin-bottom: var(--space-2); }
+  .fest-tip-title { font-size: 0.9rem; font-weight: var(--weight-bold); color: #fff; margin-bottom: var(--space-2); }
+  .fest-tip-text { font-size: 0.82rem; color: rgba(255,255,255,0.72); line-height: 1.6; }
+
+  .fest-cta-section { padding: var(--space-8) 0; }
+  .fest-cta-card { background: linear-gradient(135deg, #1A0A2E 0%, #3D0C57 100%); border-radius: 20px; padding: var(--space-8) var(--space-6); text-align: center; color: #fff; }
+  .fest-cta-heading { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: var(--weight-bold); margin: 0 0 var(--space-3); color: #fff; }
+  .fest-cta-text { font-size: 1rem; color: rgba(255,255,255,0.75); max-width: 520px; margin: 0 auto var(--space-5); line-height: 1.6; }
+  .fest-cta-button { display: inline-block; background: #FF9800; color: #fff; font-size: 0.9rem; font-weight: var(--weight-semibold); padding: 12px 28px; border-radius: 40px; text-decoration: none; transition: background 0.2s ease, transform 0.2s ease; }
+  .fest-cta-button:hover { background: #E65100; transform: translateY(-2px); }
+
+  .fest-crosslinks { padding: 0 0 var(--space-10); }
+  .fest-crosslinks-heading { font-size: 1.1rem; font-weight: var(--weight-bold); color: var(--color-deep-night, #1a2332); text-align: center; margin: 0 0 var(--space-4); }
+  .fest-crosslinks-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); max-width: 640px; margin: 0 auto; }
+  .fest-crosslink-card { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); padding: var(--space-5) var(--space-4); background: var(--color-white, #fff); border: 1px solid rgba(0,0,0,0.06); border-radius: 16px; text-decoration: none; color: inherit; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .fest-crosslink-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  .fest-crosslink-icon { font-size: 1.8rem; }
+  .fest-crosslink-label { font-size: 0.95rem; font-weight: var(--weight-bold); color: var(--color-deep-night, #1a2332); }
+  .fest-crosslink-desc { font-size: 0.78rem; color: var(--color-slate, #5a6a7a); line-height: 1.4; }
+
+  @media (max-width: 640px) {
+    .fest-crosslinks-grid { grid-template-columns: 1fr; }
+    .fest-grid { grid-template-columns: 1fr; }
+    .fest-hero { padding: 0 var(--space-4) 40px; min-height: 55vh; }
+  }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+
+  <header class="fest-hero">
+    <video class="fest-hero-video" autoplay muted loop playsinline preload="metadata">
+      <source src="/videos/pillar/festivals-hero.mp4" type="video/mp4" />
+    </video>
+    <div class="fest-hero-gradient"></div>
+    <div class="fest-hero-content">
+      <p class="fest-hero-eyebrow">Nevada Events & Festivals</p>
+      <h1 class="fest-hero-title">Nevada Festival Calendar 2026</h1>
+      <p class="fest-hero-subtitle">An experimental city in the Black Rock Desert. The world's greatest poker tournament. The largest EDM festival in North America. Nevada operates at a scale that matches its wide-open landscape.</p>
+      <div class="fest-hero-meta">
+        <div class="fest-hero-meta-item">
+          <span class="fest-hero-meta-label">Events</span>
+          <span class="fest-hero-meta-value">8</span>
+        </div>
+        <div class="fest-hero-meta-item">
+          <span class="fest-hero-meta-label">Year-Round</span>
+          <span class="fest-hero-meta-value">All Seasons</span>
+        </div>
+        <div class="fest-hero-meta-item">
+          <span class="fest-hero-meta-label">Best For</span>
+          <span class="fest-hero-meta-value">Everything</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container-content">
+    <Breadcrumb items={breadcrumbs} />
+  </div>
+
+  <section class="fest-personal reveal">
+    <div class="container-content">
+      <blockquote class="fest-personal-quote">
+        <p>Nevada's events are a direct reflection of the state's fundamental personality: go big or go home. Burning Man builds an 80,000-person city from nothing in an alkali flat, then erases it completely. EDC sets up stages the size of aircraft hangars in a motor speedway. The World Series of Poker awards more prize money in a single tournament than most countries' GDP. Even the Great Reno Balloon Race — free, family-friendly, in a park — deploys 100+ balloons simultaneously. Everything in Nevada seems to operate at a scale you don't expect until you're standing in the middle of it.</p>
+        <cite>— Scott Murray, Discover Nevada</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="fest-section reveal">
+    <div class="container-content">
+      <h2 class="fest-section-heading">Nevada's Top Festivals & Events</h2>
+      <p class="fest-section-sub">From the Black Rock Desert to the Las Vegas Strip — Nevada's events calendar has no equivalent anywhere in the country.</p>
+      <div class="fest-grid">
+        {festivals.map((fest) => (
+          <div class="fest-card reveal">
+            <div class="fest-card-header" style={`background: ${fest.gradient};`}>
+              {fest.tag && <span class="fest-card-tag">{fest.tag}</span>}
+              <h3 class="fest-card-name">{fest.name}</h3>
+              <div class="fest-card-location">{fest.location}</div>
+            </div>
+            <div class="fest-card-body">
+              <div class="fest-card-dates">{fest.dates}</div>
+              <p class="fest-card-desc">{fest.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="fest-tips reveal">
+    <div class="fest-tips-inner">
+      <h2 class="fest-tips-heading">Scott's Nevada Festival Tips</h2>
+      <div class="fest-tips-grid">
+        <div class="fest-tip-card">
+          <div class="fest-tip-icon">&#128293;</div>
+          <div class="fest-tip-title">Burning Man: plan at least 6 months ahead</div>
+          <p class="fest-tip-text">Tickets are lottery-based (main sale in January/February). Camping gear, water, food, and costume planning takes months. The desert is brutal — alkali dust destroys electronics, temperatures swing from 100°F to 45°F in one day. First-timers should read the Burning Man Survival Guide before committing.</p>
+        </div>
+        <div class="fest-tip-card">
+          <div class="fest-tip-icon">&#127925;</div>
+          <div class="fest-tip-title">EDC: book the on-site camping</div>
+          <p class="fest-tip-text">The Las Vegas Motor Speedway is far from the Strip. Insomniac's shuttle from Strip hotels is reliable but crowded. On-site camping (EDC Camping) lets you walk from tent to stages in 10 minutes — it's a significantly better experience. Book camping at the same time as your 3-day pass.</p>
+        </div>
+        <div class="fest-tip-card">
+          <div class="fest-tip-icon">&#127183;</div>
+          <div class="fest-tip-title">WSOP: railbird the Main Event free</div>
+          <p class="fest-tip-text">You don't need to play poker to attend the World Series. The Main Event final table at Paris Las Vegas is open to spectators. Early rounds can also be watched from the rail. If you want to play, $1,500 buy-in bracelet events are where value lies — the $10,000 Main Event is a significant commitment.</p>
+        </div>
+        <div class="fest-tip-card">
+          <div class="fest-tip-icon">&#129351;</div>
+          <div class="fest-tip-title">NFR: the Cowboy Christmas is free</div>
+          <p class="fest-tip-text">National Finals Rodeo tickets ($45–200) sell out fast. But the Cowboy Christmas Gift Show at the Convention Center — 400,000 sq ft of Western vendors — is free to attend and runs daily during NFR week. The entire Las Vegas Strip goes full Western: cowboy hats at the casino buffets, country bands in every bar.</p>
+        </div>
+        <div class="fest-tip-card">
+          <div class="fest-tip-icon">&#127755;</div>
+          <div class="fest-tip-title">Great Reno Balloon Race: go at 5am</div>
+          <p class="fest-tip-text">Dawn Patrol launches before sunrise — glowing balloon envelopes in the dark are the most beautiful part of the entire event. The mass ascension at 7:30am is spectacular but more crowded. Arrive by 5:15am for Dawn Patrol, then stay for the main ascension. Rancho San Rafael Park, admission and parking free.</p>
+        </div>
+        <div class="fest-tip-card">
+          <div class="fest-tip-icon">&#127777;</div>
+          <div class="fest-tip-title">Nevada desert: heat and cold planning</div>
+          <p class="fest-tip-text">The Black Rock Desert (Burning Man, late August) can hit 100°F midday and 45°F overnight. Las Vegas in May (EDC) is 90°F+ during the day. Both require serious hydration planning — a gallon of water per person per day minimum. Evening events in the desert in September/October cool down fast; bring a jacket to everything.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fest-cta-section reveal">
+    <div class="container-content">
+      <div class="fest-cta-card">
+        <h2 class="fest-cta-heading">Plan Your Nevada Festival Trip</h2>
+        <p class="fest-cta-text">Build a custom Nevada itinerary around any of these events — combining Las Vegas, Reno, Red Rock Canyon, and the open desert in one cohesive trip.</p>
+        <a href="/plan/" class="fest-cta-button">Start Planning &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQ items={[
+    { question: "How do I get Burning Man tickets?", answer: "Burning Man tickets are sold via an online lottery system, typically with a main sale in January/February and a directed group sale for camps. Visit burningman.org for current year's sale dates. Main sale tickets run $575 (plus fees) for the standard tier. The event sells out every year. First-time Burners should also join a theme camp — attending solo without infrastructure experience is significantly harder." },
+    { question: "What is EDC Las Vegas and how do I attend?", answer: "Electric Daisy Carnival (EDC) Las Vegas is a 3-day electronic music festival at Las Vegas Motor Speedway in May, produced by Insomniac Events. It's the largest EDM festival in North America with 500,000+ attendees across 3 nights. 3-day passes run $399–600 and go on sale 6+ months in advance. On-site camping (EDC Camping) is recommended over shuttling from hotels — it eliminates the commute and creates a full festival community." },
+    { question: "Can I attend the World Series of Poker without playing?", answer: "Yes. Spectators can watch play from the rail area at Paris Las Vegas during the WSOP, which runs late May through mid-July. The Main Event final table in July draws the largest crowds and is the most exciting to watch. The Rio casino (former venue) and Paris both host bracelet events in different rooms. You can also buy into satellites (lower buy-in tournaments feeding into main events) starting at a few hundred dollars." },
+    { question: "When is the National Finals Rodeo and how do I get tickets?", answer: "The NFR runs the first two weeks of December at the Thomas & Mack Center at UNLV. 10 consecutive nights of professional rodeo — the top 15 contestants in each of 7 disciplines compete. Tickets ($45–200 per night) go on sale through Ticketmaster and sell out months in advance. The surrounding events — Cowboy Christmas Gift Show (free), cowboy bars across the Strip, Western-themed casino promotions — are part of the experience even without arena tickets." },
+    { question: "Is the Great Reno Balloon Race really free?", answer: "Yes, completely free. The Great Reno Balloon Race at Rancho San Rafael Regional Park runs for 3 days in early September, and admission, parking, and all viewing areas are free to the public. Dawn Patrol (pre-sunrise balloon glow) launches around 5:45am — arrive by 5:15am. The mass ascension at approximately 7:30am sends 100+ balloons aloft simultaneously. Vendors and food available on-site. One of the best free events in the western United States." },
+    { question: "What's the best time of year to visit Nevada for events?", answer: "Every season has major events. May brings EDC Las Vegas and WSOP kickoff. August-September brings Burning Man, the Great Reno Balloon Race, and air races. October brings Nevada Day in Carson City. December brings the National Finals Rodeo. Las Vegas also has a year-round residency and concert schedule that makes any month viable. The best weather for outdoors is October–April; May–September in Vegas can hit 110°F+ midday." },
+  ]} />
+
+  <div class="container-content reveal" style="padding-bottom: var(--space-6);">
+    <EmailCapture
+      leadMagnet="Get the Nevada Festival Planning Guide"
+      description="Event-by-event breakdown with ticket strategies, logistics, accommodation tips, and how to combine Nevada's biggest events into one epic trip."
+      bullets={[
+        'Burning Man first-timer survival guide and ticket lottery tips',
+        'EDC camping vs. hotel logistics compared',
+        'NFR week schedule — how to experience it without arena tickets',
+        'Reno vs. Las Vegas — planning multi-city Nevada trips',
+      ]}
+      guideTag="pillar-festivals-nevada"
+    />
+  </div>
+
+  <section class="fest-crosslinks reveal">
+    <div class="container-content">
+      <h3 class="fest-crosslinks-heading">Keep Exploring Nevada</h3>
+      <div class="fest-crosslinks-grid">
+        <a href="/hiking/" class="fest-crosslink-card">
+          <span class="fest-crosslink-icon">&#127956;</span>
+          <span class="fest-crosslink-label">Nevada Hiking</span>
+          <span class="fest-crosslink-desc">Red Rock Canyon, Valley of Fire, and Great Basin National Park</span>
+        </a>
+        <a href="/destinations/" class="fest-crosslink-card">
+          <span class="fest-crosslink-icon">&#127965;</span>
+          <span class="fest-crosslink-label">All Destinations</span>
+          <span class="fest-crosslink-desc">Las Vegas, Reno, Lake Tahoe, and beyond — every destination reviewed</span>
+        </a>
+        <a href="/cuisine/" class="fest-crosslink-card">
+          <span class="fest-crosslink-icon">&#127858;</span>
+          <span class="fest-crosslink-label">Nevada Food & Dining</span>
+          <span class="fest-crosslink-desc">Las Vegas dining scene — from casino buffets to Michelin stars</span>
+        </a>
+        <a href="/practical/" class="fest-crosslink-card">
+          <span class="fest-crosslink-icon">&#128663;</span>
+          <span class="fest-crosslink-label">Getting Around</span>
+          <span class="fest-crosslink-desc">Navigating Nevada — the Strip, road trips, and reaching Burning Man</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => { entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); }); },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
+  }
+</script>
