@@ -2,6 +2,7 @@
 title: "Great Basin National Park"
 description: "Explore Great Basin National Park in eastern Nevada — ancient bristlecone pines, Lehman Caves, Wheeler Peak, and world-class dark skies."
 heroImage: ""
+heroAlt: "Lehman Caves stalactites and Wheeler Peak winter summit, Great Basin National Park, Nevada"
 tagline: "One of the least visited national parks in America has bristlecone pines that are 5,000 years old, a marble cave with cave shield formations, and night skies dark enough to make the Milky Way visible to the naked eye"
 region: "western"
 bestMonths: ["May", "Jun", "Sep", "Oct"]

@@ -2,6 +2,7 @@
 title: "Valley of Fire"
 description: "Explore Valley of Fire State Park — Nevada's oldest park with stunning red sandstone formations, ancient petroglyphs, and the Fire Wave trail."
 heroImage: ""
+heroAlt: "Fire Wave red-and-white sandstone swirls in Valley of Fire State Park, Nevada"
 tagline: "Red Aztec sandstone formations rippling in waves across the desert — the oldest state park in Nevada is 45 minutes from Las Vegas and utterly different from anything on the Strip"
 region: "southern"
 bestMonths: ["Oct", "Nov", "Mar", "Apr"]
