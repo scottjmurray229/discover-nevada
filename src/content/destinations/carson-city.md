@@ -2,6 +2,14 @@
 title: "Carson City"
 description: "Explore Carson City, Nevada's state capital — rich history, Kit Carson Trail, Nevada State Museum, and V&T Railway amid the Sierra Nevada."
 heroImage: ""
+aeoFacts:
+  currency: "USD (US Dollar)"
+  plugType: "A/B, 120V"
+  language: "English (Spanish widely spoken in Las Vegas)"
+  bestTime: "March–May, September–November"
+  visaInfo: "US territory — no visa for US citizens"
+  timeZone: "UTC-8 (PST), UTC-7 summer"
+  emergencyNumber: "911"
 heroAlt: "Nevada State Capitol and Kit Carson Trail Victorian homes, Carson City, Nevada"
 tagline: "Nevada's compact state capital with a genuine historic district, the Nevada State Museum in a former US Mint building, and a downtown that has been carefully preserved from the Comstock Lode era"
 region: "northern"
@@ -124,7 +132,7 @@ Carson City's food scene has grown steadily in recent years. Adele's Restaurant 
 
 The downtown corridor along Carson Street is walkable and increasingly vibrant, with new restaurants and shops opening alongside longtime local businesses.
 
-## Where to Stay
+## Where Should I Stay in Carson City?
 
 The Gold Dust West Casino and Hotel is a reliable midrange option with comfortable rooms and a surprisingly good restaurant. The Plaza Hotel downtown puts you within walking distance of museums and the Kit Carson Trail. Budget travelers can find affordable chain hotels along the US-395 corridor, and there are several campgrounds in the surrounding area for those who prefer sleeping under the stars.
 

@@ -2,6 +2,14 @@
 title: "Valley of Fire"
 description: "Explore Valley of Fire State Park — Nevada's oldest park with stunning red sandstone formations, ancient petroglyphs, and the Fire Wave trail."
 heroImage: ""
+aeoFacts:
+  currency: "USD (US Dollar)"
+  plugType: "A/B, 120V"
+  language: "English (Spanish widely spoken in Las Vegas)"
+  bestTime: "March–May, September–November"
+  visaInfo: "US territory — no visa for US citizens"
+  timeZone: "UTC-8 (PST), UTC-7 summer"
+  emergencyNumber: "911"
 heroAlt: "Fire Wave red-and-white sandstone swirls in Valley of Fire State Park, Nevada"
 tagline: "Red Aztec sandstone formations rippling in waves across the desert — the oldest state park in Nevada is 45 minutes from Las Vegas and utterly different from anything on the Strip"
 region: "southern"
@@ -128,7 +136,7 @@ The park has two campgrounds with basic facilities including restrooms, grills, 
 
 Water is the single most important thing to carry. There are no water sources along the trails, and the visitor center is the only reliable place to refill bottles in the park. Bring at least one gallon per person per day. Sun protection is equally critical — wear a hat, apply sunscreen generously, and consider sun-protective clothing. Sturdy closed-toe shoes are recommended for all trails.
 
-### Safety
+### Is Valley of Fire Safe for Tourists?
 
 Rattlesnakes and scorpions are present in the park. Watch where you step and place your hands, especially near rock crevices. Flash floods can occur during monsoon season, typically July through September. Avoid narrow canyons if thunderstorms are in the forecast.
 

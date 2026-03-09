@@ -2,6 +2,14 @@
 title: "Lake Tahoe"
 description: "Plan your trip to Lake Tahoe, Nevada — crystal clear alpine waters, world-class skiing, stunning hikes, and the breathtaking Emerald Bay."
 heroImage: ""
+aeoFacts:
+  currency: "USD (US Dollar)"
+  plugType: "A/B, 120V"
+  language: "English (Spanish widely spoken in Las Vegas)"
+  bestTime: "March–May, September–November"
+  visaInfo: "US territory — no visa for US citizens"
+  timeZone: "UTC-8 (PST), UTC-7 summer"
+  emergencyNumber: "911"
 heroAlt: "Emerald Bay sea cave and snow-capped peaks above Lake Tahoe, Nevada"
 tagline: "The clearest deep alpine lake in North America sits at 6,225 feet with water so blue it photographs as digital artifice — skiing on the Nevada side at Heavenly rewards in both states simultaneously"
 region: "northern"
@@ -124,11 +132,11 @@ The Nevada side has a solid dining scene. The Lone Eagle Grille at the Hyatt Reg
 
 ## Practical Information
 
-### Getting Around
+### What's the Best Way to Get Around Lake Tahoe?
 
 A car is essential for exploring Lake Tahoe. The roads around the lake are scenic but can be slow on summer weekends. In winter, carry chains and check road conditions before heading over the passes. The Mt. Rose Highway (NV-431) connecting Reno to Incline Village is one of the most scenic drives in the state but can close during heavy snowfall.
 
-### Where to Stay
+### Where Should I Stay in Lake Tahoe?
 
 Budget travelers should consider camping at one of the state park campgrounds, which offer sites starting around $25 per night in spectacular settings. Mid-range visitors will find good value at hotels in Incline Village or the Stateline casino resorts midweek. Luxury seekers should look at the Hyatt Regency Lake Tahoe or upscale vacation rentals along the shore.
 

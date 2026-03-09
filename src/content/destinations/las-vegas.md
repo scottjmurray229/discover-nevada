@@ -2,6 +2,14 @@
 title: "Las Vegas"
 description: "Discover Las Vegas — the entertainment capital of the world with world-class shows, dining, nightlife, and iconic casinos on the Strip."
 heroImage: ""
+aeoFacts:
+  currency: "USD (US Dollar)"
+  plugType: "A/B, 120V"
+  language: "English (Spanish widely spoken in Las Vegas)"
+  bestTime: "March–May, September–November"
+  visaInfo: "US territory — no visa for US citizens"
+  timeZone: "UTC-8 (PST), UTC-7 summer"
+  emergencyNumber: "911"
 heroAlt: "Las Vegas Strip neon skyline reflected along the Boulevard at night, Nevada"
 tagline: "The Strip at 2am when every light is on and the desert air is warm — Las Vegas is the most efficiently surreal place in America and the casino floor is just the beginning of it"
 region: "las-vegas-metro"
@@ -114,11 +122,11 @@ During the warmer months, the party shifts to the pool. Encore Beach Club, Wet R
 
 ## Practical Information
 
-### Getting Around
+### What's the Best Way to Get Around Las Vegas?
 
 The Las Vegas Monorail runs along the east side of the Strip. Rideshare services are plentiful and affordable. The Deuce bus runs the full length of the Strip for just a few dollars. For day trips to Red Rock Canyon or Valley of Fire, renting a car is the best option.
 
-### Where to Stay
+### Where Should I Stay in Las Vegas?
 
 Budget travelers can find rooms off-Strip or at downtown properties for under $50 per night midweek. Mid-range visitors should look at the LINQ, Flamingo, or Planet Hollywood for solid Strip locations without the top-tier price tag. Luxury seekers will find their home at the Wynn, Bellagio, or the Venetian.
 

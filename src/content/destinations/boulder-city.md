@@ -2,6 +2,14 @@
 title: "Boulder City"
 description: "Visit Boulder City, Nevada — gateway to Hoover Dam and Lake Mead with a charming historic downtown and small-town desert character."
 heroImage: ""
+aeoFacts:
+  currency: "USD (US Dollar)"
+  plugType: "A/B, 120V"
+  language: "English (Spanish widely spoken in Las Vegas)"
+  bestTime: "March–May, September–November"
+  visaInfo: "US territory — no visa for US citizens"
+  timeZone: "UTC-8 (PST), UTC-7 summer"
+  emergencyNumber: "911"
 heroAlt: "Hoover Dam arching across Black Canyon at Lake Mead, Boulder City, Nevada"
 tagline: "The only Nevada city where gambling has always been illegal — built by the federal government to house Hoover Dam workers, it remains a walkable historic district with the greatest dam in American history 7 miles away"
 region: "southern"
@@ -116,7 +124,7 @@ The Alan Bible Visitor Center just outside Boulder City provides maps, permits, 
 
 The Historic Railroad Trail follows the route of the old rail line that carried equipment and materials to the dam construction site. The 3.7-mile one-way trail passes through five tunnels bored through the desert rock, each offering dramatic framed views of Lake Mead. The trail is flat, wide, and accessible — one of the easiest and most rewarding hikes in the area. I recommend starting early and bringing plenty of water, as shade is limited to the tunnel interiors.
 
-## Where to Stay
+## Where Should I Stay in Boulder City?
 
 Boulder City has a small but quality selection of accommodation. The historic Boulder Dam Hotel is the most distinctive option — a 1933 colonial revival building listed on the National Register of Historic Places. Several chain hotels along US-93 offer reliable midrange stays. Budget travelers can camp at Lake Mead's Boulder Beach Campground, which provides basic sites with lake access.
 

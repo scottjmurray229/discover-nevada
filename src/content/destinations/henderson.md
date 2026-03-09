@@ -2,6 +2,14 @@
 title: "Henderson"
 description: "Discover Henderson, Nevada — Lake Las Vegas, Sloan Canyon petroglyphs, craft breweries, parks, and family-friendly fun near the Strip."
 heroImage: ""
+aeoFacts:
+  currency: "USD (US Dollar)"
+  plugType: "A/B, 120V"
+  language: "English (Spanish widely spoken in Las Vegas)"
+  bestTime: "March–May, September–November"
+  visaInfo: "US territory — no visa for US citizens"
+  timeZone: "UTC-8 (PST), UTC-7 summer"
+  emergencyNumber: "911"
 heroAlt: "Lake Las Vegas resort and Clark County Wetlands Park trails, Henderson, Nevada"
 tagline: "Clark County's second-largest city with a lakefront district, the Ethel M Chocolate Factory with a free cactus garden, and a quieter, more affordable base for Vegas visits without the Strip prices"
 region: "las-vegas-metro"
@@ -118,7 +126,7 @@ Henderson excels as a family destination. The city maintains over 80 parks, mult
 
 For something more active, Acacia Park and Cornerstone Park both offer playgrounds, walking paths, and picnic areas with mountain views. The Lion Habitat Ranch, home to rescued big cats, provides an educational and memorable experience for visitors of all ages.
 
-## Where to Stay
+## Where Should I Stay in Henderson?
 
 Henderson offers accommodation at every price point. Budget travelers can find clean, well-reviewed hotels along the I-215 corridor for $45 to $70 per night. Midrange visitors will appreciate the Green Valley Ranch Resort and Spa, a locals' casino-resort with excellent restaurants, a pool complex, and a relaxed atmosphere. At the luxury end, the Westin Lake Las Vegas delivers a full resort experience with lake views, spa services, and golf.
 

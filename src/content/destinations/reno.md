@@ -2,6 +2,14 @@
 title: "Reno"
 description: "Explore Reno, Nevada — the Biggest Little City with casinos, craft breweries, the Truckee River, and the National Automobile Museum."
 heroImage: ""
+aeoFacts:
+  currency: "USD (US Dollar)"
+  plugType: "A/B, 120V"
+  language: "English (Spanish widely spoken in Las Vegas)"
+  bestTime: "March–May, September–November"
+  visaInfo: "US territory — no visa for US citizens"
+  timeZone: "UTC-8 (PST), UTC-7 summer"
+  emergencyNumber: "911"
 heroAlt: "Virginia Street Arch and Sierra Nevada snowpack behind Reno, Nevada"
 tagline: "The Biggest Little City is having a genuine moment — the Midtown arts district, excellent craft breweries, Truckee River kayaking through downtown, and Lake Tahoe 45 minutes over the Sierra"
 region: "northern"
@@ -120,11 +128,11 @@ Street Vibrations, a massive motorcycle rally, takes over downtown each Septembe
 
 ## Practical Information
 
-### Getting Around
+### What's the Best Way to Get Around Reno?
 
 Downtown Reno is very walkable, and Midtown is an easy rideshare trip or a pleasant 20-minute walk from the casino core. The RTC bus system covers the metro area affordably. A rental car is recommended for day trips to Lake Tahoe or the surrounding Sierra.
 
-### Where to Stay
+### Where Should I Stay in Reno?
 
 Budget travelers can find casino hotel rooms downtown starting under $40 midweek. The Whitney Peak Hotel is the city's only non-gaming hotel and offers a modern boutique experience at reasonable rates. Luxury visitors should consider the Peppermill Resort, which features an extensive spa and upscale rooms south of downtown.
 
