@@ -2,6 +2,7 @@
 title: "Valley of Fire State Park: Complete Visitor Guide"
 description: "Everything you need to know before visiting Valley of Fire — the best trails, the petroglyphs, the Fire Wave, timing, heat safety, and why it's Nevada's most underrated landscape."
 pubDate: 2026-03-08
+dateModified: 2026-03-08
 heroImage: ""
 heroVideo: ""
 author: "Scott"

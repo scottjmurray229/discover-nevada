@@ -2,6 +2,7 @@
 title: "Las Vegas Without Gambling: A Week Well Spent"
 description: "We don't gamble. We spent a week in Las Vegas anyway and found more than enough to justify every day. Here's the Vegas that exists outside the casino floor."
 pubDate: 2026-03-01
+dateModified: 2026-03-08
 heroImage: ""
 heroVideo: ""
 author: "Scott"

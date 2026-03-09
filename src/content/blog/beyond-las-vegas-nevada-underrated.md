@@ -2,6 +2,7 @@
 title: "Beyond Las Vegas: Nevada's Most Underrated Destinations"
 description: "The Nevada that has nothing to do with the Strip — Great Basin National Park, Valley of Fire, Virginia City, and the empty highway between them."
 pubDate: 2026-03-08
+dateModified: 2026-03-08
 heroImage: ""
 heroVideo: ""
 author: "Scott"
