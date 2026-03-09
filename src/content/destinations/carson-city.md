@@ -25,12 +25,49 @@ relatedDestinations:
 faqItems:
   - { question: "What is there to do in Carson City, Nevada?", answer: "Carson City offers a surprising variety of activities including the Nevada State Museum, the Kit Carson Trail walking tour, the Virginia & Truckee Railway, the Nevada State Capitol building, the Children's Museum of Northern Nevada, excellent hiking at Kings Canyon and Ash to Kings Trail, and easy day trips to Lake Tahoe and Virginia City." }
   - { question: "Is Carson City a good base for exploring northern Nevada?", answer: "Yes. Carson City's central location makes it an ideal base. Lake Tahoe is 30 minutes west, Virginia City is 15 minutes northeast, Reno is 30 minutes north, and Genoa — Nevada's oldest settlement — is 15 minutes south. Hotel rates are generally lower than Reno or Tahoe, making it a budget-friendly hub." }
-affiliatePicks: []
+affiliatePicks:
+  - name: "Carson City Hotels"
+    type: hotel
+    url: "https://www.booking.com/region/us/nevada.html?aid=2778866&ss=Carson+City+NV"
+    description: "Several mid-range hotels in downtown Carson City. Good value base for Tahoe/Reno trips."
+    priceRange: "$$"
+  - name: "Nevada State Museum Carson City"
+    type: activity
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Carson+City+Nevada+tour"
+    description: "The state museum in the historic US Mint building — Nevada's best history museum."
+    priceRange: "$"
+  - name: "Lake Tahoe East Shore Drive"
+    type: activity
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Lake+Tahoe+East+Shore"
+    description: "Scenic drive from Carson City to Sand Harbor and Crystal Bay on Tahoe's Nevada shore."
+    priceRange: "$"
+scottTips:
+  logistics: "Carson City is equidistant from Lake Tahoe (30 miles via US-50) and Reno (30 miles via US-395). Reno-Tahoe Airport is the nearest major airport. Small enough to drive through comfortably; has all services."
+  bestTime: "Year-round. Summer for Lake Tahoe access and hiking in the Sierra. Winter for Tahoe skiing from a less expensive base than South Lake Tahoe."
+  gettingAround: "Car essential. The Lake Tahoe East Shore (Nevada side) is accessible via SR-28 from Carson City — Incline Village, Sand Harbor, and Crystal Bay are all along this route."
+  money: "Carson City lodging is significantly cheaper than South Lake Tahoe or Reno casino hotels. Good budget base for the region."
+  safety: "Standard mid-size city safety. Highway 50 west to Lake Tahoe has steep grades and sharp curves — drive carefully, especially in winter."
+  packing: "Layers for Sierra foothills temperature swings. Camera for the Capitol building and historic downtown."
+  localCulture: "The Nevada State Museum is in the restored US Mint building — Carson City was the site of the Carson City Mint from 1870 to 1893. The museum has the original coin press and Nevada silver and gold specimens. Worth two hours."
 contentStatus: "published"
 draft: false
 ---
+Carson City is Nevada's capital — a small, historic city of 55,000 in the Carson Valley at the foot of the Sierra Nevada, 30 miles from Lake Tahoe and 30 miles from Reno. It's the gateway to Lake Tahoe's East Shore, has a well-preserved Victorian downtown, and offers a quieter base than Reno for exploring the northern Nevada region.
+
 
 ## Nevada's Capital City: Small in Size, Rich in Story
+
+<div class="immersive-break-inline">
+  <video autoplay muted loop playsinline preload="metadata">
+    <source src="/videos/destinations/carson-city-hero.mp4" type="video/mp4" />
+  </video>
+  <div class="ib-gradient" style="background: linear-gradient(135deg, #166534, #1e40af, #78716c);"></div>
+  <div class="ib-content">
+    <div class="ib-title">Carson City: Nevada's Quiet Capital</div>
+    <p class="ib-text">Sierra Nevada foothills, Lake Tahoe nearby, and a state capital that surprises.</p>
+  </div>
+</div>
+
 
 Carson City does not get the attention it deserves. As state capitals go, it is one of the smallest in the country — roughly 58,000 residents spread across an independent city that also functions as its own county. But that modest size is deceptive. Carson City has been at the center of Nevada's story since before statehood, and today it combines genuine historical significance with an accessible, walkable downtown and a location that puts some of the best landscapes in the American West within a short drive.
 

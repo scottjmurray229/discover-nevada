@@ -25,12 +25,49 @@ relatedDestinations:
 faqItems:
   - { question: "What is the best time of year to visit Las Vegas?", answer: "Spring (March-April) and fall (October-November) offer the most comfortable temperatures, typically in the 70s-80s°F, avoiding the extreme summer heat that regularly exceeds 110°F." }
   - { question: "Can you visit Las Vegas on a budget?", answer: "Absolutely. Free attractions like the Bellagio fountains, Fremont Street Experience, and the Mirage volcano make it possible. Budget hotels off-Strip and affordable dining at food courts help keep costs around $60 per day." }
-affiliatePicks: []
+affiliatePicks:
+  - name: "The Venetian Las Vegas"
+    type: hotel
+    url: "https://www.booking.com/hotel/us/venetian-resort-las-vegas.html?aid=2778866"
+    description: "The Strip's most iconic resort — enormous rooms (all suites), gondola rides, and central location."
+    priceRange: "$$$"
+  - name: "Las Vegas Strip Walking Tour"
+    type: tour
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Las+Vegas+Strip+tour"
+    description: "Guided Strip walking tour covering casino history, architecture, and insider tips."
+    priceRange: "$"
+  - name: "Red Rock Canyon and Valley of Fire Day Tour"
+    type: tour
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Red+Rock+Canyon+Valley+of+Fire+tour"
+    description: "Full-day guided tour covering both Red Rock Canyon and Valley of Fire from Las Vegas."
+    priceRange: "$$"
+scottTips:
+  logistics: "Las Vegas is the entry point for road trips to Zion (2.5 hrs), Bryce Canyon (4 hrs), and the Grand Canyon South Rim (4 hrs). Harry Reid International Airport has direct flights from virtually every major US city and many international hubs. The Strip has a free tram system connecting some resorts."
+  bestTime: "March–April and October–November. Spring and fall temperatures are in the 70s–80s°F — comfortable for walking the Strip and outdoor day trips. Summer (June–September) regularly hits 110°F+ — outdoor activities are extremely limited."
+  gettingAround: "Car rental for day trips to Red Rock Canyon and Valley of Fire. Las Vegas Monorail connects mid-Strip resorts. Walking is viable for the central Strip (4 miles round trip from Mandalay Bay to the Stratosphere). Uber/Lyft are cheap and abundant."
+  money: "The Strip casinos are designed to separate you from money at every opportunity. Budget for accommodation, meals, entertainment, and some gambling separately. A $50 entertainment budget can go fast; a $200 budget can provide a full evening. Off-Strip hotels are dramatically cheaper. Food courts in casinos offer surprisingly good value."
+  safety: "Las Vegas is generally safe on the Strip and Fremont Street. Watch for pickpockets in crowds. Downtown off Fremont Street has higher crime rates — stay aware. Extreme heat in summer is a genuine safety risk — carry water and don't underestimate desert temperatures."
+  packing: "Comfortable walking shoes for the long Strip distances. Layers — casinos are heavily air-conditioned year-round (cold) while outdoors is hot. Sun protection for any outdoor time."
+  localCulture: "Las Vegas runs on tips — dealers, servers, valets, housekeeping. Budget accordingly. The 24-hour culture means some restaurants and bars never close. Buffets are largely extinct now (pandemic casualties) — the food scene has upgraded to celebrity chef restaurants and good casual spots."
 contentStatus: "published"
 draft: false
 ---
+Las Vegas is the most visited city in the United States — a 24-hour entertainment machine built in the Mojave Desert, with the most concentrated collection of hotel rooms, fine dining restaurants, live entertainment, and casino gaming in the world. Beyond the Strip's spectacle, it's also a 30-minute drive from Red Rock Canyon and Valley of Fire, some of Nevada's most dramatic outdoor landscapes.
+
 
 ## Why Las Vegas Deserves a Spot on Your Nevada Itinerary
+
+<div class="immersive-break-inline">
+  <video autoplay muted loop playsinline preload="metadata">
+    <source src="/videos/destinations/las-vegas-hero.mp4" type="video/mp4" />
+  </video>
+  <div class="ib-gradient" style="background: linear-gradient(135deg, #7c3aed, #be185d, #f59e0b);"></div>
+  <div class="ib-content">
+    <div class="ib-title">Las Vegas: The Strip Never Sleeps</div>
+    <p class="ib-text">Neon, casinos, and the desert just beyond.</p>
+  </div>
+</div>
+
 
 I have visited Las Vegas more times than I can count, and every single trip reveals something new. This city reinvents itself constantly, tearing down the old to build something bigger, bolder, and more outrageous. Whether you are drawn by the neon glow of the Strip, the retro energy of Fremont Street, or the surprisingly deep food scene, Las Vegas delivers an experience unlike anywhere else on the planet.
 

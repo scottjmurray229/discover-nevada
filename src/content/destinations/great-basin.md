@@ -25,12 +25,49 @@ relatedDestinations:
 faqItems:
   - { question: "When is the best time to visit Great Basin National Park?", answer: "Late May through October offers the best access. Lehman Caves are open year-round, but Wheeler Peak and the bristlecone grove are typically snow-free from June through September. Fall brings golden aspens and fewer crowds." }
   - { question: "Is Great Basin National Park really one of the darkest places in the country?", answer: "Yes. Great Basin earned its International Dark Sky Park designation in 2016. On a clear, moonless night you can see the Milky Way in stunning detail, along with planets, star clusters, and even the Andromeda Galaxy with the naked eye." }
-affiliatePicks: []
+affiliatePicks:
+  - name: "Border Inn Baker NV"
+    type: hotel
+    url: "https://www.booking.com/region/us/nevada.html?aid=2778866&ss=Baker+NV"
+    description: "The only lodging near the park in Baker — modest but the right base for stargazing."
+    priceRange: "$"
+  - name: "Great Basin Lehman Caves Tour"
+    type: tour
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Lehman+Caves+Great+Basin"
+    description: "Book ranger-led cave tours at Lehman Caves in advance — spots sell out."
+    priceRange: "$"
+  - name: "Celestron StarSense Explorer Telescope"
+    type: activity
+    url: "https://www.amazon.com/s?k=nevada+travel&tag=discovermore-20&k=portable+telescope+stargazing"
+    description: "Portable telescope for Great Basin's extraordinary dark skies — Gold Tier IDA Dark Sky Park."
+    priceRange: "$$"
+scottTips:
+  logistics: "Great Basin is on US-50 (the Loneliest Road in America) in eastern Nevada. Baker, NV (the gateway town) has minimal services — fill gas in Ely (68 miles west) or Delta, UT (100 miles east). Lehman Caves tours are the primary structured activity — book on Recreation.gov."
+  bestTime: "June–October for summit hiking and cave tours. Wheeler Peak (13,063 ft) is accessible July–September. Winter closes high elevation roads. Spring has good wildflowers at lower elevations."
+  gettingAround: "Car essential — no public transportation exists within 200 miles. The Wheeler Peak Scenic Drive (12 miles) accesses the high country. Lehman Caves visitor center is at 6,825 feet."
+  money: "Free park entry (no entrance fee). Lehman Caves tours are $12–18/adult depending on tour length. The cheapest major national park experience in the US. Baker has one restaurant and one motel."
+  safety: "Remote location — inform someone of your itinerary before backcountry travel. Wheeler Peak summit (13,063 ft) requires altitude awareness. Lightning risk above treeline July–August."
+  packing: "Food and water for multiple days — services are extremely limited. Stargazing equipment (the park is a Gold-Tier International Dark Sky Park). Warm layers — temperatures drop significantly at elevation even in summer."
+  localCulture: "The ancient bristlecone pines on Wheeler Peak's glacial cirque are among the oldest living organisms on Earth — some over 4,000 years old. This is one of the genuinely extraordinary natural phenomena in the American West, rarely visited. The solitude here is profound."
 contentStatus: "published"
 draft: false
 ---
+Great Basin National Park in eastern Nevada is one of the most remote and least-visited national parks in the contiguous United States — a dramatic landscape of ancient bristlecone pines, a marble cave system, glacier-carved peaks topping 13,000 feet, and some of the darkest skies in America. It's 5 hours from Las Vegas and 4 hours from Salt Lake City.
+
 
 ## Why Great Basin National Park Deserves a Spot on Your Nevada Itinerary
+
+<div class="immersive-break-inline">
+  <video autoplay muted loop playsinline preload="metadata">
+    <source src="/videos/destinations/great-basin-hero.mp4" type="video/mp4" />
+  </video>
+  <div class="ib-gradient" style="background: linear-gradient(135deg, #1e40af, #166534, #1c1917);"></div>
+  <div class="ib-content">
+    <div class="ib-title">Great Basin: America's Forgotten Park</div>
+    <p class="ib-text">The darkest skies in the lower 48. Ancient trees. Marble caves.</p>
+  </div>
+</div>
+
 
 I will be honest with you: Great Basin National Park is not easy to reach. It sits in one of the most remote corners of Nevada, tucked against the Utah border at the end of a long stretch of US-50 sometimes called "The Loneliest Road in America." But that remoteness is precisely the point. Every mile of empty highway you cross to get here buys you solitude, silence, and landscapes that feel genuinely untouched.
 

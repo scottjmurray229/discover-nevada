@@ -25,12 +25,49 @@ relatedDestinations:
 faqItems:
   - { question: "Is Lake Tahoe in Nevada or California?", answer: "Lake Tahoe straddles the border between Nevada and California. The eastern shore, including Incline Village, Crystal Bay, and Stateline, is in Nevada. The Nevada side offers casino resorts and some of the lake's most beautiful beaches." }
   - { question: "When is the best time to visit Lake Tahoe?", answer: "Summer (June through August) is ideal for swimming, hiking, and water sports. Winter (December through March) brings world-class skiing. Shoulder seasons are less crowded but some facilities may be closed." }
-affiliatePicks: []
+affiliatePicks:
+  - name: "Edgewood Tahoe Resort"
+    type: hotel
+    url: "https://www.booking.com/hotel/us/edgewood-tahoe.html?aid=2778866"
+    description: "The premier South Shore resort — lakefront, golf, spa, and exceptional service."
+    priceRange: "$$$$"
+  - name: "Heavenly Mountain Ski Resort Lift Tickets"
+    type: activity
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Heavenly+Ski+Resort+Tahoe"
+    description: "Book ski passes for Heavenly — the largest Tahoe resort with Nevada and California terrain."
+    priceRange: "$$$"
+  - name: "Lake Tahoe Sunset Kayak Tour"
+    type: tour
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Lake+Tahoe+kayak+tour"
+    description: "Guided kayak tour on the crystal-clear lake with Emerald Bay views."
+    priceRange: "$$"
+scottTips:
+  logistics: "Lake Tahoe straddles Nevada and California — the Nevada side has South Lake Tahoe casinos and Incline Village. Reno is 1 hour north (nearest major airport). Sacramento is 2 hours west. San Francisco is 3.5 hours. I-80 through Donner Pass is the main route from the Bay Area."
+  bestTime: "December–March for skiing. June–September for lake recreation (swimming, kayaking, hiking, mountain biking). July–August is peak season with significant crowds. Spring and fall offer fewer crowds and excellent hiking."
+  gettingAround: "Car essential — Lake Tahoe is 72 miles of shoreline. The Tahoe Area Regional Transit (TART) bus runs along the lake in summer but is limited. South Lake Tahoe has a casino shuttle. Drive the full lake loop (72 miles) for the complete perspective."
+  money: "Lake Tahoe is expensive in peak seasons. Ski resort lodging runs $300–600+/night at slope-side options. Summer cabin rentals are competitive with hotels. South Lake Tahoe casino hotels offer better value than resort lodging."
+  safety: "Altitude sickness possible at 6,225 feet — some visitors feel it. I-80 through Donner Pass closes occasionally in major storms. Chain controls required frequently in winter — rent a car with AWD or carry chains."
+  packing: "Full ski or snowboard gear in winter. Layers for the dramatic temperature swings (hot days, cold nights). Sun protection — UV is intense at altitude over reflective water. Waterproof jacket for lake activities."
+  localCulture: "Lake Tahoe has a strong summer camp and cabin rental culture — families return for generations. The Nevada side (Crystal Bay, Incline Village) is quieter and more residential than the California South Shore casino strip. Cal-Neva Resort on the state line has a legendary history (Frank Sinatra ownership)."
 contentStatus: "published"
 draft: false
 ---
+Lake Tahoe is North America's largest alpine lake — a 22-mile-long, 12-mile-wide jewel of crystal-clear blue water sitting at 6,225 feet on the Nevada-California border. It's surrounded by ski resorts in winter (Heavenly, Northstar, Palisades Tahoe), hiking and mountain biking trails in summer, and has a calm, uncrowded South Lake Tahoe casino strip for those who want Nevada gaming with a mountain lake backdrop.
+
 
 ## Why Lake Tahoe Took My Breath Away
+
+<div class="immersive-break-inline">
+  <video autoplay muted loop playsinline preload="metadata">
+    <source src="/videos/destinations/lake-tahoe-hero.mp4" type="video/mp4" />
+  </video>
+  <div class="ib-gradient" style="background: linear-gradient(135deg, #0369a1, #0ea5e9, #166534);"></div>
+  <div class="ib-content">
+    <div class="ib-title">Lake Tahoe: Alpine Perfection</div>
+    <p class="ib-text">Crystal-clear water, ski resorts, and year-round mountain life.</p>
+  </div>
+</div>
+
 
 The first time I stood on the shore of Lake Tahoe and looked out across that impossible blue water, I genuinely understood why people call it one of the most beautiful places in North America. The clarity of the water is almost unreal. You can see down 70 feet or more on a calm day, watching boulders on the lake floor shimmer through shades of turquoise and sapphire. Surrounded by towering Sierra Nevada peaks that stay snow-capped well into summer, Lake Tahoe is the kind of place that makes you stop and stare.
 

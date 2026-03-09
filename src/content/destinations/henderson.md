@@ -25,12 +25,49 @@ relatedDestinations:
 faqItems:
   - { question: "Is Henderson a good alternative to staying on the Las Vegas Strip?", answer: "Yes. Henderson offers lower hotel rates, less congestion, excellent restaurants, and easy access to the Strip via a 15-20 minute drive. It is especially appealing for families, outdoor enthusiasts, and travelers who prefer a quieter base with quick access to Las Vegas attractions." }
   - { question: "What outdoor activities are available in Henderson?", answer: "Henderson offers excellent hiking at Sloan Canyon, the River Mountains Loop Trail for cycling, kayaking and paddleboarding at Lake Las Vegas, and over 80 parks and trail systems throughout the city. The Bird Viewing Preserve is a hidden gem for nature lovers with over 270 documented species." }
-affiliatePicks: []
+affiliatePicks:
+  - name: "Lake Las Vegas Resort Hotels"
+    type: hotel
+    url: "https://www.booking.com/region/us/nevada.html?aid=2778866&ss=Henderson+NV"
+    description: "Lake Las Vegas has luxury resort options on a private lake — quieter than the Strip."
+    priceRange: "$$$"
+  - name: "Hoover Dam Guided Tour from Henderson"
+    type: tour
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Hoover+Dam+tour+Las+Vegas"
+    description: "Guided Hoover Dam and Lake Mead tour — accessible from Henderson in 30 minutes."
+    priceRange: "$$"
+  - name: "Clark County Wetlands Park Birding Walk"
+    type: activity
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Henderson+Nevada+nature"
+    description: "Guided birding walk through the Clark County Wetlands — over 100 species recorded."
+    priceRange: "$"
+scottTips:
+  logistics: "Henderson is southeast of Las Vegas, 15-20 minutes from the Strip via I-215. Hoover Dam and Lake Mead are 30 minutes east via US-93/95. Boulder City (where Hoover Dam is) is a 25-minute drive."
+  bestTime: "October–April. Summer heat (110°F+) is severe — the Wetlands Park and Lake Mead activities are dangerous at midday in July–August. The wetlands are excellent for birdwatching year-round but especially during spring and fall migration."
+  gettingAround: "Car essential. Henderson has limited public transit. The I-215 beltway makes Strip access straightforward."
+  money: "Henderson hotel rates run $80–180/night — significantly less than comparable Strip options. Good base for budget-conscious visitors who still want Vegas access."
+  safety: "Henderson is one of Nevada's safest cities. Desert heat is the primary safety concern in summer."
+  packing: "Sun protection and water for any outdoor activities. Binoculars for the Wetlands Park birding."
+  localCulture: "Henderson has its own dining and arts scene centered on Water Street and the Galleria area — not as developed as Las Vegas proper but improving. The Ethel M Chocolate Factory tour is a popular local attraction with a cactus garden."
 contentStatus: "published"
 draft: false
 ---
+Henderson is Las Vegas's largest suburb — a planned city of 320,000 that's developed its own identity separate from the Strip, with the Clark County Wetlands Park (the most-visited county park in Nevada), Lake Las Vegas resort community, and a growing dining and arts scene. It's also the base for Hoover Dam day trips and Valley of Fire.
+
 
 ## Henderson: More Than a Las Vegas Suburb
+
+<div class="immersive-break-inline">
+  <video autoplay muted loop playsinline preload="metadata">
+    <source src="/videos/destinations/henderson-hero.mp4" type="video/mp4" />
+  </video>
+  <div class="ib-gradient" style="background: linear-gradient(135deg, #0369a1, #166534, #dc2626);"></div>
+  <div class="ib-content">
+    <div class="ib-title">Henderson: Beyond the Strip</div>
+    <p class="ib-text">The other side of Las Vegas Valley — wetlands, lakes, and real neighborhoods.</p>
+  </div>
+</div>
+
 
 Most visitors flying into southern Nevada never give Henderson a second thought. They see the name on highway signs, note that it is the second-largest city in the state, and drive straight past on their way to the Strip. That is a mistake I made myself for years, and I regret the time I wasted not exploring this place sooner.
 

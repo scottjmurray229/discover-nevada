@@ -25,12 +25,49 @@ relatedDestinations:
 faqItems:
   - { question: "Is Virginia City worth visiting?", answer: "Absolutely. Virginia City is one of the best-preserved mining towns in the American West. The entire town is a National Historic Landmark, and the combination of authentic architecture, mine tours, museums, and lively saloons makes it a unique and memorable day trip or overnight destination." }
   - { question: "How much time do you need in Virginia City?", answer: "A half day covers the main boardwalk, a mine tour, and a drink in a historic saloon. A full day lets you add the Virginia & Truckee Railroad, multiple museums, and a more relaxed pace. Overnight visitors can enjoy the evening atmosphere when day-trippers leave." }
-affiliatePicks: []
+affiliatePicks:
+  - name: "Gold Hill Hotel Virginia City"
+    type: hotel
+    url: "https://www.booking.com/region/us/nevada.html?aid=2778866&ss=Virginia+City+NV"
+    description: "Nevada's oldest operating hotel (1859) in nearby Gold Hill. Atmospheric and historic."
+    priceRange: "$$"
+  - name: "Virginia City Mine Tour"
+    type: tour
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Virginia+City+Nevada+mine+tour"
+    description: "Underground mine tour through the original Comstock Lode shafts."
+    priceRange: "$"
+  - name: "Virginia City Historic District Walking Tour"
+    type: tour
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Virginia+City+Nevada+walking+tour"
+    description: "Guided walking tour of C Street, the opera house, and Mark Twain historical sites."
+    priceRange: "$"
+scottTips:
+  logistics: "Virginia City is 25 miles southeast of Reno via US-395 south and SR-341. The mountain road (SR-341) has steep grades and tight switchbacks — take it slowly. The town itself is on a steep hillside; walking is on slopes."
+  bestTime: "May–October. Winter brings snow and some attractions close. Summer weekends are the busiest but the weather is ideal. Shoulder season (May–June, September–October) has fewer crowds."
+  gettingAround: "Drive up, park on C Street, and walk the main commercial district. C Street is the main drag — boardwalks, saloons, shops, and museum buildings."
+  money: "Mine tours run $8–15. Most museums and historic buildings charge modest entry fees. Virginia City overall is an affordable day trip from Reno."
+  safety: "The mountain road up SR-341 requires care — tight switchbacks and steep grades. Take your time driving. The mine tours are well-maintained and safe."
+  packing: "Comfortable walking shoes for the hilly terrain. A jacket even in summer — Virginia City sits at 6,200 feet and cools quickly after sunset."
+  localCulture: "Virginia City has genuine history rather than manufactured Western theme-park atmosphere. Mark Twain worked as a reporter at the Territorial Enterprise here before his fame (the building is preserved). The Four Mile Flats cemetery contains the graves of many original Comstock-era residents. The town's history of labor strikes, fires, and boom-bust cycles is told well in the local museums."
 contentStatus: "published"
 draft: false
 ---
+Virginia City is Nevada's best-preserved silver boomtown — a National Historic Landmark on the side of Mount Davidson with Victorian-era saloons, boardwalk storefronts, the Piper's Opera House, and operating mine tours. It's 25 miles southeast of Reno and preserves the look and atmosphere of the Comstock Lode era (1859–1898) better than any other Western mining town.
+
 
 ## The Richest Place on Earth, Preserved in Time
+
+<div class="immersive-break-inline">
+  <video autoplay muted loop playsinline preload="metadata">
+    <source src="/videos/destinations/virginia-city-hero.mp4" type="video/mp4" />
+  </video>
+  <div class="ib-gradient" style="background: linear-gradient(135deg, #92400e, #78716c, #1e40af);"></div>
+  <div class="ib-content">
+    <div class="ib-title">Virginia City: The Comstock Lives</div>
+    <p class="ib-text">Silver boom, Mark Twain, and the Old West. Mostly intact.</p>
+  </div>
+</div>
+
 
 Virginia City once generated more wealth per square mile than anywhere else on the planet. The Comstock Lode, discovered in 1859, unleashed a silver and gold bonanza that funded the Union's Civil War effort, bankrolled San Francisco's rise as a major city, and transformed a barren mountainside into a boomtown of 25,000 people. Today the population hovers around 800, but the town's spirit — and much of its original architecture — remains remarkably intact.
 

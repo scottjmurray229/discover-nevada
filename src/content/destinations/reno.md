@@ -25,12 +25,49 @@ relatedDestinations:
 faqItems:
   - { question: "Is Reno just a smaller version of Las Vegas?", answer: "Not at all. While Reno has casinos, the city has reinvented itself around outdoor recreation, a thriving arts scene, craft breweries, and its proximity to Lake Tahoe and the Sierra Nevada mountains." }
   - { question: "What are the best events to attend in Reno?", answer: "Burning Man's gateway is through Reno each August. Hot August Nights celebrates classic cars every summer. The Great Reno Balloon Race in September is the largest free hot-air balloon event in the world." }
-affiliatePicks: []
+affiliatePicks:
+  - name: "Whitney Peak Hotel Reno"
+    type: hotel
+    url: "https://www.booking.com/hotel/us/whitney-peak-reno.html?aid=2778866"
+    description: "Non-gaming boutique hotel in downtown Reno with an outdoor climbing wall on the exterior."
+    priceRange: "$$"
+  - name: "Reno River Walk and Craft Brewery Tour"
+    type: tour
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Reno+Nevada+tour"
+    description: "Guided walking tour of Reno's arts district, river walk, and craft brewery scene."
+    priceRange: "$"
+  - name: "Virginia City Historic Tour from Reno"
+    type: tour
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Virginia+City+Nevada+tour"
+    description: "Day trip from Reno to the preserved silver mining boomtown of Virginia City."
+    priceRange: "$"
+scottTips:
+  logistics: "Reno-Tahoe International Airport (RNO) has direct flights from 30+ cities — excellent gateway for both Lake Tahoe and northern Nevada. Downtown is compact and walkable. I-80 west takes you to Truckee and Lake Tahoe in 30 minutes."
+  bestTime: "June–October for Reno itself and lake access. December–March if skiing at Lake Tahoe is the primary goal. The Burning Man festival (late August/early September) transforms the region — Black Rock City is 100 miles north."
+  gettingAround: "Car essential for Lake Tahoe and regional exploration. Downtown Reno is walkable. The Sierra Nevada ski resorts (Mt. Rose, Heavenly) are accessible by car."
+  money: "Reno casino hotels are dramatically cheaper than Las Vegas Strip equivalents. Mid-range options run $80–150/night. Food and entertainment are similarly affordable. Good value city for Nevada gambling with outdoor access."
+  safety: "Downtown Reno has active casino areas that are safe, and a homeless population concentrated near the river — standard urban awareness applies. The Truckee River corridor and arts district are safe and active."
+  packing: "Layers for the altitude and temperature swings. Outdoor gear if Tahoe hiking or skiing is on the agenda."
+  localCulture: "Reno has reinvented itself with a strong arts community (the Nevada Museum of Art is genuinely excellent), a craft beer scene, and Tesla's Gigafactory and other tech companies moving in. It's a more complex city than its gambling-town reputation suggests. The Reno Arch ('The Biggest Little City in the World') is a fun photo op."
 contentStatus: "published"
 draft: false
 ---
+Reno is Nevada's second city — a mid-size gambling and entertainment city 4 hours from San Francisco and 30 minutes from Lake Tahoe, reinventing itself as an outdoor adventure hub and tech industry satellite. The Reno-Tahoe International Airport is an excellent gateway for the northern Nevada and Lake Tahoe region, and the Truckee River runs right through downtown.
+
 
 ## Why Reno Is More Than Its Famous Arch
+
+<div class="immersive-break-inline">
+  <video autoplay muted loop playsinline preload="metadata">
+    <source src="/videos/destinations/reno-hero.mp4" type="video/mp4" />
+  </video>
+  <div class="ib-gradient" style="background: linear-gradient(135deg, #1e40af, #7c3aed, #dc2626);"></div>
+  <div class="ib-content">
+    <div class="ib-title">Reno: The Biggest Little City</div>
+    <p class="ib-text">Lake Tahoe 30 minutes west. The desert 30 minutes east. Reno in between.</p>
+  </div>
+</div>
+
 
 I will admit that I arrived in Reno the first time with low expectations. I figured it would be Las Vegas with less polish and smaller stakes. I could not have been more wrong. Reno is a genuinely surprising city that has reinvented itself into one of the most livable and interesting small cities in the American West. The famous arch reading "The Biggest Little City in the World" still stands over Virginia Street, but what lies beyond it has changed dramatically.
 

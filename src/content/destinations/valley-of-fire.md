@@ -25,12 +25,49 @@ relatedDestinations:
 faqItems:
   - { question: "How long should I spend at Valley of Fire?", answer: "A half-day visit of 3-4 hours covers the main highlights. A full day allows you to hike multiple trails and explore at a leisurely pace. Some visitors camp overnight to experience sunrise and sunset in the park." }
   - { question: "Is Valley of Fire too hot to visit in summer?", answer: "Summer temperatures regularly exceed 110°F, making most hiking dangerous. If visiting in summer, go at dawn, carry abundant water, and stick to short trails. October through April is the recommended visiting season." }
-affiliatePicks: []
+affiliatePicks:
+  - name: "Las Vegas Hotels — Valley of Fire Day Trip Base"
+    type: hotel
+    url: "https://www.booking.com/region/us/nevada.html?aid=2778866&ss=Las+Vegas+NV"
+    description: "Las Vegas is the logical base for Valley of Fire — only 55 miles away."
+    priceRange: "$$"
+  - name: "Valley of Fire Guided Photography Tour"
+    type: tour
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Valley+of+Fire+tour"
+    description: "Small-group guided tour of Valley of Fire's best formations and petroglyph sites."
+    priceRange: "$$"
+  - name: "Red Rock Canyon and Valley of Fire Combo"
+    type: tour
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Red+Rock+Canyon+Valley+of+Fire+day+trip"
+    description: "Full day covering both Nevada parks from Las Vegas."
+    priceRange: "$$"
+scottTips:
+  logistics: "Valley of Fire is 55 miles northeast of Las Vegas via I-15 and NV-169. $15/vehicle Nevada resident, $20 non-resident. No gas stations in the park — fill up before entering. The visitor center has water and maps."
+  bestTime: "October–April. Summer temperatures reach 120°F — dangerous for hiking and not recommended. Winter is mild (60–70°F) and often has the park to yourself. Spring wildflowers (February–April) add color to the red rock."
+  gettingAround: "Drive the main park road (15 miles) and stop at all marked pullouts. White Domes Road takes you to the best petroglyphs and arch formations. A standard sedan handles all paved park roads. Dirt side roads require 4WD."
+  money: "$20 non-resident vehicle entry. No shuttle — you need a car. Easily combined with a Lake Mead visit for a full day trip from Las Vegas."
+  safety: "Summer heat is lethal — serious. The park's red and orange rock absorbs and radiates heat aggressively. Even in spring, start hikes by 7am and be off exposed trails by 10am on warm days. Carry 2 liters minimum per person."
+  packing: "More water than you think you need. Sun hat and sunscreen. Camera — the red formations in low morning/evening light are extraordinary. Closed-toe shoes for rocky terrain."
+  localCulture: "Valley of Fire has a long Ancestral Puebloans and Anasazi history — the petroglyphs at Atlatl Rock and Mouse's Tank are genuine cultural heritage sites, not just scenic photos. Read the visitor center exhibits for context."
 contentStatus: "published"
 draft: false
 ---
+Valley of Fire State Park is Nevada's most spectacular natural landscape — 40,000 acres of ancient red and orange Aztec sandstone formations east of Las Vegas, with elephant rocks, arch formations, and some of the best-preserved petroglyphs in the Southwest. It's only 55 miles from the Strip and wildly undervisited by comparison to its neighbors.
+
 
 ## Why Valley of Fire Left Me Speechless
+
+<div class="immersive-break-inline">
+  <video autoplay muted loop playsinline preload="metadata">
+    <source src="/videos/destinations/valley-of-fire-hero.mp4" type="video/mp4" />
+  </video>
+  <div class="ib-gradient" style="background: linear-gradient(135deg, #dc2626, #ea580c, #f59e0b);"></div>
+  <div class="ib-content">
+    <div class="ib-title">Valley of Fire: Nevada's Red Secret</div>
+    <p class="ib-text">50 miles from Vegas. Feels like another planet.</p>
+  </div>
+</div>
+
 
 I have been to a lot of national and state parks across the American West, and Valley of Fire still stands out as one of the most visually stunning landscapes I have ever encountered. Nevada's oldest and largest state park sits about an hour northeast of Las Vegas, and yet it feels like another planet entirely. The brilliant red Aztec sandstone formations that give the park its name were formed from ancient sand dunes roughly 150 million years ago, and the forces of wind and water have sculpted them into shapes that seem almost impossible.
 

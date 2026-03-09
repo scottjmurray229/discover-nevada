@@ -25,12 +25,49 @@ relatedDestinations:
 faqItems:
   - { question: "Is Boulder City worth a visit beyond Hoover Dam?", answer: "Definitely. Boulder City has a walkable historic downtown with antique shops, local restaurants, breweries, and genuine small-town charm. The Boulder City/Hoover Dam Museum tells the fascinating story of the town's construction, and Lake Mead's recreational opportunities add days of potential exploration." }
   - { question: "Can you kayak from Hoover Dam?", answer: "Yes. Several outfitters offer guided kayak tours that launch just below Hoover Dam and travel down the Colorado River through Black Canyon. You will pass hot springs, slot canyons, and emerald-green water. A permit is required for the launch point, so booking with a licensed guide is the easiest approach." }
-affiliatePicks: []
+affiliatePicks:
+  - name: "Boulder City Hotels"
+    type: hotel
+    url: "https://www.booking.com/region/us/nevada.html?aid=2778866&ss=Boulder+City+NV"
+    description: "Small hotel options in historic Boulder City — quiet and characterful base for Hoover Dam."
+    priceRange: "$"
+  - name: "Hoover Dam Interior Tour"
+    type: tour
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Hoover+Dam+interior+tour"
+    description: "Book the Powerplant Tour or Hoover Dam Tour for access to the tunnels and generators."
+    priceRange: "$$"
+  - name: "Colorado River Kayaking Hoover Dam"
+    type: tour
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Colorado+River+kayaking+Hoover+Dam"
+    description: "Kayak or raft below Hoover Dam through Black Canyon — stunning geology."
+    priceRange: "$$"
+scottTips:
+  logistics: "Boulder City is 26 miles southeast of Las Vegas via US-93. Hoover Dam is 8 miles further east. Allow 3-4 hours for the dam visit including the tour. Lake Mead National Recreation Area begins just east of the dam."
+  bestTime: "October–April. Summer heat at the dam (100°F+) is intense. The Colorado River below the dam is cooler and shaded — kayaking is feasible earlier in the day even in summer."
+  gettingAround: "Car required from Las Vegas. Parking is plentiful at the Boulder City trailheads and the dam visitor center."
+  money: "$30 for the Hoover Dam Tour, $15 for Powerplant Tour. The walkway across the dam and the Mike O'Callaghan–Pat Tillman Memorial Bridge overlook are free. Colorado River kayaking runs $70–120/person."
+  safety: "The dam visitor area is well-managed. The Colorado River kayak through Black Canyon requires a guide — the currents below the dam are managed and calm but disorienting for beginners."
+  packing: "Sun protection for the exposed dam walk. Comfortable shoes for tours. Water — the desert heat at Hoover Dam is unrelenting."
+  localCulture: "Boulder City has a genuine small-town character uncommon in the Las Vegas metro. The Boulder City/Hoover Dam Museum on Nevada Way is worth an hour for context. The downtown has antique shops, cafes, and a distinctly non-Vegas atmosphere."
 contentStatus: "published"
 draft: false
 ---
+Boulder City is the company town that built Hoover Dam — the only city in Nevada without gambling (it was prohibited during construction to keep workers sober and productive). The historic downtown preserves the 1930s dam-era architecture, and Hoover Dam itself is 8 miles east — one of the most impressive engineering achievements of the 20th century.
+
 
 ## Boulder City: Where History, Desert, and Water Converge
+
+<div class="immersive-break-inline">
+  <video autoplay muted loop playsinline preload="metadata">
+    <source src="/videos/destinations/boulder-city-hero.mp4" type="video/mp4" />
+  </video>
+  <div class="ib-gradient" style="background: linear-gradient(135deg, #78716c, #1e40af, #166534);"></div>
+  <div class="ib-content">
+    <div class="ib-title">Boulder City: Gateway to Hoover Dam</div>
+    <p class="ib-text">The town that built the dam. No casinos allowed.</p>
+  </div>
+</div>
+
 
 Boulder City exists because of Hoover Dam. In 1931, the federal government built this planned community from scratch to house the thousands of workers constructing what was then the most ambitious engineering project in American history. When the dam was finished in 1936, most people assumed Boulder City would fade into the desert. Instead, it thrived — and it did so on its own terms.
 

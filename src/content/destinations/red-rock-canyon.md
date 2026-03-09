@@ -25,12 +25,49 @@ relatedDestinations:
 faqItems:
   - { question: "How far is Red Rock Canyon from the Las Vegas Strip?", answer: "Red Rock Canyon is only about 17 miles west of the Strip, making it a 25-30 minute drive. It is one of the most accessible natural areas near any major city in the United States." }
   - { question: "Do I need to make a reservation to visit Red Rock Canyon?", answer: "During peak season (October through May), timed entry reservations are required for the scenic loop drive. Reservations can be made online through Recreation.gov up to 30 days in advance. Hikers and climbers accessing trailheads outside the loop may not need reservations." }
-affiliatePicks: []
+affiliatePicks:
+  - name: "Red Rock Canyon Guided Rock Climbing"
+    type: tour
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Red+Rock+Canyon+rock+climbing"
+    description: "Introductory rock climbing lesson with guide on Red Rock's beginner routes."
+    priceRange: "$$"
+  - name: "Red Rock Canyon Hiking Tour"
+    type: tour
+    url: "https://www.getyourguide.com/?partner_id=IVN6IQ3&q=Red+Rock+Canyon+hiking+tour"
+    description: "Guided half-day hike through the Calico Hills and canyon narrows."
+    priceRange: "$"
+  - name: "Black Diamond Climbing Shoes"
+    type: activity
+    url: "https://www.amazon.com/s?k=nevada+travel&tag=discovermore-20&k=rock+climbing+shoes+beginner"
+    description: "Entry-level climbing shoes for Red Rock's sandstone routes."
+    priceRange: "$$"
+scottTips:
+  logistics: "Red Rock Canyon is 17 miles west of Las Vegas via Charleston Boulevard (SR-159). $15/vehicle timed entry required — reserve on Recreation.gov in advance during peak season (Sept–May). Entry available 6am–8pm (gates close at sunset)."
+  bestTime: "September–May. Summer heat (100°F+) makes hiking dangerous. October–April is ideal — comfortable temperatures for hiking and prime climbing season. Spring (March–April) has wildflowers."
+  gettingAround: "The 13-mile one-way scenic loop drive is the main access — drive it clockwise, stopping at marked pullouts and trailheads. No loop exit until you complete the circuit. Many trailheads accessible from side roads before the loop entrance."
+  money: "$15/vehicle timed entry. One of the best outdoor values near any major US city — equivalent experiences in Sedona or Moab require much longer drives."
+  safety: "Stay on marked trails — the desert shrub can obscure cliffs. Rattlesnakes are present March–October — watch where you step and sit. Flash floods are possible in canyon areas after rain."
+  packing: "Hiking boots or trail runners for sandstone. 2+ liters water per person. Sun protection. Binoculars for spotting climbers on the walls."
+  localCulture: "Red Rock Canyon has a serious climbing culture that is distinct from the Vegas scene. The Spring Mountain Ranch State Park (adjacent, free) preserves a historic ranch and offers flat easy walks. The Desert Willow gift shop at the visitor center has good local guides and maps."
 contentStatus: "published"
 draft: false
 ---
+Red Rock Canyon National Conservation Area is a world-class rock climbing and hiking destination 17 miles west of Las Vegas — a 13-mile scenic loop through dramatic red and white Calico Hills sandstone formations, with over 2,000 climbing routes and hiking trails that bear no resemblance to anything on the Strip. It's the best reason to rent a car in Las Vegas even if you're not an outdoor person.
+
 
 ## Why Red Rock Canyon Is My Favorite Las Vegas Escape
+
+<div class="immersive-break-inline">
+  <video autoplay muted loop playsinline preload="metadata">
+    <source src="/videos/destinations/red-rock-canyon-hero.mp4" type="video/mp4" />
+  </video>
+  <div class="ib-gradient" style="background: linear-gradient(135deg, #dc2626, #ea580c, #78716c);"></div>
+  <div class="ib-content">
+    <div class="ib-title">Red Rock Canyon: Vegas's Backyard Wilderness</div>
+    <p class="ib-text">World-class climbing 17 miles from the Strip.</p>
+  </div>
+</div>
+
 
 Every time someone tells me they are visiting Las Vegas, I give them the same piece of advice: take half a day and drive to Red Rock Canyon. It is only 30 minutes from the Strip, but it feels like you have traveled to an entirely different world. The massive red and cream sandstone escarpment rises nearly 3,000 feet from the desert floor, creating a wall of color and texture that stretches for miles. I have visited Red Rock Canyon at least a dozen times, and the landscape still stops me in my tracks.
 
