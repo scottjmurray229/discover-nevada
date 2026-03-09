@@ -2,7 +2,7 @@
 title: "Red Rock Canyon"
 description: "Visit Red Rock Canyon near Las Vegas — a stunning desert landscape with a scenic loop drive, world-class rock climbing, and colorful Calico Hills."
 heroImage: ""
-tagline: "Desert Splendor at the Edge of Las Vegas"
+tagline: "A world-class climbing destination and one of the best scenic drives in the American West sits 17 miles from the Las Vegas Strip — the contrast is part of what makes both experiences more vivid"
 region: "las-vegas-metro"
 bestMonths: ["Oct", "Nov", "Mar", "Apr"]
 budgetPerDay:

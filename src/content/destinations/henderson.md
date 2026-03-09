@@ -2,7 +2,7 @@
 title: "Henderson"
 description: "Discover Henderson, Nevada — Lake Las Vegas, Sloan Canyon petroglyphs, craft breweries, parks, and family-friendly fun near the Strip."
 heroImage: ""
-tagline: "The Vegas Valley's best-kept secret"
+tagline: "Clark County's second-largest city with a lakefront district, the Ethel M Chocolate Factory with a free cactus garden, and a quieter, more affordable base for Vegas visits without the Strip prices"
 region: "las-vegas-metro"
 bestMonths: ["Oct", "Nov", "Mar", "Apr"]
 budgetPerDay:

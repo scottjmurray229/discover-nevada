@@ -2,7 +2,7 @@
 title: "Las Vegas"
 description: "Discover Las Vegas — the entertainment capital of the world with world-class shows, dining, nightlife, and iconic casinos on the Strip."
 heroImage: ""
-tagline: "The Entertainment Capital of the World"
+tagline: "The Strip at 2am when every light is on and the desert air is warm — Las Vegas is the most efficiently surreal place in America and the casino floor is just the beginning of it"
 region: "las-vegas-metro"
 bestMonths: ["Mar", "Apr", "Oct", "Nov"]
 budgetPerDay:

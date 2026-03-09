@@ -2,7 +2,7 @@
 title: "Lake Tahoe"
 description: "Plan your trip to Lake Tahoe, Nevada — crystal clear alpine waters, world-class skiing, stunning hikes, and the breathtaking Emerald Bay."
 heroImage: ""
-tagline: "Crystal Clear Alpine Paradise"
+tagline: "The clearest deep alpine lake in North America sits at 6,225 feet with water so blue it photographs as digital artifice — skiing on the Nevada side at Heavenly rewards in both states simultaneously"
 region: "northern"
 bestMonths: ["Jun", "Jul", "Aug", "Dec"]
 budgetPerDay:

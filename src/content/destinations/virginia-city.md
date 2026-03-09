@@ -2,7 +2,7 @@
 title: "Virginia City"
 description: "Step back in time in Virginia City, Nevada — historic Comstock Lode mining town with saloons, mine tours, and Victorian architecture."
 heroImage: ""
-tagline: "Where the Wild West never really ended"
+tagline: "The Comstock Lode made Virginia City the richest city in America in 1860 — the boardwalk saloons, historic churches, and mines preserved from that era make this the most authentic Wild West town in Nevada"
 region: "northern"
 bestMonths: ["May", "Jun", "Sep", "Oct"]
 budgetPerDay:

@@ -2,7 +2,7 @@
 title: "Carson City"
 description: "Explore Carson City, Nevada's state capital — rich history, Kit Carson Trail, Nevada State Museum, and V&T Railway amid the Sierra Nevada."
 heroImage: ""
-tagline: "Nevada's capital, where history runs deep"
+tagline: "Nevada's compact state capital with a genuine historic district, the Nevada State Museum in a former US Mint building, and a downtown that has been carefully preserved from the Comstock Lode era"
 region: "northern"
 bestMonths: ["May", "Jun", "Sep", "Oct"]
 budgetPerDay:

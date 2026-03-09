@@ -2,7 +2,7 @@
 title: "Reno"
 description: "Explore Reno, Nevada — the Biggest Little City with casinos, craft breweries, the Truckee River, and the National Automobile Museum."
 heroImage: ""
-tagline: "The Biggest Little City in the World"
+tagline: "The Biggest Little City is having a genuine moment — the Midtown arts district, excellent craft breweries, Truckee River kayaking through downtown, and Lake Tahoe 45 minutes over the Sierra"
 region: "northern"
 bestMonths: ["May", "Jun", "Sep", "Oct"]
 budgetPerDay:

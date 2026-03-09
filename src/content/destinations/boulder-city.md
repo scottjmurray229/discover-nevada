@@ -2,7 +2,7 @@
 title: "Boulder City"
 description: "Visit Boulder City, Nevada — gateway to Hoover Dam and Lake Mead with a charming historic downtown and small-town desert character."
 heroImage: ""
-tagline: "The town that built a dam and kept its soul"
+tagline: "The only Nevada city where gambling has always been illegal — built by the federal government to house Hoover Dam workers, it remains a walkable historic district with the greatest dam in American history 7 miles away"
 region: "southern"
 bestMonths: ["Oct", "Nov", "Mar", "Apr"]
 budgetPerDay:
