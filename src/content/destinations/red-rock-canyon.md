@@ -38,7 +38,7 @@ affiliatePicks:
     priceRange: "$"
   - name: "Black Diamond Climbing Shoes"
     type: activity
-    url: "https://www.amazon.com/s?k=nevada+travel&tag=discovermore-20&k=rock+climbing+shoes+beginner"
+    url: "https://www.amazon.com/s?k=nevada+travel&tag=discoverphili-20&k=rock+climbing+shoes+beginner"
     description: "Entry-level climbing shoes for Red Rock's sandstone routes."
     priceRange: "$$"
 scottTips:

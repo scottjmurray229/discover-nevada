@@ -38,7 +38,7 @@ affiliatePicks:
     priceRange: "$"
   - name: "Celestron StarSense Explorer Telescope"
     type: activity
-    url: "https://www.amazon.com/s?k=nevada+travel&tag=discovermore-20&k=portable+telescope+stargazing"
+    url: "https://www.amazon.com/s?k=nevada+travel&tag=discoverphili-20&k=portable+telescope+stargazing"
     description: "Portable telescope for Great Basin's extraordinary dark skies — Gold Tier IDA Dark Sky Park."
     priceRange: "$$"
 scottTips:

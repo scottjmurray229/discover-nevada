@@ -22,7 +22,7 @@ export const NEVADA_CONFIG: PackingConfig = {
   currency: 'USD',
   plugType: 'Type A/B',
   plugVoltage: '120V',
-  affiliateTag: 'discovermore-20',
+  affiliateTag: 'discoverphili-20',
   destinationEssentials: NEVADA_ESSENTIALS,
   gearRecommendations: NEVADA_GEAR_RECOMMENDATIONS,
 };
