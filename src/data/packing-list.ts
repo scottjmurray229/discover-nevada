@@ -5,6 +5,26 @@ export const NEVADA_ESSENTIALS: PackingItem[] = [
   { id: 'nv-sunprotect', name: 'Full Sun Protection (SPF 50 + hat + UPF shirt)', category: 'destination', description: 'Desert UV is extreme — reflected off sand and rock from all angles. Hat, UPF long-sleeved shirt, SPF 50+ sunscreen, and sunglasses are the minimum kit for outdoor Nevada.', essential: true, amazonSearchFallback: 'upf+50+sun+protection+shirt+desert', affiliatePrice: '$30–50' },
   { id: 'nv-layers', name: 'Cold Desert Nights', category: 'destination', description: 'Nevada desert loses heat fast after sunset — a 100°F day becomes a 50°F night. One fleece or light down jacket handles the temperature swing that surprises every visitor.', essential: true, amazonSearchFallback: 'packable+down+jacket+lightweight+travel', affiliatePrice: '$60–100' },
   { id: 'nv-hikeboots', name: 'Hiking Boots / Trail Runners', category: 'destination', description: 'Valley of Fire, Red Rock Canyon, and Great Basin National Park trails are rocky, uneven, and harsh on footwear. Trail runners cover recreational hiking; ankle boots for anything serious.', essential: false, amazonSearchFallback: 'trail+running+shoes+hiking+desert', affiliatePrice: '$80–150' },
+  {
+    id: 'vpn-subscription',
+    name: 'VPN Subscription',
+    category: 'electronics',
+    description: 'Secure your data on public WiFi — essential for hotel, airport, and cafe networks abroad.',
+    essential: false,
+    affiliateUrl: 'https://go.nordvpn.net/aff_c?offer_id=15&aff_id=XXXXX&url_id=902',
+    affiliatePrice: '~$3/month',
+    affiliatePartner: 'NordVPN',
+  },
+  {
+    id: 'phone-gimbal',
+    name: 'Phone Gimbal for Travel Vlogging',
+    category: 'electronics',
+    description: 'Stabilized video from your phone — no editing needed.',
+    essential: false,
+    affiliateUrl: 'https://www.insta360.com/sal/flow-2-pro?utm_source=AffiliateCenter&utm_medium=copylink&utm_term=INRSG7H5RTR',
+    affiliatePrice: '~$149',
+    affiliatePartner: 'Insta360',
+  },
 ];
 
 export const NEVADA_GEAR_RECOMMENDATIONS: GearRecommendation[] = [
